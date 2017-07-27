@@ -1,0 +1,299 @@
+[{
+        "_id": "54e6c0f1b76de97fe0ce0768",
+        "Id": 1,
+        "UomCode": "UO0001",
+        "UomNameEn": "Can",
+        "UomNameTh": "กระป๋อง",
+        "UomNameCn": "聽裝",
+        "IsContainer": false,
+        "RowID": 1
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0769",
+        "Id": 2,
+        "UomCode": "UO0002",
+        "UomNameEn": "",
+        "UomNameTh": "เส้น",
+        "IsContainer": false,
+        "RowID": 2
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce076a",
+        "Id": 3,
+        "UomCode": "UO0003",
+        "UomNameEn": "",
+        "UomNameTh": "แกลลอน",
+        "IsContainer": false,
+        "RowID": 3
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce076b",
+        "Id": 4,
+        "UomCode": "UO0004",
+        "UomNameEn": "",
+        "UomNameTh": "อัน",
+        "IsContainer": false,
+        "RowID": 4
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce076c",
+        "Id": 5,
+        "UomCode": "UO0005",
+        "UomNameEn": "",
+        "UomNameTh": "หลอด",
+        "IsContainer": false,
+        "RowID": 5
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce076d",
+        "Id": 6,
+        "UomCode": "UO0006",
+        "UomNameEn": "",
+        "UomNameTh": "ใบ",
+        "IsContainer": false,
+        "RowID": 6
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce076e",
+        "Id": 7,
+        "UomCode": "UO0007",
+        "UomNameEn": "",
+        "UomNameTh": "เมตร",
+        "IsContainer": false,
+        "RowID": 7
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce076f",
+        "Id": 8,
+        "UomCode": "UO0008",
+        "UomNameEn": "",
+        "UomNameTh": "ลัง",
+        "IsContainer": true,
+        "RowID": 8
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0770",
+        "Id": 9,
+        "UomCode": "UO0009",
+        "UomNameEn": "",
+        "UomNameTh": "มัด",
+        "IsContainer": true,
+        "RowID": 9
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0771",
+        "Id": 10,
+        "UomCode": "UO0010",
+        "UomNameEn": "",
+        "UomNameTh": "ตลับ",
+        "IsContainer": false,
+        "RowID": 10
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0772",
+        "Id": 11,
+        "UomCode": "UO0011",
+        "UomNameEn": "",
+        "UomNameTh": "แผง",
+        "IsContainer": true,
+        "RowID": 11
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0773",
+        "Id": 12,
+        "UomCode": "UO0012",
+        "UomNameEn": "Bottle",
+        "UomNameTh": "ขวด",
+        "IsContainer": false,
+        "RowID": 12
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0774",
+        "Id": 13,
+        "UomCode": "UO0013",
+        "UomNameEn": "",
+        "UomNameTh": "ลูก",
+        "IsContainer": false,
+        "RowID": 13
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0775",
+        "Id": 14,
+        "UomCode": "UO0014",
+        "UomNameEn": " ",
+        "UomNameTh": "ถุง",
+        "IsContainer": true,
+        "RowID": 14
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0776",
+        "Id": 15,
+        "UomCode": "UO0015",
+        "UomNameEn": "  ",
+        "UomNameTh": "โหล",
+        "IsContainer": true,
+        "RowID": 15
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0777",
+        "Id": 16,
+        "UomCode": "UO0016",
+        "UomNameEn": " ",
+        "UomNameTh": "กล่อง",
+        "IsContainer": true,
+        "RowID": 16
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0778",
+        "Id": 17,
+        "UomCode": "UO0017",
+        "UomNameEn": " ",
+        "UomNameTh": "วง",
+        "IsContainer": false,
+        "RowID": 17
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0779",
+        "Id": 18,
+        "UomCode": "UO0018",
+        "UomNameEn": " ",
+        "UomNameTh": "กระสอบ",
+        "IsContainer": true,
+        "RowID": 18
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce077a",
+        "Id": 20,
+        "UomCode": "UO0019",
+        "UomNameEn": "",
+        "UomNameTh": "ชุด",
+        "IsContainer": false,
+        "RowID": 19
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce077b",
+        "Id": 21,
+        "UomCode": "UO0020",
+        "UomNameEn": "",
+        "UomNameTh": "ด้าม",
+        "IsContainer": false,
+        "RowID": 20
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce077c",
+        "Id": 22,
+        "UomCode": "UO0021",
+        "UomNameEn": "",
+        "UomNameTh": "ห่อ",
+        "IsContainer": false,
+        "RowID": 21
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce077d",
+        "Id": 23,
+        "UomCode": "UO0022",
+        "UomNameEn": "",
+        "UomNameTh": "แผ่น",
+        "IsContainer": false,
+        "RowID": 22
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce077e",
+        "Id": 24,
+        "UomCode": "UO0023",
+        "UomNameEn": "",
+        "UomNameTh": "แพ็ค",
+        "IsContainer": true,
+        "RowID": 23
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce077f",
+        "Id": 25,
+        "UomCode": "UO0024",
+        "UomNameEn": "",
+        "UomNameTh": "ม้วน",
+        "IsContainer": false,
+        "RowID": 24
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0780",
+        "Id": 26,
+        "UomCode": "UO0025",
+        "UomNameEn": "",
+        "UomNameTh": "ถัง",
+        "IsContainer": false,
+        "RowID": 25
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0781",
+        "Id": 27,
+        "UomCode": "UO9999",
+        "UomNameEn": " ",
+        "UomNameTh": "ของ",
+        "IsContainer": false,
+        "RowID": 26
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0782",
+        "Id": 28,
+        "UomCode": "UO0026",
+        "UomNameEn": " ",
+        "UomNameTh": "กิโลกรัม",
+        "IsContainer": false,
+        "RowID": 27
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0783",
+        "Id": 29,
+        "UomCode": "UO0027",
+        "UomNameEn": " ",
+        "UomNameTh": "ฟุต",
+        "IsContainer": false,
+        "RowID": 28
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0784",
+        "Id": 30,
+        "UomCode": "UO0028",
+        "UomNameEn": " ",
+        "UomNameTh": "ชุด",
+        "IsContainer": false,
+        "RowID": 29
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0785",
+        "Id": 31,
+        "UomCode": "UO0029",
+        "UomNameEn": " ",
+        "UomNameTh": "ขด",
+        "IsContainer": true,
+        "RowID": 30
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0786",
+        "Id": 32,
+        "UomCode": "UO0030",
+        "UomNameEn": " ",
+        "UomNameTh": "คู่",
+        "IsContainer": true,
+        "RowID": 31
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0787",
+        "Id": 33,
+        "UomCode": "UO0031",
+        "UomNameEn": "",
+        "UomNameTh": "ตัว",
+        "IsContainer": false,
+        "RowID": 32
+    },
+    {
+        "_id": "54e6c0f1b76de97fe0ce0788",
+        "Id": 36,
+        "UomCode": "UO0033",
+        "UomNameEn": "",
+        "UomNameTh": "เม็ด",
+        "IsContainer": false,
+        "RowID": 33
+    }
+]

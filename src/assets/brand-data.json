@@ -1,0 +1,89 @@
+[{
+        "_id": "54e6c0d9b76de97fe0cd986e",
+        "Id": 1,
+        "BrandCode": "BR0001",
+        "BrandNameEn": "Honda",
+        "BrandNameTh": "ฮอนด้า",
+        "RowID": 1
+    },
+    {
+        "_id": "54e6c0d9b76de97fe0cd986f",
+        "Id": 3,
+        "BrandCode": "BR0002",
+        "BrandNameEn": "Suzuki",
+        "BrandNameTh": "ซูซูกิ",
+        "RowID": 2
+    },
+    {
+        "_id": "54e6c0d9b76de97fe0cd9870",
+        "Id": 4,
+        "BrandCode": "BR0003",
+        "BrandNameEn": "Yamaha",
+        "BrandNameTh": "ยามาฮ่า",
+        "RowID": 3
+    },
+    {
+        "_id": "54e6c0d9b76de97fe0cd9871",
+        "Id": 5,
+        "BrandCode": "BR0004",
+        "BrandNameEn": "Kawasaki",
+        "BrandNameTh": "คาวาซากิ",
+        "RowID": 4
+    },
+    {
+        "_id": "54e6c0d9b76de97fe0cd9872",
+        "Id": 6,
+        "BrandCode": "BR0005",
+        "BrandNameEn": "Camel",
+        "BrandNameTh": "คาเมล",
+        "RowID": 5
+    },
+    {
+        "_id": "54e6c0d9b76de97fe0cd9873",
+        "Id": 7,
+        "BrandCode": "BR0006",
+        "BrandNameEn": "Vee Rubber",
+        "BrandNameTh": "",
+        "RowID": 6
+    },
+    {
+        "_id": "54e6c0d9b76de97fe0cd9874",
+        "Id": 8,
+        "BrandCode": "BR0007",
+        "BrandNameEn": "Dunlop",
+        "BrandNameTh": "ดันลอป",
+        "RowID": 7
+    },
+    {
+        "_id": "54e6c0d9b76de97fe0cd9875",
+        "Id": 9,
+        "BrandCode": "BR0008",
+        "BrandNameEn": "IRC",
+        "BrandNameTh": "ไอ อาร์ ซี",
+        "RowID": 8
+    },
+    {
+        "_id": "54e6c0d9b76de97fe0cd9876",
+        "Id": 10,
+        "BrandCode": "BR0009",
+        "BrandNameEn": "Kawasaki",
+        "BrandNameTh": "คาวาซากิ",
+        "RowID": 9
+    },
+    {
+        "_id": "54e6c0d9b76de97fe0cd9877",
+        "Id": 11,
+        "BrandCode": "BR0024",
+        "BrandNameEn": "เวฟฟฟฟฟ",
+        "BrandNameTh": "Wave",
+        "RowID": 10
+    },
+    {
+        "_id": "54e6c0d9b76de97fe0cd9878",
+        "Id": 12,
+        "BrandCode": "BR0025",
+        "BrandNameEn": "FFFFFF",
+        "BrandNameTh": "เอฟเอฟ",
+        "RowID": 11
+    }
+]

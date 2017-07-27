@@ -1,0 +1,32 @@
+<div class="body-login">
+    <header>
+        <h3>Register to KZHWEB</h3>
+        <h5></h5>
+    </header>
+    <form>
+        <div class="group">
+            <input type="email" [(ngModel)]="Email" [ngModelOptions]="{standalone: true}">
+            <span class="highlight"></span><span class="bar"></span>
+            <label>Email</label>
+        </div>
+        <div class="group">
+            <input type="password" [(ngModel)]="Password" [ngModelOptions]="{standalone: true}">
+            <span class="highlight"></span><span class="bar"></span>
+            <label>Password</label>
+        </div>
+        <div class="group">
+            <input type="password" [(ngModel)]="ConfirmPassword" [ngModelOptions]="{standalone: true}">
+            <span class="highlight"></span><span class="bar"></span>
+            <label>Confirm Password</label>
+        </div>
+        <button (click)="Signup()" type="button" class="button buttonSignup">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign up
+          <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+        </button>
+        <div class="new-account">
+            <a (click)="BacktoLogin()">
+                <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back to Login
+            </a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,54 @@
+<div class="mdl-grid demo-content">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <div class="demo-updates mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+            <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
+                <h4>Search Customer Informations</h4>
+            </div>
+            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                <form action="#">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="searchCustomer" [(ngModel)]="searchCustomer" [ngModelOptions]="{standalone: true}">
+                        <label class="mdl-textfield__label" for="sample1">Search Customer...</label>
+                    </div>
+                    <button (click)="SearchCustomer()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored ">
+                      <i class="material-icons">search</i> Search
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="demo-separator mdl-cell--1-col"></div>
+        <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+            <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
+                <h4>Search Customer Results</h4>
+            </div>
+            <table class="mdl-data-table mdl-js-data-table">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric"></th>
+                        <th class="mdl-data-table__cell--non-numeric">Name Th</th>
+                        <th class="mdl-data-table__cell--non-numeric">Known Name</th>
+                        <th class="mdl-data-table__cell--non-numeric">Address</th>
+                        <th class="mdl-data-table__cell--non-numeric">Mobile</th>
+                        <th class="mdl-data-table__cell--non-numeric">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of searchCustomerList">
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <a [routerLink]="['/main', {outlets: {'main-detail': ['edit-customer', customer._id]}}]">
+                                <i class="material-icons">create</i>
+                            </a>
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">{{customer.CustomerNameTh}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{customer.CustomerKnownName}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{customer.CustomerAddress}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{customer.MobileNo}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{customer.Email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

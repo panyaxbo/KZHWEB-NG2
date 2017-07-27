@@ -1,0 +1,450 @@
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <!-- Colored FAB button with ripple -->
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row pos-header">
+            <span class="mdl-layout-title">สร้างใบขายสินค้าหน้าร้าน</span>
+            <div class="mdl-layout-spacer">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" id="search">
+                    <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--add pos-status-button" (click)="window.print()">
+          <i class="material-icons">note_add</i> เพิ่ม
+        </button>
+            <div id="a4-paper">
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--save pos-status-button" (click)="SaveReceipt()">
+          <i class="material-icons">save</i> บันทึก
+        </button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored pos-status-button">
+          <i class="material-icons">print</i> พิมพ์
+        </button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--delete pos-status-button" (click)="PrintThermalPaper()">
+          <i class="material-icons">delete</i> ลบ
+        </button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--exit pos-status-button" (click)="PrintThermalPaper()">
+          <i class="material-icons">exit_to_app</i> ออก
+        </button>
+            <span class="mdl-layout-title">POS6006000001</span>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <!-- Right aligned menu below button -->
+                <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">more_vert</i>
+        </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                    <li class="mdl-menu__item">Some Action</li>
+                    <li class="mdl-menu__item">Another Action</li>
+                    <li disabled class="mdl-menu__item">Disabled Action</li>
+                    <li class="mdl-menu__item">Yet Another Action</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="mdl-color--grey-100">
+        <div class="mdl-grid demo-content">
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                <div class="search-customer-label">ค้นหาลูกค้า</div>
+                <div class="search-product-spacer"></div>
+                <i class="material-icons">search</i>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <label class="mdl-textfield__label" for="CustomerName">CustomerName</label>
+                        <ng2-completer [(ngModel)]="Customer" [datasource]="dataCustomerService" [minSearchLength]="0" [inputClass]="['mdl-textfield__input','ng2-completer-customize']" (selected)="OnSelectedCustomer($event)" [fillHighlighted]="true" type="text">
+                        </ng2-completer>
+                    </div>
+                </div>
+                <div class="mdl-layout-spacer">
+
+                </div>
+                <div id="thermal-paper">
+                </div>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored pos-status-button">
+          ร่างเอกสาร
+        </button>
+                <span class="mdl-layout-title header-net-amt-label">จำนวนเงินรวมทั้งสิ้น</span>
+                <span class="mdl-layout-title header-seperator">|</span>
+                <span class="mdl-layout-title pos-net-amt" [style.color]="HeaderPendingAmountStyle">{{PendingAmount | thbCurrency:'2'}}</span>
+            </div>
+        </div>
+    </main>
+    <main class="mdl-color--grey-100">
+        <div class="mdl-grid demo-content">
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
+                    <div class="mdl-card__title mdl-color--cyan-300 kzh-card-header">
+                        <h2 class="mdl-card__title-text"><i class="material-icons">person_outline</i> ข้อมูลลูกค้า</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                        <div class="demo-list-action mdl-list">
+                            <div class="mdl-list__item">
+                                <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <span>ชื่อลูกค้า :</span>
+                                <label for="CustomerKnownName">{{pos.customerName}}</label>
+                            </div>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+
+                </span>
+                        </div>
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                  <span>ชื่อเล่นลูกค้า :</span>
+                            <label for="CustomerKnownName">{{pos.dfCustomerKnownName}}</label>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+
+                </span>
+                        </div>
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                  <span>ที่อยู่ :</span>
+                            <label for="CustomerAddress">{{pos.customerAddress}}</label>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+
+              </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
+                <div class="mdl-card__title mdl-color--brown-300 kzh-card-header">
+                    <h2 class="mdl-card__title-text"><i class="material-icons">person</i>ข้อมูลพนักงาน</h2>
+                </div>
+                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                    <div class="demo-list-action mdl-list">
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="StaffName">
+                    <label class="mdl-textfield__label" for="CustomerName">ชื่อพนักงาน</label>
+                  </div>
+                </span>
+                            <span class="mdl-list__item-secondary-content">
+                </span>
+                        </div>
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                  <i class="material-icons">today</i>
+                  <span>วันที่ใบเสร็จ</span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                  26/06/2017
+                </span>
+                        </div>
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                  <i class="material-icons">access_time</i>
+                  <span>เวลา</span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                  11:56:57
+                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
+                <div class="mdl-card__title mdl-color--teal-300 kzh-card-header">
+                    <h2 class="mdl-card__title-text">ลูกค้าไม่มียอดค้าง</h2>
+                </div>
+                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                    <div class="demo-list-action mdl-list">
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-avatar">person</i>
+                  <span>Bryan Cranston</span>
+                            </span>
+                            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                        </div>
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-avatar">person</i>
+                  <span>Aaron Paul</span>
+                            </span>
+                            <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+                        </div>
+                        <div class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-avatar">person</i>
+                  <span>Bob Odenkirk</span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                  <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
+              </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+</main>
+<main class="mdl-color--grey-100">
+    <div class="mdl-grid demo-content">
+        <!--  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-data-table__header--sorted-ascending
+      mdl-data-table__header--sorted-descending pos-datatable">
+        <thead class="pos-datatable-thead">
+          <tr>
+            <th class="pos-theader">#</th>
+            <th class="mdl-data-table__cell--non-numeric pos-theader">Name</th>
+            <th class="mdl-data-table__cell--non-numeric pos-theader">Uom</th>
+            <th class="pos-theader">Qty.</th>
+            <th class="pos-theader">Price</th>
+            <th class="pos-theader">Disc.</th>
+            <th class="pos-theader">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="mdl-data-table__cell--non-numeric">ยางนอกมอเตอร์ไซค์ 70/90-17 IRC</td>
+            <td class="mdl-data-table__cell--non-numeric">เส้น</td>
+            <td>1</td>
+            <td>550</td>
+            <td>0</td>
+            <td>฿ 550.00</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="mdl-data-table__cell--non-numeric">ยางนอกมอเตอร์ไซค์ 70/90-17 IRC</td>
+            <td class="mdl-data-table__cell--non-numeric">เส้น</td>
+            <td>1</td>
+            <td>550</td>
+            <td>0</td>
+            <td>฿ 550.00</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="mdl-data-table__cell--non-numeric">ยางนอกมอเตอร์ไซค์ 70/90-17 IRC</td>
+            <td class="mdl-data-table__cell--non-numeric">เส้น</td>
+            <td>1</td>
+            <td>550</td>
+            <td>0</td>
+            <td>฿ 550.00</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td class="mdl-data-table__cell--non-numeric">ยางนอกมอเตอร์ไซค์ 70/90-17 IRC</td>
+            <td class="mdl-data-table__cell--non-numeric">เส้น</td>
+            <td>1</td>
+            <td>550</td>
+            <td>0</td>
+            <td>฿ 550.00</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="pos-tfooter">
+            <th></th>
+            <th></th>
+            <th class="mdl-data-table__cell--non-numeric"></th>
+            <th class="mdl-data-table__cell--non-numeric"></th>
+            <th colspan="3" class="mdl-data-table__cell--non-numeric">
+              <h5>รวมเป็นเงินทั้งสิ้น</h5>
+            </th>
+            <th>
+              <h5>{{ SumAmount | thbCurrency:'2'}}</h5>
+            </th>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+            <th class="mdl-data-table__cell--non-numeric"></th>
+            <th class="mdl-data-table__cell--non-numeric"></th>
+            <th class="mdl-data-table__cell--non-numeric">
+              <h5>ส่วนลด</h5>
+
+            </th>
+            <th>
+              <div class="mdl-textfield mdl-js-textfield ">
+
+                <input class="mdl-textfield__input" type="text" id="Tax" [(ngModel)]="SumBillDiscount" placeholder="Discount">
+
+              </div>
+
+            </th>
+            <th><h5>%</h5></th>
+            <th>
+              <h5>{{ SumBillDiscountAmount | thbCurrency:'2'}}</h5>
+            </th>
+          </tr>
+
+          <tr>
+            <th class="mdl-data-table__cell--non-numeric">
+              <h5>รับเงินมา</h5>
+            </th>
+            <th colspan="2">
+              <input class="mdl-textfield__input text-numeric" type="text"
+              [(ngModel)]="PayAmount" (keyup)="InputPayAmount()" (blur)="CheckNumber($event)">
+            </th>
+            <th>
+              <button (click)="PayEnoughAmount()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored pos-status-button">
+                <i class="material-icons">attach_money</i> รับพอดี
+              </button>
+            </th>
+            <th colspan="3" class="mdl-data-table__cell--non-numeric">
+              <h5>ภาษี 7%</h5>
+            </th>
+            <th>
+              <h5>{{ VatAmount | thbCurrency:'2'}}</h5>
+            </th>
+          </tr>
+
+          <tr>
+            <th colspan="2" class="mdl-data-table__cell--non-numeric">
+              <h5>ค้างจ่าย</h5>
+            </th>
+            <th>
+              <input class="mdl-textfield__input text-numeric" type="text" [(ngModel)]="PendingAmount">
+            </th>
+            <th></th>
+            <th colspan="3" class="mdl-data-table__cell--non-numeric">
+              <h5>จำนวนเงินรวมทั้งสิ้น</h5>
+            </th>
+            <th>
+              <h5> {{ NetAmount | thbCurrency:'2'}}</h5>
+            </th>
+          </tr>
+        </tfoot>
+      </table>-->
+        <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+      pos-search-product-table">
+            <h4>เลือกสินค้า</h4>
+            <div class="search-product-spacer"></div>
+            <i class="material-icons">search</i>
+            <div class="mdl-textfield mdl-js-textfield">
+                <label class="mdl-textfield__label" for="ProductName">ProductName</label>
+                <ng2-completer [(ngModel)]="Product" [datasource]="dataProductService" [minSearchLength]="3" [inputClass]="['mdl-textfield__input','ng2-completer-customize']" (selected)="OnSelectedProduct($event)" type="text">
+                </ng2-completer>
+            </div>
+        </div>
+        <ng2-smart-table [settings]="settings" [source]="datas" *ngIf="datas"></ng2-smart-table>
+        <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid
+      pos-footer-product-table">
+            <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet
+        mdl-cell--6-col-desktop pos-footer-section-product-table">
+                <!--<div class="mdl-cell mdl-cell--4-col">ยอดค้างจ่าย</div>
+          <div class="mdl-cell mdl-cell--4-col">
+            <input class="mdl-textfield__input text-numeric" type="text"
+              [(ngModel)]="PayAmount" (keyup)="InputPayAmount()" (blur)="CheckNumber($event)">
+          </div>
+          <div class="mdl-cell mdl-cell--4-col">
+            <button (click)="window.print()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent pos-status-button">
+              รับพอดี
+            </button>
+          </div>-->
+                <div class="demo-list-action mdl-list">
+                    <div class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                <h5>จำนวนรายการ</h5>
+                <span class="footer-label-sum-qty"><h5>5</h5></span>
+                        </span>
+                        <h5>รายการ</h5>
+                    </div>
+                    <div class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                <h5>จำนวนรายการ</h5>
+                <span></span>
+                        </span>
+
+                    </div>
+                    <div class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                <h5>จำนวนรายการ</h5>
+                <span></span>
+                        </span>
+                        <span class="mdl-list__item-secondary-content">
+
+              </span>
+                    </div>
+                    <div class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                <h5>รับเงินมา</h5>
+                <span class="footer-label-pay-cash"><input class="mdl-textfield__input text-numeric" type="text"
+              [(ngModel)]="PayAmount" (keyup)="InputPayAmount()" (blur)="CheckNumber($event)"></span>
+                        </span>
+                        <span class="mdl-list__item-secondary-content">
+                <button (click)="PayEnoughAmount()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored pos-status-button">
+                  <i class="material-icons">attach_money</i> รับพอดี
+                </button>
+              </span>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet
+        mdl-cell--6-col-desktop pos-footer-section-product-table">
+                <div class="demo-list-action mdl-list">
+                    <div class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                <h5>รวมเป็นเงินทั้งสิ้น</h5>
+                <span> </span>
+                        </span>
+                        <h5>{{ SumAmount | thbCurrency:'2'}}</h5>
+                    </div>
+                    <div class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                <h5>ส่วนลด</h5>
+                <span class="footer-label-sum-discount">
+                  <input class="mdl-textfield__input" type="text" id="Tax" [(ngModel)]="SumBillDiscount"
+                  placeholder="Discount">
+                </span>
+                        <span>%</span>
+                        </span>
+
+                        <h5>{{ SumBillDiscountAmount | thbCurrency:'2'}}</h5>
+                    </div>
+                    <div class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                <h5>ภาษี</h5>
+                <span class="footer-label-vat-rate">7%</span>
+                        </span>
+                        <span class="mdl-list__item-secondary-content">
+                <h5>{{ VatAmount | thbCurrency:'2'}}</h5>
+              </span>
+                    </div>
+                    <div class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">
+                <h5>จำนวนเงินรวมทั้งสิ้น</h5>
+                <span></span>
+                        </span>
+                        <span class="mdl-list__item-secondary-content">
+                <h5> {{ NetAmount | thbCurrency:'2'}}</h5>
+              </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+<main class="mdl-color--grey-100">
+    <!--
+    <div class="mdl-grid demo-content">
+      <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
+      </div>
+      <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
+      </div>
+      <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-desktop">
+        <label for="address">Full address</label>
+      </div>
+    </div>-->
+</main>
+<footer class="mdl-mini-footer pos-footer">
+    <div class="mdl-mega-footer__middle-section">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored pos-status-button">
+          <i class="material-icons">print</i> พิมพ์
+      </button>
+    </div>
+    <div class="mdl-mega-footer__middle-section">
+        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+        <input type="checkbox" id="switch-2" class="mdl-switch__input">
+        <span class="mdl-switch__label">พิมพ์ยอดค้าง</span>
+      </label>
+    </div>
+</footer>
+</div>

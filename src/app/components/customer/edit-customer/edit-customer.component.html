@@ -1,0 +1,150 @@
+<div class="mdl-grid demo-content">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col
+         mdl-cell--12-col-tablet mdl-cell--12-col-desktop header-section">
+            <h4 class="header-detail">Customer Details</h4>
+        </div>
+        <div class="mdl-cell mdl-cell--12-col">
+            <button (click)="NewCustomer()" id="btnNew" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--add ">
+                <i class="material-icons">create</i> New
+              </button>
+            <div class="mdl-tooltip" data-mdl-for="btnNew">
+                New Customer
+            </div>
+            <button (click)="SaveCustomer()" id="btnSave" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--save ">
+              <i class="material-icons">save</i> Save
+            </button>
+            <div class="mdl-tooltip" data-mdl-for="btnSave">
+                Save Customer
+            </div>
+            <button (click)="DeleteCustomer()" id="btnDelete" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--delete ">
+                <i class="material-icons">delete</i> Delete
+              </button>
+            <div class="mdl-tooltip" data-mdl-for="btnDelete">
+                Delete Customer
+            </div>
+            <button (click)="ExitCustomer()" id="btnExit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--exit ">
+                <i class="material-icons">exit_to_app</i> Exit
+              </button>
+            <div class="mdl-tooltip" data-mdl-for="btnExit">
+                Exit Customer
+            </div>
+        </div>
+        <div class="mdl-cell mdl-cell--6-col">
+            <ul class="demo-list-control mdl-list">
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="customerCode"
+                    [(ngModel)]="Customer.CustomerCode" >
+                    <label class="mdl-textfield__label" for="sample1">Customer Code</label>
+                  </div>
+                </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="searchCustomer"
+                    [(ngModel)]="Customer.CustomerNameTh" >
+                    <label class="mdl-textfield__label" for="sample1">Customer Name Th</label>
+                  </div>
+                </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="searchCustomer"
+                    [(ngModel)]="Customer.CustomerNameEn" >
+                    <label class="mdl-textfield__label" for="sample1">Customer Name En</label>
+                  </div>
+                </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="searchCustomer"
+                    [(ngModel)]="Customer.CustomerNameCn" >
+                    <label class="mdl-textfield__label" for="sample1">Customer Name Cn</label>
+                  </div>
+                </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <textarea class="mdl-textfield__input" type="text" rows= "3" id="CustomerAddress" [(ngModel)]="Customer.CustomerAddress"></textarea>
+                    <label class="mdl-textfield__label" for="CustomerAddress">Customer Address...</label>
+                  </div>
+                </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="telNo" pattern="^([0-9\(\)\/\+ \-]*)$">
+                    <label class="mdl-textfield__label" for="telNo">Tel No.</label>
+                    <span class="mdl-textfield__error">Input is not a phone number</span>
+        </div>
+        </span>
+        </li>
+        <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="mobileNo" pattern="^([0-9\(\)\/\+ \-]*)$">
+                  <label class="mdl-textfield__label" for="mobileNo">Mobile No.</label>
+                  <span class="mdl-textfield__error">Input is not a mobile number</span>
+    </div>
+    </span>
+    </li>
+    <li class="mdl-list__item">
+        <span class="mdl-list__item-primary-content">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                      <input class="mdl-textfield__input" type="text" id="email" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
+                                      <label class="mdl-textfield__label" for="email">Email</label>
+                                      <span class="mdl-textfield__error">Not a valid email</span>
+</div>
+</span>
+</li>
+
+</ul>
+</div>
+<div class="mdl-cell mdl-cell--6-col">
+    <ul class="demo-list-control mdl-list">
+        <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="customerCode"
+                    [(ngModel)]="Customer.CreateBy" >
+                    <label class="mdl-textfield__label" for="sample1">Create By</label>
+                  </div>
+                </span>
+        </li>
+        <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="customerCode"
+                    [(ngModel)]="Customer.CreateDate" >
+                    <label class="mdl-textfield__label" for="sample1">Create Date</label>
+                  </div>
+                </span>
+        </li>
+        <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="customerCode"
+                    [(ngModel)]="Customer.UpdateBy" >
+                    <label class="mdl-textfield__label" for="sample1">Update By</label>
+                  </div>
+                </span>
+        </li>
+        <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="customerCode"
+                    [(ngModel)]="Customer.UpdateDate" >
+                    <label class="mdl-textfield__label" for="sample1">Update Date</label>
+                  </div>
+                </span>
+        </li>
+    </ul>
+</div>
+</div>
+</div>

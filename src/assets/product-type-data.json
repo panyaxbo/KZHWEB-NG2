@@ -1,0 +1,150 @@
+[{
+        "_id": "54e6c09db76de97fe0cbbce9",
+        "Id": 2,
+        "ProductTypeNameTh": "น้ำมัน",
+        "ProductTypeNameEn": "Oil",
+        "ProductTypeNameCn": "油",
+        "ProductTypeCode": "PT0002",
+        "ProductCategoryCount": 11,
+        "RowID": 2
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbcea",
+        "Id": 3,
+        "ProductTypeNameTh": "ยาง",
+        "ProductTypeNameEn": "Tire",
+        "ProductTypeCode": "PT0003",
+        "RowID": 3,
+        "ProductTypeNameCn": "輪胎",
+        "ProductCategoryCount": 2
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbceb",
+        "Id": 4,
+        "ProductTypeNameTh": "อะไหล่แต่ง",
+        "ProductTypeNameEn": "Accessories",
+        "ProductTypeNameCn": "摩托車配件",
+        "ProductTypeCode": "PT0004",
+        "RowID": 4,
+        "ProductCategoryCount": 1
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbcec",
+        "Id": 5,
+        "ProductTypeNameTh": "การเกษตร",
+        "ProductTypeNameEn": "Farming",
+        "ProductTypeNameCn": "農業",
+        "ProductTypeCode": "PT0005",
+        "ProductCategoryCount": 1,
+        "RowID": 5
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbcee",
+        "Id": 7,
+        "ProductTypeNameTh": "อะไหล่จักรยาน",
+        "ProductTypeNameEn": "Bicycle Parts",
+        "ProductTypeNameCn": "自行車零件",
+        "ProductTypeCode": "PT0007",
+        "ProductCategoryCount": 2,
+        "RowID": 7
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbcef",
+        "Id": 8,
+        "ProductTypeNameTh": "อะไหล่รถไถ",
+        "ProductTypeNameEn": "Tractor Parts",
+        "ProductTypeNameCn": "拖拉機配件",
+        "ProductTypeCode": "PT0008",
+        "ProductCategoryCount": 6,
+        "RowID": 8
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbcf0",
+        "Id": 9,
+        "ProductTypeNameTh": "ไฟฟ้า",
+        "ProductTypeNameEn": "Electricity",
+        "ProductTypeNameCn": "電力",
+        "ProductTypeCode": "PT0009",
+        "ProductCategoryCount": 1,
+        "RowID": 9
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbcf1",
+        "Id": 10,
+        "ProductTypeNameTh": "ประปา",
+        "ProductTypeNameEn": "Water",
+        "ProductTypeNameCn": "水",
+        "ProductTypeCode": "PT0010",
+        "ProductCategoryCount": 2,
+        "RowID": 10
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbcf3",
+        "Id": 12,
+        "ProductTypeNameTh": "วัสดุก่อสร้าง",
+        "ProductTypeNameEn": "Construction",
+        "ProductTypeNameCn": "施工",
+        "ProductTypeCode": "PT0012",
+        "ProductCategoryCount": 3,
+        "RowID": 12
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbcf4",
+        "Id": 13,
+        "ProductTypeNameTh": "โรงสี",
+        "ProductTypeNameEn": "Mill",
+        "ProductTypeNameCn": "磨",
+        "ProductTypeCode": "PT0013",
+        "ProductCategoryCount": 1,
+        "RowID": 13
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbcf5",
+        "Id": 14,
+        "ProductTypeNameTh": "เครื่องมือช่าง",
+        "ProductTypeNameEn": "Tool",
+        "ProductTypeNameCn": "工具",
+        "ProductTypeCode": "PT0014",
+        "ProductCategoryCount": 4,
+        "RowID": 14
+    },
+    {
+        "_id": "554c76c76e05bd08caa2e469",
+        "ProductTypeCode": "PT0017",
+        "ProductTypeNameEn": "Tractor Miscellaneous",
+        "ProductTypeNameTh": "จิปาถะ รถไถ",
+        "ProductTypeNameCn": "拖拉機雜項",
+        "ProductCategoryCount": 0
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbce8",
+        "Id": 1,
+        "ProductTypeNameTh": "อะไหล่มอเตอร์ไซค์",
+        "ProductTypeNameEn": "Motorcycle Parts",
+        "ProductTypeNameCn": "摩托車配件",
+        "ProductTypeCode": "PT0001",
+        "ProductCategoryCount": 85,
+        "RowID": 1
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbced",
+        "Id": 6,
+        "ProductTypeNameTh": "อะไหล่รถยนต์",
+        "ProductTypeNameEn": "Car Parts",
+        "ProductTypeNameCn": "汽車零件",
+        "ProductTypeCode": "PT0006",
+        "ProductCategoryCount": 2,
+        "RowID": 6,
+        "ProductTypeNameCn": null
+    },
+    {
+        "_id": "54e6c09db76de97fe0cbbcf2",
+        "Id": 11,
+        "ProductTypeNameTh": "จิปาถะ มอเตอร์ไซค์",
+        "ProductTypeNameEn": "Motorcycle Miscellaneous",
+        "ProductTypeNameCn": "摩托車雜項",
+        "ProductTypeCode": "PT0011",
+        "ProductCategoryCount": 3,
+        "RowID": 11
+    }
+]
