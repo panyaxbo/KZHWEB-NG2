@@ -36,16 +36,16 @@ export class MainDetailComponent implements OnInit {
 
   }
   GotoCustomerType() {
-
+    this.router.navigateByUrl('/main/(main-detail:search-customer-type)');
   }
   GotoCustomer() {
     this.router.navigateByUrl('/main/(main-detail:search-customer)');
   }
   GotoSupplierType() {
-    this.router.navigateByUrl('/main/(main-detail:search-supplier)');
+    this.router.navigateByUrl('/main/(main-detail:search-supplier-type)');
   }
   GotoSupplier() {
-
+    this.router.navigateByUrl('/main/(main-detail:search-supplier)');
   }
   GotoShipper() {
 

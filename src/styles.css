@@ -68,3 +68,22 @@ body {
 .mdl-link {
     cursor: pointer;
 }
+
+.text-readonly {
+    background-color: #E6E6E6;
+}
+
+.left-side-tab-menu {
+    cursor: pointer;
+}
+
+
+/* Handling Search Page **/
+
+.search-table {
+    width: 100%
+}
+
+.header-section {
+    min-height: 100px;
+}

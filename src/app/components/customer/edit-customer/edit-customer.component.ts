@@ -36,27 +36,17 @@ export class EditCustomerComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    console.log('be4 ser cus ', this.Customer);
-      this.Customer.CustomerCode = 'CM001';
-      this.Customer.CustomerNameTh = 'รนา้้า้า้า้า';
-      this.Customer.CustomerNameEn = '好吃的';
-      this.Customer.CustomerKnownName = 'キュ話ありますです';
-      this.Customer.CustomerAddress = '21-32 Moo.2 Thepnimit Road';
-      console.log('afeter set cus ', this.Customer);
-    this.ar.params.subscribe(param => {
-
-      console.log('get Cus Id ', param);
-      this.CustomerId = JSON.stringify(param);
-      this.db.list('customers', {
-        query: {
-          orderByChild: 'CustomerNameTh',
-          equalTo: this.CustomerId
+      this.ar.params.subscribe(param => {
+        this.CustomerId = param.id;
+        if (this.CustomerId === 'new') {
+          this.NewCustomer();
+        } else {
+          this.db.object('/customers/' + this.CustomerId
+          ).subscribe(customer => {
+            console.log(customer);
+          });
         }
-      }).subscribe(customer => {
-        console.log(customer);
       });
-
-    });
   }
   NewCustomer() {
     this.Customer.CustomerCode = '';
@@ -76,9 +66,9 @@ export class EditCustomerComponent implements OnInit {
     this.Customer.Email = '';
     this.Customer.Description = '';
     this.Customer.CreateBy = '';
-    this.Customer.CreateDate = '';
+    this.Customer.CreateDate = new Date().toString();
     this.Customer.UpdateBy = '';
-    this.Customer.UpdateDate = '';
+    this.Customer.UpdateDate = new Date().toString();
   }
   SaveCustomer() {
 

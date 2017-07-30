@@ -1,13 +1,27 @@
 <div class="mdl-grid demo-content">
     <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-        <div class="demo-updates mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-            <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
-                <h4>Search Customer Informations</h4>
+        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+            <div class="mdl-card__title mdl-card--expand mdl-color--deep-purple-500">
+                <h2 class="mdl-card__title-text">Search Customer Information</h2>
             </div>
             <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <button (click)="NewCustomer()" id="btnNew" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--add ">
+                      <i class="material-icons">create</i> New
+                    </button>
+                    <div class="mdl-tooltip" data-mdl-for="btnNew">
+                        New Customer
+                    </div>
+                    <button (click)="ExitCustomer()" id="btnExit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--exit ">
+                    <i class="material-icons">exit_to_app</i> Exit
+                  </button>
+                    <div class="mdl-tooltip" data-mdl-for="btnExit">
+                        Exit Customer
+                    </div>
+                </div>
                 <form action="#">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="searchCustomer" [(ngModel)]="searchCustomer" [ngModelOptions]="{standalone: true}">
+                        <input class="mdl-textfield__input" type="text" id="searchCustomer" [(ngModel)]="SearchUom" [ngModelOptions]="{standalone: true}">
                         <label class="mdl-textfield__label" for="sample1">Search Customer...</label>
                     </div>
                     <button (click)="SearchCustomer()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored ">
@@ -16,7 +30,6 @@
                 </form>
             </div>
         </div>
-
         <div class="demo-separator mdl-cell--1-col"></div>
         <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
             <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
@@ -36,7 +49,7 @@
                 <tbody>
                     <tr *ngFor="let customer of searchCustomerList">
                         <td class="mdl-data-table__cell--non-numeric">
-                            <a [routerLink]="['/main', {outlets: {'main-detail': ['edit-customer', customer._id]}}]">
+                            <a id="edit" [routerLink]="['/main', {outlets: {'main-detail': ['edit-customer', customer.$key]}}]">
                                 <i class="material-icons">create</i>
                             </a>
                         </td>

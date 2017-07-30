@@ -23,6 +23,12 @@
             <div class="mdl-tooltip" data-mdl-for="btnDelete">
                 Delete Customer
             </div>
+            <button (click)="BacktoSearch()" id="btnBackSearch" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--back2search ">
+              <i class="material-icons">reply</i> Search
+            </button>
+            <div class="mdl-tooltip" data-mdl-for="btnBackSearch">
+                Back to Search
+            </div>
             <button (click)="ExitCustomer()" id="btnExit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--exit ">
                 <i class="material-icons">exit_to_app</i> Exit
               </button>
@@ -111,8 +117,8 @@
         <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="customerCode"
-                    [(ngModel)]="Customer.CreateBy" >
+                    <input class="mdl-textfield__input text-readonly" type="text" id="customerCode"
+                    [(ngModel)]="Customer.CreateBy" [readonly]="true">
                     <label class="mdl-textfield__label" for="sample1">Create By</label>
                   </div>
                 </span>
@@ -120,8 +126,8 @@
         <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="customerCode"
-                    [(ngModel)]="Customer.CreateDate" >
+                    <input class="mdl-textfield__input text-readonly" type="text" id="customerCode"
+                    [(ngModel)]="Customer.CreateDate" [readonly]="true">
                     <label class="mdl-textfield__label" for="sample1">Create Date</label>
                   </div>
                 </span>
@@ -129,8 +135,8 @@
         <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="customerCode"
-                    [(ngModel)]="Customer.UpdateBy" >
+                    <input class="mdl-textfield__input text-readonly" type="text" id="customerCode"
+                    [(ngModel)]="Customer.UpdateBy" [readonly]="true">
                     <label class="mdl-textfield__label" for="sample1">Update By</label>
                   </div>
                 </span>
@@ -138,8 +144,8 @@
         <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="customerCode"
-                    [(ngModel)]="Customer.UpdateDate" >
+                    <input class="mdl-textfield__input text-readonly" type="text" id="UpdateDate"
+                    [(ngModel)]="Customer.UpdateDate" [readonly]="true">
                     <label class="mdl-textfield__label" for="sample1">Update Date</label>
                   </div>
                 </span>

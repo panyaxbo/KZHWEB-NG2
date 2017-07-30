@@ -17,8 +17,5 @@ export class CustomerService {
   }
   LoadCustomerData(): FirebaseListObservable<any> {
     return this.db.list('customers');
-
-  //  return this.searchCustomerList;
-   // console.log(this.searchCustomerList);
   }
 }

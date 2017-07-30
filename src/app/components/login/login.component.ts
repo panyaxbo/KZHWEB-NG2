@@ -114,9 +114,10 @@ SL176-2007）、《水利水电基本建设工程单元工程质量评定标准�
     //   console.log(this._companyService.GetCurrentCompanyData());
     //   this.router.navigateByUrl('/main');
     // });
+    console.log('b4 auth ', this.afAuth.authState);
     this.afAuth.auth.signInWithEmailAndPassword(this.Email, this.Password)
     .then(data => {
-      //console.log(data);
+      console.log('a4 auth ', this.afAuth.authState);
       this.User = data;
       this._userService.SetCurrentUserData(this.User);
       this.router.navigateByUrl('/main');

@@ -1,63 +1,64 @@
 <div class="mdl-grid demo-content">
     <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-            <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
-                <h2 class="mdl-card__title-text">Search Customer Information</h2>
+        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+            <div class="mdl-card__title mdl-card--expand mdl-color--deep-purple-500">
+                <h2 class="mdl-card__title-text">Search Uom Information</h2>
             </div>
             <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <button (click)="NewUom()" id="btnNew" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--add ">
+                      <i class="material-icons">create</i> New
+                    </button>
+                    <div class="mdl-tooltip" data-mdl-for="btnNew">
+                        New Uom
+                    </div>
+                    <button (click)="ExitUom()" id="btnExit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--exit ">
+                    <i class="material-icons">exit_to_app</i> Exit
+                  </button>
+                    <div class="mdl-tooltip" data-mdl-for="btnExit">
+                        Exit Uom
+                    </div>
+                </div>
                 <form action="#">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="searchCustomer" [(ngModel)]="searchCustomer">
-                        <label class="mdl-textfield__label" for="sample1">Search Customer...</label>
+                        <input class="mdl-textfield__input" type="text" id="searchUom" [(ngModel)]="searchUom" [ngModelOptions]="{standalone: true}">
+                        <label class="mdl-textfield__label" for="sample1">Search Uom...</label>
                     </div>
-                    <button (click)="SearchCustomer()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored ">
+                    <button (click)="SearchUom()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored ">
                       <i class="material-icons">search</i> Search
                     </button>
                 </form>
-
             </div>
         </div>
         <div class="demo-separator mdl-cell--1-col"></div>
         <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
-            <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
-                <h3>View options</h3>
-                <table class="mdl-data-table mdl-js-data-table">
-                    <thead>
-                        <tr>
-                            <th class="mdl-data-table__cell--non-numeric">Name</th>
-                            <th class="mdl-data-table__cell--non-numeric">Nickname</th>
-                            <th>Age</th>
-                            <th class="mdl-data-table__cell--non-numeric">Living?</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="mdl-data-table__cell--non-numeric">John Lennon</td>
-                            <td class="mdl-data-table__cell--non-numeric">The smart one</td>
-                            <td>40</td>
-                            <td class="mdl-data-table__cell--non-numeric">No</td>
-                        </tr>
-                        <tr>
-                            <td class="mdl-data-table__cell--non-numeric">Paul McCartney</td>
-                            <td class="mdl-data-table__cell--non-numeric">The cute one</td>
-                            <td>73</td>
-                            <td class="mdl-data-table__cell--non-numeric">Yes</td>
-                        </tr>
-                        <tr>
-                            <td class="mdl-data-table__cell--non-numeric">George Harrison</td>
-                            <td class="mdl-data-table__cell--non-numeric">The shy one</td>
-                            <td>58</td>
-                            <td class="mdl-data-table__cell--non-numeric">No</td>
-                        </tr>
-                        <tr>
-                            <td class="mdl-data-table__cell--non-numeric">Ringo Starr</td>
-                            <td class="mdl-data-table__cell--non-numeric">The funny one</td>
-                            <td>74</td>
-                            <td class="mdl-data-table__cell--non-numeric">Yes</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50 header-section">
+                <h4>Search Uom Results</h4>
             </div>
+            <table class="mdl-data-table mdl-js-data-table search-table">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric"></th>
+                        <th class="mdl-data-table__cell--non-numeric">Code</th>
+                        <th class="mdl-data-table__cell--non-numeric">Name Th</th>
+                        <th class="mdl-data-table__cell--non-numeric">Name En</th>
+                        <th class="mdl-data-table__cell--non-numeric">IsContainer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let uom of searchUomList">
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <a [routerLink]="['/main', {outlets: {'main-detail': ['edit-uom', uom.$key]}}]">
+                                <i class="material-icons">create</i>
+                            </a>
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">{{uom.UomCode}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{uom.UomNameTh}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{uom.UomNameEn}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{uom.IsContainer}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

@@ -45,9 +45,11 @@ import { StaffService } from './services/staff/staff.service';
 import { UserService } from './services/user/user.service';
 import { UtilityService } from './services/utility/utility.service';
 import { PosService } from './services/pos/pos.service';
+import { UomService } from './services/uom/uom.service';
 import { CustomerService } from './services/customer/customer.service';
 import { CompanyService } from './services/company/company.service';
 import { NavbarService } from './services/navbar/navbar.service';
+import { MessageService } from './services/message/message.service';
 // Import Pipes
 import { ThbCurrencyPipe } from './pipes/thb-currency.pipe';
 import { CurrencyPipe } from '@angular/common';
@@ -67,6 +69,8 @@ import { EditUomComponent } from './components/uom/edit-uom/edit-uom.component';
 import { SearchUomComponent } from './components/uom/search-uom/search-uom.component';
 import { SearchCustomerComponent } from './components/customer/search-customer/search-customer.component';
 import { EditCustomerComponent } from './components/customer/edit-customer/edit-customer.component';
+import { SearchProductSetComponent } from './components/product-set/search-product-set/search-product-set.component';
+import { EditProductSetComponent } from './components/product-set/edit-product-set/edit-product-set.component';
 //import { Print80x55mmThermalPaperComponent } from './components/print-80x55mm-thermal-paper/print-80x55mm-thermal-paper.component';
 //import { PrintA4PaperComponent } from './components/print-a4-paper/print-a4-paper.component';
 import * as firebase from 'firebase';
@@ -74,6 +78,12 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { Error404Component } from './components/error404/error404.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { SearchProductComponent } from './search-product/search-product.component';
+import { SearchProductTypeComponent } from './search-product-type/search-product-type.component';
+import { EditProductTypeComponent } from './edit-product-type/edit-product-type.component';
+import { EditProductCategoryComponent } from './edit-product-category/edit-product-category.component';
+import { SearchProductCategoryComponent } from './search-product-category/search-product-category.component';
 const configErrMsg = `You have not configured and imported the Firebase SDK.
 Make sure you go through the codelab setup instructions.`;
 
@@ -101,6 +111,7 @@ const appRoutes: Routes = [
     // Edit Search
     { path: 'search-product-type', component: ProductTypeComponent, outlet: 'main-detail' },
     { path: 'search-product-category', component: ProductCategoryComponent, outlet: 'main-detail' },
+    { path: 'search-product-set', component: SearchProductSetComponent, outlet: 'main-detail' },
     { path: 'search-product', component: ProductComponent, outlet: 'main-detail' },
     { path: 'search-uom', component: SearchUomComponent, outlet: 'main-detail' },
     { path: 'search-customer-type', component: CustomerTypeComponent, outlet: 'main-detail' },
@@ -112,18 +123,19 @@ const appRoutes: Routes = [
     { path: 'search-privilege', component: PrivilegeComponent, outlet: 'main-detail' },
     { path: 'search-company', component: CompanyComponent, outlet: 'main-detail'},
     // Edit Master
-    { path: 'edit-product-type', component: ProductTypeComponent, outlet: 'main-detail' },
-    { path: 'edit-product-category', component: ProductCategoryComponent, outlet: 'main-detail' },
-    { path: 'edit-product', component: ProductComponent, outlet: 'main-detail' },
-    { path: 'edit-uom', component: EditUomComponent, outlet: 'main-detail' },
-    { path: 'edit-customer-type', component: CustomerTypeComponent, outlet: 'main-detail' },
+    { path: 'edit-product-type/:id', component: ProductTypeComponent, outlet: 'main-detail' },
+    { path: 'edit-product-category/:id', component: ProductCategoryComponent, outlet: 'main-detail' },
+    { path: 'edit-product-set/:id', component: EditProductSetComponent, outlet: 'main-detail' },
+    { path: 'edit-product/:id', component: ProductComponent, outlet: 'main-detail' },
+    { path: 'edit-uom/:id', component: EditUomComponent, outlet: 'main-detail' },
+    { path: 'edit-customer-type/:id', component: CustomerTypeComponent, outlet: 'main-detail' },
     { path: 'edit-customer/:id', component: EditCustomerComponent, outlet: 'main-detail' },
-    { path: 'edit-supplier-type', component: SupplierTypeComponent, outlet: 'main-detail' },
-    { path: 'edit-supplier', component: SupplierComponent, outlet: 'main-detail' },
-    { path: 'edit-role', component: RoleComponent, outlet: 'main-detail' },
-    { path: 'edit-user', component: UserComponent, outlet: 'main-detail' },
-    { path: 'edit-privilege', component: PrivilegeComponent, outlet: 'main-detail' },
-    { path: 'edit-company', component: CompanyComponent, outlet: 'main-detail'}
+    { path: 'edit-supplier-type/:id', component: SupplierTypeComponent, outlet: 'main-detail' },
+    { path: 'edit-supplier/:id', component: SupplierComponent, outlet: 'main-detail' },
+    { path: 'edit-role/:id', component: RoleComponent, outlet: 'main-detail' },
+    { path: 'edit-user/:id', component: UserComponent, outlet: 'main-detail' },
+    { path: 'edit-privilege/:id', component: PrivilegeComponent, outlet: 'main-detail' },
+    { path: 'edit-company/:id', component: CompanyComponent, outlet: 'main-detail'}
   ]},
   {path: 'quotation', component: QuotationComponent},
   {path: 'quotation-detail', component: QuotationDetailComponent},
@@ -132,7 +144,6 @@ const appRoutes: Routes = [
   {path: 'receive', component: ReceiveComponent},
   {path: 'posofsale', component: PosofsaleComponent},
   {path: 'posofsale-detail', component: PosofsaleDetailComponent},
-  //at the end of the route definitions
   { path: '404', component: Error404Component },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' }
@@ -179,7 +190,15 @@ const appRoutes: Routes = [
     SignupComponent,
     ForgetPasswordComponent,
     NotFoundComponent,
-    Error404Component
+    Error404Component,
+    SearchProductSetComponent,
+    EditProductSetComponent,
+    EditProductComponent,
+    SearchProductComponent,
+    SearchProductTypeComponent,
+    EditProductTypeComponent,
+    EditProductCategoryComponent,
+    SearchProductCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -200,8 +219,8 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ProductTypeService, UserService, StaffService, UtilityService,
-  PosService, CustomerService, CompanyService, NavbarService,
+  providers: [ProductTypeService, UserService, StaffService, UtilityService, UomService,
+  PosService, CustomerService, CompanyService, NavbarService, MessageService,
   CurrencyPipe],
   bootstrap: [AppComponent]
 })

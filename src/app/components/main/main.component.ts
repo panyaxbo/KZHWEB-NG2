@@ -1,12 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { UserService } from '../../services/user/user.service';
 import { CompanyService } from '../../services/company/company.service';
 import { NavbarService } from '../../services/navbar/navbar.service';
+import { MessageService } from '../../services/message/message.service';
 import { User } from '../../classes/user';
 import { Company } from '../../classes/company';
 import { Observable } from 'rxjs/Observable';
-
+import * as firebase from 'firebase';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -18,9 +20,13 @@ export class MainComponent implements OnInit {
   @Output() SelectedMenu: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private router: Router,
-    public _userService: UserService,
-    public _companyService: CompanyService,
-    public _navbarService: NavbarService) {
+              private afAuth: AngularFireAuth,
+              public _userService: UserService,
+              public _messageService: MessageService,
+              public _companyService: CompanyService,
+              public _navbarService: NavbarService
+    ) {
+      console.log('main auth ', this.afAuth.authState);
   }
 
   ngOnInit() {

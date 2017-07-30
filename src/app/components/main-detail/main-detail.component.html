@@ -1,5 +1,6 @@
 <div class="mdl-grid demo-content">
     <!-- General Menu -->
+    {{_navbarService.GetSelectedMenu()}}
     <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" [hidden]="!IsSelectedGeneral">
         <div class="mdl-cell mdl-cell--6-col">
             <ul class="demo-list-item mdl-list">
@@ -15,10 +16,17 @@
                 <i class="fa fa-address-book-o" aria-hidden="true"></i> Product Category</a>
               </span>
                 </li>
+
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
                   <a class="mdl-link menu-link" [routerLink]="['/main', {outlets: {'main-detail': ['search-product']}}]">
                     <i class="fa fa-address-book" aria-hidden="true"></i> Product</a>
+                </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                  <a class="mdl-link menu-link" [routerLink]="['/main', {outlets: {'main-detail': ['search-product-set']}}]">
+                    <i class="fa fa-address-book" aria-hidden="true"></i> Product Set</a>
                 </span>
                 </li>
                 <li class="mdl-list__item">
