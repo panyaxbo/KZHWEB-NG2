@@ -8,22 +8,11 @@ import { UomService } from '../../../services/uom/uom.service';
 @Component({
   selector: 'app-edit-uom',
   templateUrl: './edit-uom.component.html',
-  styleUrls: ['./edit-uom.component.css']
+  styleUrls: ['./edit-uom.component.css'],
 })
 export class EditUomComponent implements OnInit {
   UomId: any;
-  Uom: Uom = {
-    $key: '',
-    Id: '',
-    UomCode: '',
-    UomNameTh: '',
-    UomNameEn: '',
-    IsContainer: false,
-    CreateBy: '',
-    CreateDate: '',
-    UpdateBy: '',
-    UpdateDate: ''
-  };
+  Uom: Uom;
   constructor(private router: Router,
               private ar: ActivatedRoute,
               private db: AngularFireDatabase,
@@ -47,28 +36,30 @@ export class EditUomComponent implements OnInit {
       });
   }
   PopulatedUom(uom) {
-    this.Uom.$key = uom.$key;
-    this.Uom.Id = uom.Id;
-    this.Uom.UomCode = uom.UomCode;
-    this.Uom.UomNameTh = uom.UomNameTh;
-    this.Uom.UomNameEn = uom.UomNameEn;
-    this.Uom.IsContainer = uom.IsContainer;
-    this.Uom.CreateBy = uom.CreateBy === undefined ? '' : uom.CreateBy;
-    this.Uom.CreateDate = uom.CreateDate === undefined ? '' : new Date().toString();
-    this.Uom.UpdateBy = uom.UpdateBy === undefined ? '' : uom.UpdateBy;
-    this.Uom.UpdateDate = uom.UpdateDate === undefined ? '' : new Date().toString();
+    // this.Uom.$key = uom.$key;
+    // this.Uom.Id = uom.Id;
+    // this.Uom.UomCode = uom.UomCode;
+    // this.Uom.UomNameTh = uom.UomNameTh;
+    // this.Uom.UomNameEn = uom.UomNameEn;
+    // this.Uom.IsContainer = uom.IsContainer;
+    // this.Uom.CreateBy = uom.CreateBy === undefined ? '' : uom.CreateBy;
+    // this.Uom.CreateDate = uom.CreateDate === undefined ? '' : new Date().toString();
+    // this.Uom.UpdateBy = uom.UpdateBy === undefined ? '' : uom.UpdateBy;
+    // this.Uom.UpdateDate = uom.UpdateDate === undefined ? '' : new Date().toString();
+    this.Uom = this._uomService.PopulatedUom(uom);
   }
   NewUom() {
-    this.Uom.$key = new Date().getTime().toString();
-    this.Uom.Id = '';
-    this.Uom.UomCode = '';
-    this.Uom.UomNameTh = '';
-    this.Uom.UomNameEn = '';
-    this.Uom.IsContainer = false;
-    this.Uom.CreateBy = '';
-    this.Uom.CreateDate = new Date().toString();
-    this.Uom.UpdateBy = '';
-    this.Uom.UpdateDate = new Date().toString();
+    // this.Uom.$key = new Date().getTime().toString();
+    // this.Uom.Id = '';
+    // this.Uom.UomCode = '';
+    // this.Uom.UomNameTh = '';
+    // this.Uom.UomNameEn = '';
+    // this.Uom.IsContainer = false;
+    // this.Uom.CreateBy = '';
+    // this.Uom.CreateDate = new Date().toString();
+    // this.Uom.UpdateBy = '';
+    // this.Uom.UpdateDate = new Date().toString();
+    this.Uom = this._uomService.NewUom();
   }
   SaveUom() {
     if (this.Uom.$key === '' || this.Uom.$key === undefined) {

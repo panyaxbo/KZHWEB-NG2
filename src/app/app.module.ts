@@ -41,6 +41,9 @@ import { Pos } from './classes/Pos';
 
 // Import Services
 import { ProductTypeService } from './services/product-type/product-type.service';
+import { ProductCategoryService } from './services/product-category/product-category.service';
+import { ProductService } from './services/product/product.service';
+import { ProductSetService } from './services/product-set/product-set.service';
 import { StaffService } from './services/staff/staff.service';
 import { UserService } from './services/user/user.service';
 import { UtilityService } from './services/utility/utility.service';
@@ -52,13 +55,10 @@ import { NavbarService } from './services/navbar/navbar.service';
 import { MessageService } from './services/message/message.service';
 // Import Pipes
 import { ThbCurrencyPipe } from './pipes/thb-currency.pipe';
-import { CurrencyPipe } from '@angular/common';
+import { KzhThDatePipe } from './pipes/kzh-th-date.pipe';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 import { MainDetailComponent } from './components/main-detail/main-detail.component';
-import { ProductComponent } from './components/product/product.component';
-import { ProductTypeComponent } from './components/product-type/product-type.component';
-import { ProductCategoryComponent } from './components/product-category/product-category.component';
 import { CustomerTypeComponent } from './components/customer-type/customer-type.component';
-import { UomComponent } from './components/uom/uom.component';
 import { SupplierComponent } from './components/supplier/supplier.component';
 import { SupplierTypeComponent } from './components/supplier-type/supplier-type.component';
 import { UserComponent } from './components/user/user.component';
@@ -71,19 +71,19 @@ import { SearchCustomerComponent } from './components/customer/search-customer/s
 import { EditCustomerComponent } from './components/customer/edit-customer/edit-customer.component';
 import { SearchProductSetComponent } from './components/product-set/search-product-set/search-product-set.component';
 import { EditProductSetComponent } from './components/product-set/edit-product-set/edit-product-set.component';
-//import { Print80x55mmThermalPaperComponent } from './components/print-80x55mm-thermal-paper/print-80x55mm-thermal-paper.component';
-//import { PrintA4PaperComponent } from './components/print-a4-paper/print-a4-paper.component';
+
 import * as firebase from 'firebase';
 import { SignupComponent } from './components/signup/signup.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { Error404Component } from './components/error404/error404.component';
-import { EditProductComponent } from './edit-product/edit-product.component';
-import { SearchProductComponent } from './search-product/search-product.component';
-import { SearchProductTypeComponent } from './search-product-type/search-product-type.component';
-import { EditProductTypeComponent } from './edit-product-type/edit-product-type.component';
-import { EditProductCategoryComponent } from './edit-product-category/edit-product-category.component';
-import { SearchProductCategoryComponent } from './search-product-category/search-product-category.component';
+import { EditProductComponent } from './components/product/edit-product/edit-product.component';
+import { SearchProductComponent } from './components/product/search-product/search-product.component';
+import { SearchProductTypeComponent } from './components/product-type/search-product-type/search-product-type.component';
+import { EditProductTypeComponent } from './components/product-type/edit-product-type/edit-product-type.component';
+import { EditProductCategoryComponent } from './components/product-category/edit-product-category/edit-product-category.component';
+import { SearchProductCategoryComponent } from './components/product-category/search-product-category/search-product-category.component';
+import { KzhInputFileComponent } from './components/general/kzh-input-file/kzh-input-file.component';
 const configErrMsg = `You have not configured and imported the Firebase SDK.
 Make sure you go through the codelab setup instructions.`;
 
@@ -109,10 +109,10 @@ const appRoutes: Routes = [
   {path: 'main', component: MainComponent , children: [
     { path: '', component: MainDetailComponent, outlet: 'main-detail'},
     // Edit Search
-    { path: 'search-product-type', component: ProductTypeComponent, outlet: 'main-detail' },
-    { path: 'search-product-category', component: ProductCategoryComponent, outlet: 'main-detail' },
+    { path: 'search-product-type', component: SearchProductTypeComponent, outlet: 'main-detail' },
+    { path: 'search-product-category', component: SearchProductCategoryComponent, outlet: 'main-detail' },
     { path: 'search-product-set', component: SearchProductSetComponent, outlet: 'main-detail' },
-    { path: 'search-product', component: ProductComponent, outlet: 'main-detail' },
+    { path: 'search-product', component: SearchProductComponent, outlet: 'main-detail' },
     { path: 'search-uom', component: SearchUomComponent, outlet: 'main-detail' },
     { path: 'search-customer-type', component: CustomerTypeComponent, outlet: 'main-detail' },
     { path: 'search-customer', component: SearchCustomerComponent, outlet: 'main-detail' },
@@ -123,10 +123,10 @@ const appRoutes: Routes = [
     { path: 'search-privilege', component: PrivilegeComponent, outlet: 'main-detail' },
     { path: 'search-company', component: CompanyComponent, outlet: 'main-detail'},
     // Edit Master
-    { path: 'edit-product-type/:id', component: ProductTypeComponent, outlet: 'main-detail' },
-    { path: 'edit-product-category/:id', component: ProductCategoryComponent, outlet: 'main-detail' },
+    { path: 'edit-product-type/:id', component: EditProductTypeComponent, outlet: 'main-detail' },
+    { path: 'edit-product-category/:id', component: EditProductCategoryComponent, outlet: 'main-detail' },
     { path: 'edit-product-set/:id', component: EditProductSetComponent, outlet: 'main-detail' },
-    { path: 'edit-product/:id', component: ProductComponent, outlet: 'main-detail' },
+    { path: 'edit-product/:id', component: EditProductComponent, outlet: 'main-detail' },
     { path: 'edit-uom/:id', component: EditUomComponent, outlet: 'main-detail' },
     { path: 'edit-customer-type/:id', component: CustomerTypeComponent, outlet: 'main-detail' },
     { path: 'edit-customer/:id', component: EditCustomerComponent, outlet: 'main-detail' },
@@ -147,8 +147,6 @@ const appRoutes: Routes = [
   { path: '404', component: Error404Component },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' }
-//  {path: 'a4', component: PrintA4PaperComponent},
-//  {path: 'thermal', component: Print80x55mmThermalPaperComponent}
 ];
 
 @NgModule({
@@ -172,11 +170,7 @@ const appRoutes: Routes = [
     CustomerComponent,
     CompanyComponent,
     MainDetailComponent,
-    ProductComponent,
-    ProductTypeComponent,
-    ProductCategoryComponent,
     CustomerTypeComponent,
-    UomComponent,
     SupplierComponent,
     SupplierTypeComponent,
     UserComponent,
@@ -198,7 +192,9 @@ const appRoutes: Routes = [
     SearchProductTypeComponent,
     EditProductTypeComponent,
     EditProductCategoryComponent,
-    SearchProductCategoryComponent
+    SearchProductCategoryComponent,
+    KzhThDatePipe,
+    KzhInputFileComponent
   ],
   imports: [
     BrowserModule,
@@ -219,9 +215,10 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ProductTypeService, UserService, StaffService, UtilityService, UomService,
+  providers: [ProductTypeService, ProductCategoryService, ProductService, ProductSetService,
+  UserService, StaffService, UtilityService, UomService,
   PosService, CustomerService, CompanyService, NavbarService, MessageService,
-  CurrencyPipe],
+  CurrencyPipe, DatePipe, KzhThDatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

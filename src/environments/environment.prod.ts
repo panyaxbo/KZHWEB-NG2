@@ -19,11 +19,11 @@ export const environment = {
     // ***********************************************************************************************************************
     // * TODO(DEVELOPER): Update values according to: Firebase Console > Overview > Add Firebase to your web app. *
     // ***********************************************************************************************************************
-    apiKey: "AIzaSyA_2nuO2dJNjR2ef3P-NqjUOOC7ZIri830",
-    authDomain: "kzhweb.firebaseapp.com",
-    databaseURL: "https://kzhweb.firebaseio.com",
-    projectId: "kzhweb",
-    storageBucket: "kzhweb.appspot.com",
-    messagingSenderId: "223965628603"
+    apiKey: 'AIzaSyA_2nuO2dJNjR2ef3P-NqjUOOC7ZIri830',
+    authDomain: 'kzhweb.firebaseapp.com',
+    databaseURL: 'https://kzhweb.firebaseio.com',
+    projectId: 'kzhweb',
+    storageBucket: 'kzhweb.appspot.com',
+    messagingSenderId: '223965628603'
   }
 };

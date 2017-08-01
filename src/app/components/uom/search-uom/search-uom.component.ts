@@ -21,7 +21,8 @@ export class SearchUomComponent implements OnInit {
     this.SearchUom();
   }
   SearchUom() {
-    this._uomService.LoadUomData().subscribe(uoms => {
+    this._uomService.LoadUomData()
+    .subscribe(uoms => {
       console.log(uoms);
       this.searchUomList = uoms;
     });

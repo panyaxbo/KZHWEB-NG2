@@ -1,6 +1,5 @@
 export class Uom {
   $key: string;
-  Id: string;
   UomCode: string;
   UomNameTh: string;
   UomNameEn: string;

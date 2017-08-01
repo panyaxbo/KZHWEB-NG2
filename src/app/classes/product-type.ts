@@ -1,6 +1,11 @@
 export class ProductType {
-  productTypeCode: string;
-  productTypeName: string;
-  updateDate: string;
-  updateTime: string;
+  $key: string;
+  ProductTypeCode: string;
+  ProductTypeNameTh: string;
+  ProductTypeNameEn: string;
+  ProductTypeNameCn: string;
+  CreateBy: string;
+  CreateDate: string;
+  UpdateBy: string;
+  UpdateDate: string;
 }

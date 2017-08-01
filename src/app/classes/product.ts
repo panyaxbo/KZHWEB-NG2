@@ -1,2 +1,31 @@
 export class Product {
+  $key: string;
+  ProductCode: string;
+  ProductNameTh: string;
+  ProductNameEn: string;
+  ProductNameCn: string;
+  PartNo: string;
+  Remark: string;
+  Description: string;
+  UomCode: string;
+  Quantity: number;
+  CostPrice: number;
+  RetailPrice: number;
+  WholesalePrice: number;
+  SpecialPrice: number;
+  ContainQuantity: number;
+  ContainCostPrice: number;
+  ContainWholesalePrice: number;
+  ContainSpecialPrice: number;
+  ContainUomCode: string;
+  IsDeprecated: boolean;
+  IsProductSet: boolean;
+  ProductCategoryCode: string;
+  ProductTypeCode: string;
+  ProductKind: string;
+  CreateBy: string;
+  CreateDate: string;
+  UpdateBy: string;
+  UpdateDate: string;
+  ProductImageURL: string
 }

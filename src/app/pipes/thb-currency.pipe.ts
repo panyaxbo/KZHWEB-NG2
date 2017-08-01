@@ -10,7 +10,7 @@ export class ThbCurrencyPipe implements PipeTransform {
 
   }
   transform(value: number, decimal: number): string {
-    var formatted = this.currencyPipe.transform(value, 'USD', false, '.2').replace('USD', '');
+    const formatted = this.currencyPipe.transform(value, 'USD', false, '.2').replace('USD', '');
     return '฿ ' + formatted;
   }
 
