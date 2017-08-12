@@ -4,7 +4,7 @@ import { AppConfig } from '../../classes/app-config';
 
 @Injectable()
 export class AppConfigService {
-
+  AppConfig: AppConfig;
   constructor(private db: AngularFireDatabase) {
 
   }
@@ -17,5 +17,8 @@ export class AppConfigService {
                     });
                     console.log(moduleCode, appConfigObservable);
     return appConfigObservable;
+  }
+  UpdateRunData(moduleCode) {
+    this.db.object('/app-configs')
   }
 }

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -25,7 +26,12 @@ export class SearchProductTypeComponent implements OnInit {
     this._productTypeService.LoadProductTypeData()
     .subscribe(productTypes => {
       console.log(productTypes);
+
       this.searchProductTypeList = productTypes;
+    //  const filterProductTypes = productTypes.filter(productType => productType.ProductTypeCode === 'PT0002');
+    //  const subscribeProductTypes = filterProductTypes.map(result => {
+    //     console.log(`Over 30: ${result.ProductTypeNameTh}`);
+    //    });
     });
   }
   NewProductType() {

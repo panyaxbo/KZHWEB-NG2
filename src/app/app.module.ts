@@ -36,9 +36,6 @@ import { PurchaseComponent } from './components/purchase/purchase.component';
 import { ReceiveComponent } from './components/receive/receive.component';
 import { PosofsaleComponent } from './components/posofsale/posofsale.component';
 import { PosofsaleDetailComponent } from './components/posofsale-detail/posofsale-detail.component';
-//
-import { Pos } from './classes/Pos';
-
 // Import Services
 import { ProductTypeService } from './services/product-type/product-type.service';
 import { ProductCategoryService } from './services/product-category/product-category.service';
@@ -57,10 +54,11 @@ import { MessageService } from './services/message/message.service';
 import { ThbCurrencyPipe } from './pipes/thb-currency.pipe';
 import { KzhThDatePipe } from './pipes/kzh-th-date.pipe';
 import { CurrencyPipe, DatePipe } from '@angular/common';
+// Import Guard
+import { AuthGuardGuard } from './guards/auth-guard.guard';
+// Import Component
 import { MainDetailComponent } from './components/main-detail/main-detail.component';
 import { CustomerTypeComponent } from './components/customer-type/customer-type.component';
-import { SupplierComponent } from './components/supplier/supplier.component';
-import { SupplierTypeComponent } from './components/supplier-type/supplier-type.component';
 import { UserComponent } from './components/user/user.component';
 import { StaffComponent } from './components/staff/staff.component';
 import { PrivilegeComponent } from './components/privilege/privilege.component';
@@ -84,6 +82,10 @@ import { EditProductTypeComponent } from './components/product-type/edit-product
 import { EditProductCategoryComponent } from './components/product-category/edit-product-category/edit-product-category.component';
 import { SearchProductCategoryComponent } from './components/product-category/search-product-category/search-product-category.component';
 import { KzhInputFileComponent } from './components/general/kzh-input-file/kzh-input-file.component';
+import { SearchSupplierTypeComponent } from './components/supplier-type/search-supplier-type/search-supplier-type.component';
+import { EditSupplierTypeComponent } from './components/supplier-type/edit-supplier-type/edit-supplier-type.component';
+import { EditSupplierComponent } from './components/supplier/edit-supplier/edit-supplier.component';
+import { SearchSupplierComponent } from './components/supplier/search-supplier/search-supplier.component';
 const configErrMsg = `You have not configured and imported the Firebase SDK.
 Make sure you go through the codelab setup instructions.`;
 
@@ -106,7 +108,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'forget-password', component: ForgetPasswordComponent},
-  {path: 'main', component: MainComponent , children: [
+  {path: 'main', component: MainComponent , /* canActivate: [AuthGuardGuard], */children: [
     { path: '', component: MainDetailComponent, outlet: 'main-detail'},
     // Edit Search
     { path: 'search-product-type', component: SearchProductTypeComponent, outlet: 'main-detail' },
@@ -116,8 +118,8 @@ const appRoutes: Routes = [
     { path: 'search-uom', component: SearchUomComponent, outlet: 'main-detail' },
     { path: 'search-customer-type', component: CustomerTypeComponent, outlet: 'main-detail' },
     { path: 'search-customer', component: SearchCustomerComponent, outlet: 'main-detail' },
-    { path: 'search-supplier-type', component: SupplierTypeComponent, outlet: 'main-detail' },
-    { path: 'search-supplier', component: SupplierComponent, outlet: 'main-detail' },
+    { path: 'search-supplier-type', component: SearchSupplierTypeComponent, outlet: 'main-detail' },
+    { path: 'search-supplier', component: SearchSupplierComponent, outlet: 'main-detail' },
     { path: 'search-role', component: RoleComponent, outlet: 'main-detail' },
     { path: 'search-user', component: UserComponent, outlet: 'main-detail' },
     { path: 'search-privilege', component: PrivilegeComponent, outlet: 'main-detail' },
@@ -130,8 +132,8 @@ const appRoutes: Routes = [
     { path: 'edit-uom/:id', component: EditUomComponent, outlet: 'main-detail' },
     { path: 'edit-customer-type/:id', component: CustomerTypeComponent, outlet: 'main-detail' },
     { path: 'edit-customer/:id', component: EditCustomerComponent, outlet: 'main-detail' },
-    { path: 'edit-supplier-type/:id', component: SupplierTypeComponent, outlet: 'main-detail' },
-    { path: 'edit-supplier/:id', component: SupplierComponent, outlet: 'main-detail' },
+    { path: 'edit-supplier-type/:id', component: EditSupplierTypeComponent, outlet: 'main-detail' },
+    { path: 'edit-supplier/:id', component: EditSupplierComponent, outlet: 'main-detail' },
     { path: 'edit-role/:id', component: RoleComponent, outlet: 'main-detail' },
     { path: 'edit-user/:id', component: UserComponent, outlet: 'main-detail' },
     { path: 'edit-privilege/:id', component: PrivilegeComponent, outlet: 'main-detail' },
@@ -171,8 +173,6 @@ const appRoutes: Routes = [
     CompanyComponent,
     MainDetailComponent,
     CustomerTypeComponent,
-    SupplierComponent,
-    SupplierTypeComponent,
     UserComponent,
     StaffComponent,
     PrivilegeComponent,
@@ -194,7 +194,11 @@ const appRoutes: Routes = [
     EditProductCategoryComponent,
     SearchProductCategoryComponent,
     KzhThDatePipe,
-    KzhInputFileComponent
+    KzhInputFileComponent,
+    SearchSupplierTypeComponent,
+    EditSupplierTypeComponent,
+    EditSupplierComponent,
+    SearchSupplierComponent
   ],
   imports: [
     BrowserModule,
@@ -218,7 +222,8 @@ const appRoutes: Routes = [
   providers: [ProductTypeService, ProductCategoryService, ProductService, ProductSetService,
   UserService, StaffService, UtilityService, UomService,
   PosService, CustomerService, CompanyService, NavbarService, MessageService,
-  CurrencyPipe, DatePipe, KzhThDatePipe],
+  CurrencyPipe, DatePipe, KzhThDatePipe,
+  AuthGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

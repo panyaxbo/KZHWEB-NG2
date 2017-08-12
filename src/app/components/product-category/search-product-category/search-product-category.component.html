@@ -1,3 +1,64 @@
-<p>
-  search-product-category works!
-</p>
+<div class="mdl-grid demo-content">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
+            <div class="mdl-card__title mdl-card--expand mdl-color--deep-purple-500">
+                <h2 class="mdl-card__title-text">Search Product Category Information</h2>
+            </div>
+            <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <button (click)="NewProductCategory()" id="btnNew" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--add ">
+                      <i class="material-icons">create</i> New
+                    </button>
+                    <div class="mdl-tooltip" data-mdl-for="btnNew">
+                        New Product Category
+                    </div>
+                    <button (click)="ExitProductCategory()" id="btnExit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--exit ">
+                    <i class="material-icons">exit_to_app</i> Exit
+                  </button>
+                    <div class="mdl-tooltip" data-mdl-for="btnExit">
+                        Exit Product Category
+                    </div>
+                </div>
+                <form action="#">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="searchProductCategory" [(ngModel)]="searchProductCategory" [ngModelOptions]="{standalone: true}">
+                        <label class="mdl-textfield__label" for="sample1">Search Product Category...</label>
+                    </div>
+                    <button (click)="SearchProductCategory()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored ">
+                      <i class="material-icons">search</i> Search
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="demo-separator mdl-cell--1-col"></div>
+        <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+            <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50 header-section">
+                <h4>Search Product Category Results</h4>
+            </div>
+            <table class="mdl-data-table mdl-js-data-table search-table">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric"></th>
+                        <th class="mdl-data-table__cell--non-numeric">Code</th>
+                        <th class="mdl-data-table__cell--non-numeric">Name Th</th>
+                        <th class="mdl-data-table__cell--non-numeric">Name En</th>
+                        <th class="mdl-data-table__cell--non-numeric">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let productCategory of searchProductCategiryList">
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <a [routerLink]="['/main', {outlets: {'main-detail': ['edit-product-category', productCategory.$key]}}]">
+                                <i class="material-icons">create</i>
+                            </a>
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">{{productCategory.ProductCategoryCode}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{productCategory.ProductCategoryNameTh}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{productCategory.ProductCategoryNameEn}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{productCategory.ProductTypeCode}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

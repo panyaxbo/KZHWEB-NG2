@@ -1,3 +1,6 @@
+import { ProductCategoryService } from './../../../services/product-category/product-category.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchProductCategoryComponent implements OnInit {
 
-  constructor() { }
+  searchProductCategory: string;
+  searchProductCategoryList: any;
+
+  constructor(private router: Router,
+              private db: AngularFireDatabase,
+              public _productCategoryService: ProductCategoryService) { }
 
   ngOnInit() {
+    this.SearchProductCategory();
   }
-
+  SearchProductCategory() {
+    this._productCategoryService.LoadProductCategory()
+    .subscribe(productCategories => {
+      this.searchProductCategoryList = productCategories;
+    });
+  }
+  NewProductCategory() {
+    this.router.navigateByUrl('/main/(main-detail:edit-product-category/new)');
+  }
+  ExitProductCategory() {
+    this.router.navigateByUrl('/main');
+  }
 }

@@ -45,8 +45,8 @@ export class ProductTypeService {
     this.ProductType.ProductTypeNameTh = productType.ProductTypeNameTh;
     this.ProductType.ProductTypeNameEn = productType.ProductTypeNameEn;
     this.ProductType.ProductTypeNameCn = productType.ProductTypeNameCn;
-    this.ProductType.CreateBy = productType.CreateBy === undefined ? '' : productType.CreateBy;
     const currentDate = this.kzhThDatePipe.transformDateTime(new Date());
+    this.ProductType.CreateBy = productType.CreateBy === undefined ? '' : productType.CreateBy;
     this.ProductType.CreateDate = productType.CreateDate === undefined ? currentDate : productType.CreateDate;
     this.ProductType.UpdateBy = productType.UpdateBy === undefined ? '' : productType.UpdateBy;
     this.ProductType.UpdateDate = productType.UpdateDate === undefined ? currentDate : productType.UpdateDate;
@@ -69,21 +69,20 @@ export class ProductTypeService {
     //  console.log('date １ ', current);
     //  console.log('date 2 ', curren2);
     //  console.log('date 3 ', curren3);
+    const currentTime = this.kzhThDatePipe.transformDateTime(new Date());
     this.db.list('product-types').push({
       ProductTypeCode: newProductType.ProductTypeCode,
       ProductTypeNameTh: newProductType.ProductTypeNameTh,
       ProductTypeNameEn: newProductType.ProductTypeNameEn,
       ProductTypeNameCn: newProductType.ProductTypeNameCn,
       CreateBy: 'Admin',
-      CreateDate: this.kzhThDatePipe.transformDateTime(new Date()),
+      CreateDate: currentTime,
       UpdateBy: 'Admin',
-      UpdateDate: this.kzhThDatePipe.transformDateTime(new Date())
+      UpdateDate: currentTime
     });
   }
   UpdateProductType(newProductType) {
-    console.log('before update ', newProductType);
-   //  newProductType.$key = new Date().getTime();
-     console.log('before update ', newProductType);
+    const currentTime = this.kzhThDatePipe.transformDateTime(new Date());
     this.db.object('product-types/' + newProductType.$key)
     .set({
       ProductTypeCode: newProductType.ProductTypeCode,
@@ -93,7 +92,7 @@ export class ProductTypeService {
       CreateBy: newProductType.CreateBy,
       CreateDate: newProductType.CreateDate,
       UpdateBy: 'Admin',
-      UpdateDate: this.kzhThDatePipe.transformDateTime(new Date())
+      UpdateDate: currentTime
     });
   }
   DeleteProductType() {

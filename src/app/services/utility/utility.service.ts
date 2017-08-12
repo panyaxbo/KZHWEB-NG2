@@ -10,10 +10,12 @@ export class UtilityService {
   constructor(private http: Http) { }
 
   CheckIsNumber(value) {
-    var reg = new RegExp('/^\d+$/');
+    const reg = new RegExp('/^\d+$/');
     return reg.test(value);
   }
-
+  SplitString(searchValue) {
+    const criterias = searchValue.split('/[\s,]+/');
+  }
   LoadPosDummyData(): Observable<any> {
     return this.http.get('./assets/pos-data.json')
                     .map((response: Response) => {

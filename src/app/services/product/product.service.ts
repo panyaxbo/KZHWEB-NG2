@@ -91,9 +91,27 @@ export class ProductService {
     this.product = this.db.object('products/' + key);
     return this.product;
   }
-  CreateProduct() {
+  CreateProduct(newProduct) {
     this.db.list('products').push({
     //  ProductCode
+    });
+  }
+  UpdateProduct(newProduct) {
+    this.db.object('product/' + newProduct.$key).set({
+      ProductCode: newProduct.ProductCode,
+      CreateBy: newProduct.CreateBy,
+      CreateDate: newProduct.CreateDate,
+      UpdateBy: 'Admin',
+      UpdateDate: this.kzhThDatePipe.transformDateTime(new Date())
+    });
+  }
+  DeleteProduct() {
+    this.product.remove()
+    .then(_ => {
+      console.log(_);
+    })
+    .catch(err => {
+      console.log(err);
     });
   }
 
@@ -103,8 +121,8 @@ export class ProductService {
   //  storageRef.putFile();
   //  let storage = firebase.storage();
   //  var pathReference = storage.ref(imagePath);
-    let success = false;
-    let path = '/product';
-    var iRef = storageRef.child(path)
+    // let success = false;
+    // let path = '/product';
+    // var iRef = storageRef.child(path)
   }
 }
