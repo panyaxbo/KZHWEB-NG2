@@ -1,3 +1,4 @@
+import { AppConfigService } from './../../services/app-config/app-config.service';
 import {Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -51,6 +52,7 @@ SL176-2007）、《水利水电基本建设工程单元工程质量评定标准�
               public _companyService: CompanyService,
               private router: Router,
               public afAuth: AngularFireAuth,
+              public _appConfigService: AppConfigService,
               private elRef: ElementRef) {
     this.datas = [
         {
@@ -146,7 +148,7 @@ SL176-2007）、《水利水电基本建设工程单元工程质量评定标准�
       this._userService.SetCurrentUserData(this.User);
       this.router.navigateByUrl('/main');
     }).catch((error) => {
-    	console.log('log fb ', error);
+      console.log('log fb ', error);
     });
   }
   LoginWithGoogle() {
@@ -158,7 +160,7 @@ SL176-2007）、《水利水电基本建设工程单元工程质量评定标准�
       this._userService.SetCurrentUserData(this.User);
       this.router.navigateByUrl('/main');
     }).catch((error) => {
-    	console.log('log gg ', error);
+      console.log('log gg ', error);
     });
   }
   LoginWithTwitter() {
@@ -217,5 +219,13 @@ SL176-2007）、《水利水电基本建设工程单元工程质量评定标准�
     } else if (print === 'print2') {
         this.printComponent2.print();
     }
+  }
+  GetMasterNewCode() {
+    console.log('GetMasterNewCode');
+    const aa = this._appConfigService.GetNewCode('ST');
+  }
+  GetTransactionNewCode() {
+    console.log('GetTransactionNewCode');
+    const aa = this._appConfigService.GetNewCode('RO');
   }
 }

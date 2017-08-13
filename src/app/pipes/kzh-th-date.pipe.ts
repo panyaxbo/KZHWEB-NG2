@@ -31,4 +31,16 @@ export class KzhThDatePipe implements PipeTransform {
     const dateFotmat = this.datePipe.transform(value, timeFormat).replace('พ.ศ. ', '');
     return dateFotmat;
   }
+  transformShortYear(value: any, args?: any): any {
+    this.datePipe = new DatePipe('th');
+    const timeFormat = 'yy';
+    const dateFotmat = this.datePipe.transform(value, timeFormat).replace('พ.ศ. ', '');
+    return dateFotmat;
+  }
+  transformMonth(value: any, args?: any): any {
+    this.datePipe = new DatePipe('th');
+    const timeFormat = 'MM';
+    const dateFotmat = this.datePipe.transform(value, timeFormat).replace('พ.ศ. ', '');
+    return dateFotmat;
+  }
 }

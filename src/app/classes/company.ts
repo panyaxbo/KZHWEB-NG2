@@ -1,11 +1,16 @@
 export class Company {
-  companyCode: string;
-  companyShortName: string;
-  companyNameTh: string;
-  companyNameEn: string;
-  telNo: string;
-  faxNo: string;
-  email: string;
-  vatRate: number;
-  taxId: string;
+  $key: string;
+  CompanyCode: string;
+  CompanyShortName: string;
+  CompanyNameTh: string;
+  CompanyNameEn: string;
+  TelNo: string;
+  FaxNo: string;
+  Email: string;
+  VatRate: number;
+  TaxId: string;
+  CreateBy: string;
+  CreateDate: string;
+  UpdateBy: string;
+  UpdateDate: string;
 }

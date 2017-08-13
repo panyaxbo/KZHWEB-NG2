@@ -27,7 +27,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainComponent } from './components/main/main.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { CompanyComponent } from './components/company/company.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { QuotationComponent } from './components/quotation/quotation.component';
 import { QuotationDetailComponent } from './components/quotation-detail/quotation-detail.component';
@@ -46,10 +45,15 @@ import { UserService } from './services/user/user.service';
 import { UtilityService } from './services/utility/utility.service';
 import { PosService } from './services/pos/pos.service';
 import { UomService } from './services/uom/uom.service';
+import { CustomerTypeService } from './services/customer-type/customer-type.service';
 import { CustomerService } from './services/customer/customer.service';
 import { CompanyService } from './services/company/company.service';
 import { NavbarService } from './services/navbar/navbar.service';
 import { MessageService } from './services/message/message.service';
+import { SupplierTypeService } from './services/supplier-type/supplier-type.service';
+import { SupplierService } from './services/supplier/supplier.service';
+import { AppConfigService } from './services/app-config/app-config.service';
+import { ReceiptOrderService } from './services/receipt-order/receipt-order.service';
 // Import Pipes
 import { ThbCurrencyPipe } from './pipes/thb-currency.pipe';
 import { KzhThDatePipe } from './pipes/kzh-th-date.pipe';
@@ -58,11 +62,7 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
 import { AuthGuardGuard } from './guards/auth-guard.guard';
 // Import Component
 import { MainDetailComponent } from './components/main-detail/main-detail.component';
-import { CustomerTypeComponent } from './components/customer-type/customer-type.component';
-import { UserComponent } from './components/user/user.component';
-import { StaffComponent } from './components/staff/staff.component';
 import { PrivilegeComponent } from './components/privilege/privilege.component';
-import { RoleComponent } from './components/role/role.component';
 import { EditUomComponent } from './components/uom/edit-uom/edit-uom.component';
 import { SearchUomComponent } from './components/uom/search-uom/search-uom.component';
 import { SearchCustomerComponent } from './components/customer/search-customer/search-customer.component';
@@ -86,6 +86,16 @@ import { SearchSupplierTypeComponent } from './components/supplier-type/search-s
 import { EditSupplierTypeComponent } from './components/supplier-type/edit-supplier-type/edit-supplier-type.component';
 import { EditSupplierComponent } from './components/supplier/edit-supplier/edit-supplier.component';
 import { SearchSupplierComponent } from './components/supplier/search-supplier/search-supplier.component';
+import { SearchCustomerTypeComponent } from './components/customer-type/search-customer-type/search-customer-type.component';
+import { EditCustomerTypeComponent } from './components/customer-type/edit-customer-type/edit-customer-type.component';
+import { SearchRoleComponent } from './components/role/search-role/search-role.component';
+import { EditRoleComponent } from './components/role/edit-role/edit-role.component';
+import { SearchStaffComponent } from './components/staff/search-staff/search-staff.component';
+import { EditStaffComponent } from './components/staff/edit-staff/edit-staff.component';
+import { SearchUserComponent } from './components/user/search-user/search-user.component';
+import { EditUserComponent } from './components/user/edit-user/edit-user.component';
+import { SearchCompanyComponent } from './components/company/search-company/search-company.component';
+import { EditCompanyComponent } from './components/company/edit-company/edit-company.component';
 const configErrMsg = `You have not configured and imported the Firebase SDK.
 Make sure you go through the codelab setup instructions.`;
 
@@ -116,28 +126,30 @@ const appRoutes: Routes = [
     { path: 'search-product-set', component: SearchProductSetComponent, outlet: 'main-detail' },
     { path: 'search-product', component: SearchProductComponent, outlet: 'main-detail' },
     { path: 'search-uom', component: SearchUomComponent, outlet: 'main-detail' },
-    { path: 'search-customer-type', component: CustomerTypeComponent, outlet: 'main-detail' },
+    { path: 'search-customer-type', component: SearchCustomerTypeComponent, outlet: 'main-detail' },
     { path: 'search-customer', component: SearchCustomerComponent, outlet: 'main-detail' },
     { path: 'search-supplier-type', component: SearchSupplierTypeComponent, outlet: 'main-detail' },
     { path: 'search-supplier', component: SearchSupplierComponent, outlet: 'main-detail' },
-    { path: 'search-role', component: RoleComponent, outlet: 'main-detail' },
-    { path: 'search-user', component: UserComponent, outlet: 'main-detail' },
+    { path: 'search-role', component: SearchRoleComponent, outlet: 'main-detail' },
+    { path: 'search-user', component: SearchUserComponent, outlet: 'main-detail' },
     { path: 'search-privilege', component: PrivilegeComponent, outlet: 'main-detail' },
-    { path: 'search-company', component: CompanyComponent, outlet: 'main-detail'},
+    { path: 'search-company', component: SearchCompanyComponent, outlet: 'main-detail'},
+    { path: 'search-staff', component: SearchStaffComponent, outlet: 'main-detail'},
     // Edit Master
     { path: 'edit-product-type/:id', component: EditProductTypeComponent, outlet: 'main-detail' },
     { path: 'edit-product-category/:id', component: EditProductCategoryComponent, outlet: 'main-detail' },
     { path: 'edit-product-set/:id', component: EditProductSetComponent, outlet: 'main-detail' },
     { path: 'edit-product/:id', component: EditProductComponent, outlet: 'main-detail' },
     { path: 'edit-uom/:id', component: EditUomComponent, outlet: 'main-detail' },
-    { path: 'edit-customer-type/:id', component: CustomerTypeComponent, outlet: 'main-detail' },
+    { path: 'edit-customer-type/:id', component: EditCustomerTypeComponent, outlet: 'main-detail' },
     { path: 'edit-customer/:id', component: EditCustomerComponent, outlet: 'main-detail' },
     { path: 'edit-supplier-type/:id', component: EditSupplierTypeComponent, outlet: 'main-detail' },
     { path: 'edit-supplier/:id', component: EditSupplierComponent, outlet: 'main-detail' },
-    { path: 'edit-role/:id', component: RoleComponent, outlet: 'main-detail' },
-    { path: 'edit-user/:id', component: UserComponent, outlet: 'main-detail' },
+    { path: 'edit-role/:id', component: EditRoleComponent, outlet: 'main-detail' },
+    { path: 'edit-user/:id', component: EditUserComponent, outlet: 'main-detail' },
     { path: 'edit-privilege/:id', component: PrivilegeComponent, outlet: 'main-detail' },
-    { path: 'edit-company/:id', component: CompanyComponent, outlet: 'main-detail'}
+    { path: 'edit-company/:id', component: EditCompanyComponent, outlet: 'main-detail'},
+    { path: 'edit-staff/:id', component: EditStaffComponent, outlet: 'main-detail'}
   ]},
   {path: 'quotation', component: QuotationComponent},
   {path: 'quotation-detail', component: QuotationDetailComponent},
@@ -170,13 +182,8 @@ const appRoutes: Routes = [
     PosofsaleDetailComponent,
     ThbCurrencyPipe,
     CustomerComponent,
-    CompanyComponent,
     MainDetailComponent,
-    CustomerTypeComponent,
-    UserComponent,
-    StaffComponent,
     PrivilegeComponent,
-    RoleComponent,
     EditUomComponent,
     SearchUomComponent,
     SearchCustomerComponent,
@@ -198,7 +205,17 @@ const appRoutes: Routes = [
     SearchSupplierTypeComponent,
     EditSupplierTypeComponent,
     EditSupplierComponent,
-    SearchSupplierComponent
+    SearchSupplierComponent,
+    SearchCustomerTypeComponent,
+    EditCustomerTypeComponent,
+    SearchRoleComponent,
+    EditRoleComponent,
+    SearchStaffComponent,
+    EditStaffComponent,
+    SearchUserComponent,
+    EditUserComponent,
+    SearchCompanyComponent,
+    EditCompanyComponent
   ],
   imports: [
     BrowserModule,
@@ -220,8 +237,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductTypeService, ProductCategoryService, ProductService, ProductSetService,
-  UserService, StaffService, UtilityService, UomService,
-  PosService, CustomerService, CompanyService, NavbarService, MessageService,
+  UserService, StaffService, UtilityService, UomService, SupplierTypeService, SupplierService,
+  PosService, CustomerService, CustomerTypeService, CompanyService, NavbarService, MessageService, AppConfigService,
+  ReceiptOrderService,
   CurrencyPipe, DatePipe, KzhThDatePipe,
   AuthGuardGuard],
   bootstrap: [AppComponent]

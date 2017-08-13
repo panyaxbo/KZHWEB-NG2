@@ -8,7 +8,27 @@ export class SupplierService {
   supplier: FirebaseObjectObservable<any>;
   Supplier: Supplier = {
     $key: '',
-  }
+    SupplierCode: '',
+    SupplierNameTh: '',
+    SupplierNameEn: '',
+    SupplierTypeCode: '',
+    TelNo: '',
+    MobileNo: '',
+    FaxNo: '',
+    Email: '',
+    Description: '',
+    SalePerson: '',
+    SalePersonContact: '',
+    AccountNo: '',
+    PaymentDescription: '',
+    PaymentTypeCode: '',
+    VateRate: 0,
+    TaxId: '',
+    CreateBy: '',
+    CreateDate: '',
+    UpdateBy: '',
+    UpdateDate: ''
+  };
   constructor() { }
 
 }
