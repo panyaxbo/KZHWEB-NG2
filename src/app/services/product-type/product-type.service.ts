@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ProductType } from '../../classes/product-type';
@@ -20,8 +19,7 @@ export class ProductTypeService {
     UpdateBy: '',
     UpdateDate: ''
   };
-  constructor(private http: Http,
-              private afAuth: AngularFireAuth,
+  constructor(private afAuth: AngularFireAuth,
               private db: AngularFireDatabase,
               private kzhThDatePipe: KzhThDatePipe) {
     this.productTypes = this.db.list('product-types');
@@ -57,7 +55,6 @@ export class ProductTypeService {
   }
   LoadProductTypeByKey(key): FirebaseObjectObservable<any> {
     this.productType = this.db.object('product-types/' + key);
-    console.log(this.productType);
     return this.productType;
   }
   CreateProductType(newProductType) {

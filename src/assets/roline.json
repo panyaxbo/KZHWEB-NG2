@@ -1,0 +1,31 @@
+[{
+        "SeqNo": 1,
+        "ProductCode": "PD5459",
+        "ProductNameTh": "ท่อหน้า ดำ WAVE125X SUTA",
+        "ROHeadId": "54e6c0eeb76de97fe0cdff01",
+        "UomCode": "UO0004",
+        "Quantity": "1.00",
+        "Price": "145.00",
+        "Discount": "0.00",
+        "Amount": "145.00",
+        "Remark": "",
+        "CapitalAmount": 112.00,
+        "ProfitAmount": 33.00,
+        "VatAmount": "0.00"
+    },
+    {
+        "SeqNo": 2,
+        "ProductCode": "PD0773",
+        "ProductNameTh": "ขาสตาร์ท VR150 JT",
+        "ROHeadId": "54e6c0eeb76de97fe0cdff01",
+        "UomCode": "UO0004",
+        "Quantity": 1.00,
+        "Price": 170.00,
+        "Discount": 0.00,
+        "Amount": 170.00,
+        "Remark": "",
+        "CapitalAmount": 95.00,
+        "ProfitAmount": 75.00,
+        "VatAmount": "0.00"
+    }
+]

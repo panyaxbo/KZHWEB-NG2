@@ -1,0 +1,615 @@
+[{
+        "_id": "556683f8257c412988d028e7",
+        "Province": "ตาก",
+        "ProvinceEn": "Tak",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028e9",
+        "Province": "น่าน",
+        "ProvinceEn": "Nan",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028ea",
+        "Province": "พะเยา",
+        "ProvinceEn": "Phayao",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028eb",
+        "Province": "พิจิตร",
+        "ProvinceEn": "Phichit",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028ee",
+        "Province": "แพร่",
+        "ProvinceEn": "Phrae",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028f0",
+        "Province": "ลำปาง",
+        "ProvinceEn": "Lampang",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028f1",
+        "Province": "ลำพูน",
+        "ProvinceEn": "Lamphun",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028f2",
+        "Province": "สุโขทัย",
+        "ProvinceEn": "Sukhothai",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d028f5",
+        "Province": "กาฬสินธุ์",
+        "ProvinceEn": "Kalasin",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d028f6",
+        "Province": "ขอนแก่น",
+        "ProvinceEn": "Khon Kaen",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d028f7",
+        "Province": "ชัยภูมิ",
+        "ProvinceEn": "Chaiyaphum",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d028f8",
+        "Province": "นครพนม",
+        "ProvinceEn": "Nakhon Phanom",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d028f9",
+        "Province": "นครราชสีมา",
+        "ProvinceEn": "Nakhon Ratchasima",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d028fa",
+        "Province": "บุรีรัมย์",
+        "ProvinceEn": "Buri Ram",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d028fb",
+        "Province": "บึงกาฬ",
+        "ProvinceEn": "Bueng Kan",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d028fc",
+        "Province": "มหาสารคาม",
+        "ProvinceEn": "Maha Sarakham",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d028fd",
+        "Province": "มุกดาหาร",
+        "ProvinceEn": "Mukdahan",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d028fe",
+        "Province": "ยโสธร",
+        "ProvinceEn": "Yasothon",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d028ff",
+        "Province": "ร้อยเอ็ด",
+        "ProvinceEn": "Roi Et",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02901",
+        "Province": "ศรีสะเกษ",
+        "ProvinceEn": "Si Sa Ket",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02902",
+        "Province": "สกลนคร",
+        "ProvinceEn": "Sakon Nakhon",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02903",
+        "Province": "สุรินทร์",
+        "ProvinceEn": "Surin",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02904",
+        "Province": "หนองคาย",
+        "ProvinceEn": "Nong Khai",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02905",
+        "Province": "หนองบัวลำภู",
+        "ProvinceEn": "Nong Bua Lamphu",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02906",
+        "Province": "อำนาจเจริญ",
+        "ProvinceEn": "Amnat Charoen",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02907",
+        "Province": "อุดรธานี",
+        "ProvinceEn": "Udon Thani",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02908",
+        "Province": "อุบลราชธานี",
+        "ProvinceEn": "Ubon Ratchathani",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02909",
+        "Province": "กรุงเทพฯ",
+        "ProvinceEn": "Bangkok",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0290c",
+        "Province": "ชัยนาท",
+        "ProvinceEn": "Chai Nat",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0290d",
+        "Province": "นครนายก",
+        "ProvinceEn": "Nakhon Nayok",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0290e",
+        "Province": "นครปฐม",
+        "ProvinceEn": "Nakhon Pathom",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0290f",
+        "Province": "นนทบุรี",
+        "ProvinceEn": "Nonthaburi",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02914",
+        "Province": "เพชรบุรี",
+        "ProvinceEn": "Phetchaburi",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02915",
+        "Province": "ราชบุรี",
+        "ProvinceEn": "Ratchaburi",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02916",
+        "Province": "ลพบุรี",
+        "ProvinceEn": "Lop Buri",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0291a",
+        "Province": "สระแก้ว",
+        "ProvinceEn": "Sa Kaeo",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0291b",
+        "Province": "สระบุรี",
+        "ProvinceEn": "Saraburi",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0291e",
+        "Province": "อ่างทอง",
+        "ProvinceEn": "Ang Thong",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02922",
+        "Province": "ตราด",
+        "ProvinceEn": "Trat",
+        "Part": "ตะวันออก"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02923",
+        "Province": "ระยอง",
+        "ProvinceEn": "Rayong",
+        "Part": "ตะวันออก"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02924",
+        "Province": "กระบี่",
+        "ProvinceEn": "Krabi",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02925",
+        "Province": "ชุมพร",
+        "ProvinceEn": "Chumphon",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02926",
+        "Province": "ตรัง",
+        "ProvinceEn": "Trang",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02928",
+        "Province": "นราธิวาส",
+        "ProvinceEn": "Narathiwat",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02929",
+        "Province": "ปัตตานี",
+        "ProvinceEn": "Pattani",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0292a",
+        "Province": "พังงา",
+        "ProvinceEn": "Phang Nga",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0292b",
+        "Province": "พัทลุง",
+        "ProvinceEn": "Phatthalung",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0292c",
+        "Province": "ภูเก็ต",
+        "ProvinceEn": "Phuket",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0292d",
+        "Province": "ยะลา",
+        "ProvinceEn": "Yala",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0292e",
+        "Province": "ระนอง",
+        "ProvinceEn": "Ranong",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0292f",
+        "Province": "สงขลา",
+        "ProvinceEn": "Songkhla",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02930",
+        "Province": "สตูล",
+        "ProvinceEn": "Satun",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55667fee257c412988d028e3",
+        "Province": "กำแพงเพชร",
+        "ProvinceEn": "Kamphaeng Phet",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "55667fee257c412988d028e4",
+        "Province": "เชียงราย",
+        "ProvinceEn": "Chiang Rai",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028e6",
+        "Province": "เชียงใหม่",
+        "ProvinceEn": "Chiang Mai",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028e8",
+        "Province": "นครสวรรค์",
+        "ProvinceEn": "Nakhon Sawan",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028ec",
+        "Province": "พิษณุโลก",
+        "ProvinceEn": "Phitsanulok",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028ed",
+        "Province": "เพชรบูรณ์",
+        "ProvinceEn": "Phetchabun",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028ef",
+        "Province": "แม่ฮ่องสอน",
+        "ProvinceEn": "Mae Hong Son",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028f3",
+        "Province": "อุตรดิตถ์",
+        "ProvinceEn": "Uttaradit",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "556683f8257c412988d028f4",
+        "Province": "อุทัยธานี",
+        "ProvinceEn": "Uthai Thani",
+        "Part": "เหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02931",
+        "Province": "สุราษฎร์ธานี",
+        "ProvinceEn": "Surat Thani",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02900",
+        "Province": "เลย",
+        "ProvinceEn": "Loei",
+        "Part": "ตะวันออกเฉียงเหนือ"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02910",
+        "Province": "ปทุมธานี",
+        "ProvinceEn": "Pathum Thani",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02917",
+        "Province": "สมุทรปราการ",
+        "ProvinceEn": "Samut Prakan",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0291d",
+        "Province": "สุพรรณบุรี",
+        "ProvinceEn": "Suphan Buri",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02918",
+        "Province": "สมุทรสงคราม",
+        "ProvinceEn": "Samut Songkhram",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02921",
+        "Province": "ชลบุรี",
+        "ProvinceEn": "Chon Buri",
+        "Part": "ตะวันออก"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0291f",
+        "Province": "จันทบุรี",
+        "ProvinceEn": "Chanthaburi",
+        "Part": "ตะวันออก"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0290b",
+        "Province": "ฉะเชิงเทรา",
+        "ProvinceEn": "Chachoengsao",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0290a",
+        "Province": "กาญจนบุรี",
+        "ProvinceEn": "Kanchanaburi",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02911",
+        "Province": "ประจวบคีรีขันธ์",
+        "ProvinceEn": "Prachuap Khiri Khan",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02912",
+        "Province": "ปราจีนบุรี",
+        "ProvinceEn": "Prachin Buri",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02913",
+        "Province": "พระนครศรีอยุธยา",
+        "ProvinceEn": "Phra Nakhon Si Ayutthaya",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02919",
+        "Province": "สมุทรสาคร",
+        "ProvinceEn": "Samut Sakhon",
+        "Part": "กลาง"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d02927",
+        "Province": "นครศรีธรรมราช",
+        "ProvinceEn": "Nakhon Si Thammarat",
+        "Part": "ใต้"
+    }
+
+    ,
+    {
+        "_id": "55669d62257c412988d0291c",
+        "Province": "สิงห์บุรี",
+        "ProvinceEn": "Sing Buri",
+        "Part": "กลาง"
+    }
+]

@@ -27,7 +27,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MainComponent } from './components/main/main.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { CustomerComponent } from './components/customer/customer.component';
 import { QuotationComponent } from './components/quotation/quotation.component';
 import { QuotationDetailComponent } from './components/quotation-detail/quotation-detail.component';
 import { InvoiceComponent } from './components/invoice/invoice.component';
@@ -96,6 +95,8 @@ import { SearchUserComponent } from './components/user/search-user/search-user.c
 import { EditUserComponent } from './components/user/edit-user/edit-user.component';
 import { SearchCompanyComponent } from './components/company/search-company/search-company.component';
 import { EditCompanyComponent } from './components/company/edit-company/edit-company.component';
+import { SearchReceiptComponent } from './components/receipt/search-receipt/search-receipt.component';
+import { EditReceiptComponent } from './components/receipt/edit-receipt/edit-receipt.component';
 const configErrMsg = `You have not configured and imported the Firebase SDK.
 Make sure you go through the codelab setup instructions.`;
 
@@ -181,7 +182,6 @@ const appRoutes: Routes = [
     PosofsaleComponent,
     PosofsaleDetailComponent,
     ThbCurrencyPipe,
-    CustomerComponent,
     MainDetailComponent,
     PrivilegeComponent,
     EditUomComponent,
@@ -215,7 +215,9 @@ const appRoutes: Routes = [
     SearchUserComponent,
     EditUserComponent,
     SearchCompanyComponent,
-    EditCompanyComponent
+    EditCompanyComponent,
+    SearchReceiptComponent,
+    EditReceiptComponent
   ],
   imports: [
     BrowserModule,
