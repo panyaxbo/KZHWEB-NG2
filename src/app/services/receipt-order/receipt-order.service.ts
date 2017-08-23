@@ -51,8 +51,8 @@ export class ReceiptOrderService {
   constructor(private db: AngularFireDatabase,
               private kzhThDatePipe: KzhThDatePipe) { }
 
-  GetLatestReceiptOrderDocument() {
-    this.db.list('receipt', {
+  GetLatestReceiptOrderDocument(): any  {
+    return this.db.list('roheads', {
       query: {
         limitToLast: 1
       }

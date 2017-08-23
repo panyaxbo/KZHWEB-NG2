@@ -14,7 +14,7 @@ export class Supplier {
   AccountNo: string;
   PaymentDescription: string;
   PaymentTypeCode: string;
-  VateRate: number;
+  VatRate: number;
   TaxId: string;
   CreateBy: string;
   CreateDate: string;

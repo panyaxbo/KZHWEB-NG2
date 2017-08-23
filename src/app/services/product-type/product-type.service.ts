@@ -1,3 +1,5 @@
+import { AppConfigService } from './../app-config/app-config.service';
+import { UserService } from './../user/user.service';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -6,6 +8,7 @@ import { KzhThDatePipe } from '../../pipes/kzh-th-date.pipe';
 
 @Injectable()
 export class ProductTypeService {
+  private MODULE_CODE = 'PT';
   productTypes: FirebaseListObservable<any[]>;
   productType: FirebaseObjectObservable<any>;
   ProductType: ProductType = {
@@ -19,9 +22,10 @@ export class ProductTypeService {
     UpdateBy: '',
     UpdateDate: ''
   };
-  constructor(private afAuth: AngularFireAuth,
-              private db: AngularFireDatabase,
-              private kzhThDatePipe: KzhThDatePipe) {
+  constructor(private db: AngularFireDatabase,
+              private kzhThDatePipe: KzhThDatePipe,
+              public _userService: UserService,
+              public _appConfig: AppConfigService) {
     this.productTypes = this.db.list('product-types');
   }
   NewProductType() {
@@ -58,14 +62,6 @@ export class ProductTypeService {
     return this.productType;
   }
   CreateProductType(newProductType) {
-    // console.log('before push ', newProductType);
-    // console.log('before push ', newProductType);
-    // const current = this.kzhThDatePipe.transformDateTime(new Date());
-    // const curren2 = this.kzhThDatePipe.transformDate(new Date());
-    // const curren3 = this.kzhThDatePipe.transformTime(new Date());
-    //  console.log('date １ ', current);
-    //  console.log('date 2 ', curren2);
-    //  console.log('date 3 ', curren3);
     const currentTime = this.kzhThDatePipe.transformDateTime(new Date());
     this.db.list('product-types').push({
       ProductTypeCode: newProductType.ProductTypeCode,

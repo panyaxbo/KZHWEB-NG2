@@ -28,10 +28,6 @@ export class SearchProductTypeComponent implements OnInit {
       console.log(productTypes);
 
       this.searchProductTypeList = productTypes;
-    //  const filterProductTypes = productTypes.filter(productType => productType.ProductTypeCode === 'PT0002');
-    //  const subscribeProductTypes = filterProductTypes.map(result => {
-    //     console.log(`Over 30: ${result.ProductTypeNameTh}`);
-    //    });
     });
   }
   NewProductType() {

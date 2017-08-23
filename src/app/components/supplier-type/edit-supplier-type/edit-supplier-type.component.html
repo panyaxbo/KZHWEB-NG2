@@ -1,3 +1,120 @@
-<p>
-  edit-supplier-type works!
-</p>
+<div class="mdl-grid demo-content">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col
+       mdl-cell--12-col-tablet mdl-cell--12-col-desktop header-section">
+            <h4 class="header-detail edit-header-section">Supplier Type Details</h4>
+        </div>
+        <div class="mdl-cell mdl-cell--12-col">
+            <button (click)="NewSupplierType()" id="btnNew" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--add ">
+              <i class="material-icons">create</i> New
+            </button>
+            <div class="mdl-tooltip" data-mdl-for="btnNew">
+                New Supplier Type
+            </div>
+            <button (click)="SaveSupplierType()" id="btnSave" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--save ">
+            <i class="material-icons">save</i> Save
+          </button>
+            <div class="mdl-tooltip" data-mdl-for="btnSave">
+                Save Supplier Type
+            </div>
+            <button (click)="DeleteSupplierType()" id="btnDelete" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--delete ">
+              <i class="material-icons">delete</i> Delete
+            </button>
+            <div class="mdl-tooltip" data-mdl-for="btnDelete">
+                Delete Supplier Type
+            </div>
+            <button (click)="BacktoSearchSupplierType()" id="btnBackSearch" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--back2search ">
+            <i class="material-icons">reply</i> Search
+          </button>
+            <div class="mdl-tooltip" data-mdl-for="btnBackSearch">
+                Back to Search
+            </div>
+            <button (click)="ExitSupplierType()" id="btnExit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--exit ">
+              <i class="material-icons">exit_to_app</i> Exit
+            </button>
+            <div class="mdl-tooltip" data-mdl-for="btnExit">
+                Exit Supplier Type
+            </div>
+        </div>
+        <div class="mdl-cell mdl-cell--6-col">
+            <ul class="demo-list-control mdl-list">
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="supplierCode"
+                  [(ngModel)]="SupplierType.SupplierTypeCode" >
+                  <label class="mdl-textfield__label" for="sample1">Supplier Type Code</label>
+                </div>
+              </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="uomNameTh"
+                  [(ngModel)]="SupplierType.SupplierTypeNameTh" >
+                  <label class="mdl-textfield__label" for="sample1">Supplier Type Name Th</label>
+                </div>
+              </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="uomNameEn"
+                  [(ngModel)]="SupplierType.SupplierTypeNameEn" >
+                  <label class="mdl-textfield__label" for="sample1">Supplier Type Name En</label>
+                </div>
+              </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="uomNameCn"
+                  [(ngModel)]="SupplierType.SupplierTypeNameCn" >
+                  <label class="mdl-textfield__label" for="sample1">Supplier Type Name Cn</label>
+                </div>
+              </span>
+                </li>
+            </ul>
+        </div>
+        <div class="mdl-cell mdl-cell--6-col">
+            <ul class="demo-list-control mdl-list">
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input text-readonly" type="text" id="createBy"
+                  [(ngModel)]="SupplierType.CreateBy" [readonly]="true">
+                  <label class="mdl-textfield__label" for="sample1">Create By</label>
+                </div>
+              </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input text-readonly" type="text" id="createDate"
+                      [(ngModel)]="SupplierType.CreateDate" [readonly]="true">
+                      <label class="mdl-textfield__label" for="sample1">Create Date</label>
+                    </div>
+                  </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input text-readonly" type="text" id="updateBy"
+                      [(ngModel)]="SupplierType.UpdateBy" [readonly]="true">
+                      <label class="mdl-textfield__label" for="sample1">Update By</label>
+                    </div>
+                  </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input text-readonly" type="text" id="updateDate"
+                  [(ngModel)]="SupplierType.UpdateDate" [readonly]="true">
+                  <label class="mdl-textfield__label" for="sample1">Update Date</label>
+                </div>
+              </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

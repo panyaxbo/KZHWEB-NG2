@@ -54,7 +54,7 @@ export class SupplierTypeService {
     this.SupplierType.UpdateDate = supplierType.UpdateDate === undefined ? currentTime : supplierType.UpdateDate;
     return this.SupplierType;
   }
-  LoadSupplierType(): FirebaseListObservable<any[]> {
+  LoadSupplierTypeData(): FirebaseListObservable<any[]> {
     return this.supplierTypes;
   }
   LoadSupplierTypeByKey(key) {
@@ -66,7 +66,7 @@ export class SupplierTypeService {
     const currentTime = this.kzhThDatePipe.transformDateTime(new Date());
     const displayName = this._userService.GetCurrentUserData().displayName;
     this.db.list('supplier-types').push({
-      SupplierTypeCode: newSupplierType.SupplierTypeCode,
+      SupplierTypeCode: runNewCode,
       SupplierTypeNameTh: newSupplierType.SupplierTypeNameTh,
       SupplierTypeNameEn: newSupplierType.SupplierTypeNameEn,
       SupplierTypeNameCn: newSupplierType.SupplierTypeNameCn,
@@ -91,5 +91,13 @@ export class SupplierTypeService {
       UpdateDate: currentTime
     })
   }
-
+  DeleteSupplierType() {
+    this.supplierType.remove()
+    .then(_ => {
+      console.log(_);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
 }

@@ -87,3 +87,7 @@ body {
 .header-section {
     min-height: 100px;
 }
+
+.edit-header-section {
+    color: whitesmoke;
+}

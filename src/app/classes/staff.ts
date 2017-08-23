@@ -18,7 +18,7 @@ export class Staff {
   ResignDate: string;
   BirthDate: string;
   SalaryAmount: number;
-  SalaryPeyDay: number;
+  SalaryPerDay: number;
   CreateBy: string;
   CreateDate: string;
   UpdateBy: string;

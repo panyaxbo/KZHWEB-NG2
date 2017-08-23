@@ -39,4 +39,8 @@ export class UtilityService {
     }
     );
   }
+
+  GetNumberDecimalString(num, decimal) {
+   // let
+  }
 }
