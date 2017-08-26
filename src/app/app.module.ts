@@ -68,8 +68,11 @@ import { SearchCustomerComponent } from './components/customer/search-customer/s
 import { EditCustomerComponent } from './components/customer/edit-customer/edit-customer.component';
 import { SearchProductSetComponent } from './components/product-set/search-product-set/search-product-set.component';
 import { EditProductSetComponent } from './components/product-set/edit-product-set/edit-product-set.component';
+// Import Enum
 
 import * as firebase from 'firebase';
+import { PrintA4PaperComponent } from './components/print-a4-paper/print-a4-paper.component';
+import { Print80x55mmThermalPaperComponent } from './components/print-80x55mm-thermal-paper/print-80x55mm-thermal-paper.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -169,6 +172,8 @@ const appRoutes: Routes = [
     AppComponent,
     StylizePipe,
     LoginComponent,
+    PrintA4PaperComponent,
+    Print80x55mmThermalPaperComponent,
     HeaderComponent,
     FooterComponent,
     NavbarComponent,
