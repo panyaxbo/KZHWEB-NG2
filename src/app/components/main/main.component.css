@@ -90,6 +90,18 @@
     flex-grow: 1;
 }
 
+@media screen and (min-width: 1024px) {
+    .mdl-layout__header .mdl-layout__header-row {
+        margin-left: 240px;
+    }
+}
+
+.mdl-layout {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: absolute;
+}
+
 .demo-layout .demo-navigation .mdl-navigation__link {
     display: -webkit-flex !important;
     display: -ms-flexbox !important;

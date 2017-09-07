@@ -23,4 +23,12 @@ export class Staff {
   CreateDate: string;
   UpdateBy: string;
   UpdateDate: string;
+
+  constructor($key: string, StaffCode: string, Title: string, Firstname: string, Lastname: string, Nickname: string,
+  Age: number, Sex: string, StaffAddress: string, TelNo: string, MobileNo: string, RoleCode: string, Email: string
+) {
+
+  }
 }
+
+

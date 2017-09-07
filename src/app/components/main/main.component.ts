@@ -26,7 +26,7 @@ export class MainComponent implements OnInit {
               public _companyService: CompanyService,
               public _navbarService: NavbarService
     ) {
-      console.log('main auth ', this.afAuth.authState);
+    //  console.log('main auth ', this.afAuth.authState);
   }
 
   ngOnInit() {
@@ -45,14 +45,15 @@ export class MainComponent implements OnInit {
     this._navbarService.SetSelectedMenu('General');
     console.log(this._navbarService.GetSelectedMenu());
     this.SelectedMenu.emit('General');
+    this.router.navigateByUrl('/main/(main-detail)');
   }
   SelectSale() {
     this._navbarService.SetSelectedMenu('Sale');
-    console.log(this._navbarService.GetSelectedMenu());
-    this.SelectedMenu.emit('Sale');
+    this.router.navigateByUrl('/main/(main-detail:sale-menu)');
   }
   SelectPurchase() {
     this._navbarService.SetSelectedMenu('Purchase');
+    this.router.navigateByUrl('/main/(main-detail:purchase-menu)');
   }
   SelectAccounting() {
     this._navbarService.SetSelectedMenu('Accounting');
@@ -68,9 +69,11 @@ export class MainComponent implements OnInit {
   }
   SelectHumanResource() {
     this._navbarService.SetSelectedMenu('HumanResource');
+    this.router.navigateByUrl('/main/(main-detail:human-resource-menu)');
   }
   SelectReport() {
     this._navbarService.SetSelectedMenu('Report');
+    this.router.navigateByUrl('/main/(main-detail:report-menu)');
   }
   gotoCustomer() {
     this.router.navigateByUrl('/customer');

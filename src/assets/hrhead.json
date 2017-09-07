@@ -1,0 +1,16 @@
+[{
+    "HrCode": "HR6009001",
+    "HrDate": 0,
+    "HrTime": 0,
+    "MonthYear": "092560",
+    "StaffCode": "KZH0005",
+    "SalaryAmount": 7000,
+    "PendingAmount": 4000,
+    "BonusAmount": 600,
+    "NetAmount": 7600,
+    "SumBorrowAmount": 0,
+    "PayAmount": 0,
+    "SumProductAmount": 0,
+    "BorrowAmount": 0,
+    "SumLoseAmount": 230
+}]

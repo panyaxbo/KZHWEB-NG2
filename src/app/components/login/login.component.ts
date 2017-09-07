@@ -8,6 +8,7 @@ import { EssenceNg2PrintComponent } from 'essence-ng2-print';
 import { UserService } from '../../services/user/user.service';
 import { CompanyService } from '../../services/company/company.service';
 import { User } from '../../classes/user';
+import * as moment from 'moment';
 import * as firebase from 'firebase/app';
 @Component({
   selector: 'app-login',
@@ -97,6 +98,13 @@ SL176-2007）、《水利水电基本建设工程单元工程质量评定标准�
 
   ngOnInit() {
     this.Company = this._companyService.LoadCompanyData();
+    moment.locale('th-TH');
+    console.log(moment().format('DD/MM/YYYY HH:mm:ss.SSS'));
+    console.log(moment().unix());
+    const unixNo = 1503905185;
+    const dateStr = '28/08/2017 14:26:25.961';
+    console.log(moment.unix(unixNo).toDate());
+    console.log(moment(new Date(dateStr).getDate()));
   }
   GotoSignup() {
     this.router.navigateByUrl('/signup');
@@ -137,7 +145,7 @@ SL176-2007）、《水利水电基本建设工程单元工程质量评定标准�
   }
   LoginWithFacebook() {
   //  this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    var provider = new firebase.auth.FacebookAuthProvider();
+  const provider = new firebase.auth.FacebookAuthProvider();
     provider.addScope('user_birthday');
     this.afAuth.auth.signInWithPopup(provider)
     .then((authData) => {
@@ -152,19 +160,19 @@ SL176-2007）、《水利水电基本建设工程单元工程质量评定标准�
     });
   }
   LoginWithGoogle() {
-    var provider = new firebase.auth.GoogleAuthProvider();
+    const provider = new firebase.auth.GoogleAuthProvider();
     this.afAuth.auth.signInWithPopup(provider)
     .then((authData) => {
-      console.log('log gg ', authData);
+      console.log(authData);
       this.User = authData.user;
       this._userService.SetCurrentUserData(this.User);
       this.router.navigateByUrl('/main');
     }).catch((error) => {
-      console.log('log gg ', error);
+      console.log(error);
     });
   }
   LoginWithTwitter() {
-    var provider = new firebase.auth.TwitterAuthProvider();
+    const provider = new firebase.auth.TwitterAuthProvider();
     this.afAuth.auth.signInWithPopup(provider)
     .then((authData) => {
       console.log('log tw ', authData);
@@ -172,7 +180,7 @@ SL176-2007）、《水利水电基本建设工程单元工程质量评定标准�
       this._userService.SetCurrentUserData(this.User);
       this.router.navigateByUrl('/main');
     }).catch((error) => {
-    	console.log('log tw ', error);
+      console.log('log tw ', error);
     });
   }
   getPrintDiv () {

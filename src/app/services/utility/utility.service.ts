@@ -43,4 +43,11 @@ export class UtilityService {
   GetNumberDecimalString(num, decimal) {
    // let
   }
+  ConvertDateToTimestamp(date) {
+    // format date yyyy-MM-dd -> 1232434435454
+    return new Date(date).getTime();
+  }
+  ConvertTimestampToDate() {
+  //  return
+  }
 }

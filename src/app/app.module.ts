@@ -17,6 +17,8 @@ import {EssenceNg2PrintModule} from 'essence-ng2-print';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { CookieModule } from 'ngx-cookie';
+import { MomentModule } from 'angular2-moment';
+import { Ng2DropdownModule } from 'ng2-material-dropdown';
 // Import Components
 import { AppComponent } from './app.component';
 import { StylizePipe } from './stylize.pipe';
@@ -100,6 +102,14 @@ import { SearchCompanyComponent } from './components/company/search-company/sear
 import { EditCompanyComponent } from './components/company/edit-company/edit-company.component';
 import { SearchReceiptComponent } from './components/receipt/search-receipt/search-receipt.component';
 import { EditReceiptComponent } from './components/receipt/edit-receipt/edit-receipt.component';
+import { SaleMenuComponent } from './components/sale-menu/sale-menu.component';
+import { PurchaseMenuComponent } from './components/purchase-menu/purchase-menu.component';
+import { HumanResourceMenuComponent } from './components/human-resource/human-resource-menu/human-resource-menu.component';
+import { ReportMenuComponent } from './components/report-menu/report-menu.component';
+import { FileDropDirective } from './directives/file-drop.directive';
+import { HumanResourceComponent } from './components/human-resource/human-resource/human-resource.component';
+import { HumanResourceDetailComponent } from './components/human-resource/human-resource-detail/human-resource-detail.component';
+
 const configErrMsg = `You have not configured and imported the Firebase SDK.
 Make sure you go through the codelab setup instructions.`;
 
@@ -153,7 +163,13 @@ const appRoutes: Routes = [
     { path: 'edit-user/:id', component: EditUserComponent, outlet: 'main-detail' },
     { path: 'edit-privilege/:id', component: PrivilegeComponent, outlet: 'main-detail' },
     { path: 'edit-company/:id', component: EditCompanyComponent, outlet: 'main-detail'},
-    { path: 'edit-staff/:id', component: EditStaffComponent, outlet: 'main-detail'}
+    { path: 'edit-staff/:id', component: EditStaffComponent, outlet: 'main-detail'},
+    // Menu for Sale
+    { path: 'sale-menu', component: SaleMenuComponent, outlet: 'main-detail'},
+    // Menu for Purchase
+    { path: 'purchase-menu', component: PurchaseMenuComponent, outlet: 'main-detail'},
+    // Menu for Human Resource
+    { path: 'human-resource-menu', component: HumanResourceMenuComponent, outlet: 'main-detail'},
   ]},
   {path: 'quotation', component: QuotationComponent},
   {path: 'quotation-detail', component: QuotationDetailComponent},
@@ -162,6 +178,8 @@ const appRoutes: Routes = [
   {path: 'receive', component: ReceiveComponent},
   {path: 'posofsale', component: PosofsaleComponent},
   {path: 'posofsale-detail', component: PosofsaleDetailComponent},
+  {path: 'human-resource', component: HumanResourceComponent},
+  {path: 'human-resource-detail/:id', component: HumanResourceDetailComponent},
   { path: '404', component: Error404Component },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' }
@@ -222,7 +240,14 @@ const appRoutes: Routes = [
     SearchCompanyComponent,
     EditCompanyComponent,
     SearchReceiptComponent,
-    EditReceiptComponent
+    EditReceiptComponent,
+    SaleMenuComponent,
+    PurchaseMenuComponent,
+    HumanResourceMenuComponent,
+    ReportMenuComponent,
+    FileDropDirective,
+    HumanResourceComponent,
+    HumanResourceDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -233,10 +258,12 @@ const appRoutes: Routes = [
     Ng2SmartTableModule,
     Ng2AutoCompleteModule,
     NguiAutoCompleteModule,
+    Ng2DropdownModule,
     Ng2CompleterModule,
     EssenceNg2PrintModule,
     BrowserModule, CookieModule.forRoot(),
     ChartsModule,
+    MomentModule,
     Ng2TableModule,
     AngularFireModule.initializeApp(environment.firebase, 'kzhweb'),
     AngularFireDatabaseModule,

@@ -84,10 +84,53 @@ body {
     width: 100%
 }
 
-.header-section {
+.search-header-section {
     min-height: 100px;
+    color: whitesmoke;
 }
 
 .edit-header-section {
     color: whitesmoke;
+    min-height: 100px;
+    padding-left: 20px;
+}
+
+ol li {
+    font-size: 20px;
+}
+
+ol li a {
+    color: #3f51b5;
+}
+
+@media (min-width: 1200px) {
+    .container-lg {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+/* Start Table Column */
+
+.column-number {
+    text-align: right;
+}
+
+.column-sequence {
+    text-align: center;
+}
+
+
+/* End Table Column */
+
+
+/* For Dropdown Additional Config */
+
+.kzh-dropdown {
+    width: 100%;
+    font-size: 16px;
 }

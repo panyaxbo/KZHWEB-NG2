@@ -1,3 +1,6 @@
+import { CustomerTypeService } from './../../../services/customer-type/customer-type.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchCustomerTypeComponent implements OnInit {
 
-  constructor() { }
+  searchCustomerType: string;
+  searchCustomerTypeList: any;
+
+  constructor(private router: Router,
+              private db: AngularFireDatabase,
+              public _customerTypeService: CustomerTypeService
+  ) { }
 
   ngOnInit() {
+    this.SearchCustomerType();
   }
 
+  SearchCustomerType() {
+    this._customerTypeService.LoadCustomerTypeData()
+    .subscribe(customerTypes => {
+      this.searchCustomerTypeList = customerTypes;
+    });
+  }
 }

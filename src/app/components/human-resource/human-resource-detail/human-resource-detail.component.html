@@ -1,0 +1,233 @@
+<div>
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">Home</span>
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                  <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" id="search">
+                    <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                <li class="mdl-menu__item">About</li>
+                <li class="mdl-menu__item">Contact</li>
+                <li class="mdl-menu__item">Legal information</li>
+            </ul>
+        </div>
+    </header>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/main">หน้าหลัก</a></li>
+        <li class="breadcrumb-item"><a href="/main/(main-detail:human-resource-menu)">เมนูบริหารบุคลากร</a></li>
+        <li class="breadcrumb-item"><a href="/human-resource">ค้นหาบุคลากร</a></li>
+        <li class="breadcrumb-item active">รายละเอียดบุคลากร</li>
+    </ol>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col"><button type="submit" class="btn btn-outline-secondary"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่ม</button></div>
+
+            <div class="col"><button type="button" class="btn btn-outline-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button></div>
+            <div class="col"><button type="button" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> ลบ</button></div>
+            <div class="col"><button type="button" class="btn btn-outline-info"><i class="fa fa-print" aria-hidden="true"></i> พิมพ์</button></div>
+            <div class="col"><button type="button" class="btn btn-outline-warning"><i class="fa fa-sign-out" aria-hidden="true"></i> ออก</button></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-5">
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default">รหัส</span>
+                    </div>
+                    <div class="col-md-7">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" value="HR6009001">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default">เดือนปี</span>
+                    </div>
+                    <div class="col-md-7">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" value="092560">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default">พนักงาน</span>
+                    </div>
+                    <div class="col-md-7">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" value="นายสุพจน์ งามศรี">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default">ลา</span>
+                    </div>
+                    <div class="col-md-7">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" value="1">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">ยอดยกมา :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input disabled type="number" class="form-control summarize-lose-amount" id="PendingAmount" aria-describedby="PendingAmountHelp">
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">ชำระคืน :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-lose-amount" id="PayAmount" aria-describedby="PayAmountHelp">
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-check">
+                            <label class="form-check-label summarize-label">
+                              <input class="form-check-input" type="checkbox"> จ่าย
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">เงินเดือน :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-get-amount" id="SalaryAmount" aria-describedby="SalaryAmountHelp" value="7000">
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">โบนัส :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-get-amount" id="SpecialAmount" aria-describedby="SpecialAmountHelp" value="600">
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">ยอดหัก :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-lose-amount" id="SumLoseAmount" aria-describedby="SumLoseAmountHelp">
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">ยอดเบิก :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-lose-amount" id="SumBorrowAmount" aria-describedby="SumBorrowAmountHelp">
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <h5><span class="label label-default summarize-label">ยอดเบิกของ :</span></h5>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-lose-amount" id="SumBorrowAmount" aria-describedby="SumBorrowAmountHelp">
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">คงเหลือทั้งสิ้น :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-net-amount" id="SumBorrowAmount" aria-describedby="SumBorrowAmountHelp" value="7600">
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-7">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">รายการ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#borrow">เบิกของ</a>
+                    </li>
+
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home" role="tabpanel">
+                        <table class="table table-hover table-responsive">
+                            <thead>
+                                <tr>
+                                    <th class="column-sequence">ทำงาน</th>
+                                    <th class="column-sequence">สาย</th>
+                                    <th class="column-sequence">วันที่</th>
+                                    <th>รายการเบิก</th>
+                                    <th class="column-number">จำนวน</th>
+                                    <th>หมายเหตุ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let hrLine of HRLineList" [ngStyle]="hrLine.RowStyle">
+                                    <td class="column-sequence">
+                                        <input type="checkbox" checked="{{hrLine.IsWork}}">
+                                    </td>
+                                    <td class="column-sequence">
+                                        <input type="checkbox" checked={{hrLine.IsLate}}>
+                                    </td>
+                                    <td class="column-sequence">{{hrLine.LineDate}}</td>
+                                    <td>
+                                        <input type="text" class="form-control" id="Item" [(ngModel)]="hrLine.Item">
+                                    </td>
+                                    <td class="column-number">
+                                        <input type="number" class="form-control column-number" id="Amount" [(ngModel)]="hrLine.Amount">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" id="Description" [(ngModel)]="hrLine.Description">
+                                    </td>
+                                    <!--
+                                    <td class="mdl-data-table__cell--non-numeric">
+                                        <input type="checkbox" checked>
+                                    </td>
+                                    <td>
+
+                                        <input type="checkbox">
+
+                                    </td>
+                                    <td>01/09/2560</td>
+                                    <td>
+                                        <input type="text" class="form-control" id="SumBorrowAmount" aria-describedby="SumBorrowAmountHelp">
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control" id="SumBorrowAmount" aria-describedby="SumBorrowAmountHelp">
+                                    </td>
+                                    <td></td>-->
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane" id="borrow" role="tabpanel">.
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

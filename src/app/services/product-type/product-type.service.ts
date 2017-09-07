@@ -63,19 +63,22 @@ export class ProductTypeService {
   }
   CreateProductType(newProductType) {
     const currentTime = this.kzhThDatePipe.transformDateTime(new Date());
+    const newCode = this._appConfig.GetNextMasterDocument(this.MODULE_CODE);
+    const displayName = this._userService.GetCurrentUserData().displayName;
     this.db.list('product-types').push({
-      ProductTypeCode: newProductType.ProductTypeCode,
+      ProductTypeCode: newCode,
       ProductTypeNameTh: newProductType.ProductTypeNameTh,
       ProductTypeNameEn: newProductType.ProductTypeNameEn,
       ProductTypeNameCn: newProductType.ProductTypeNameCn,
-      CreateBy: 'Admin',
+      CreateBy: displayName,
       CreateDate: currentTime,
-      UpdateBy: 'Admin',
+      UpdateBy: displayName,
       UpdateDate: currentTime
     });
   }
   UpdateProductType(newProductType) {
     const currentTime = this.kzhThDatePipe.transformDateTime(new Date());
+    const displayName = this._userService.GetCurrentUserData().displayName;
     this.db.object('product-types/' + newProductType.$key)
     .set({
       ProductTypeCode: newProductType.ProductTypeCode,
@@ -84,7 +87,7 @@ export class ProductTypeService {
       ProductTypeNameCn: newProductType.ProductTypeNameCn,
       CreateBy: newProductType.CreateBy,
       CreateDate: newProductType.CreateDate,
-      UpdateBy: 'Admin',
+      UpdateBy: displayName,
       UpdateDate: currentTime
     });
   }

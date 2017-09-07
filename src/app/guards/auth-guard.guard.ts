@@ -11,11 +11,11 @@ export class AuthGuardGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       console.log('Guard WORK !!');
 
-    if (this._userService.GetCurrentUserData() && this._userService.GetCurrentUserData().displayName !== '' ) {
-      return Observable.of(true);
-    } else {
-      this.router.navigate(['/login']);
-      return Observable.of(false);
-    }
+      if (this._userService.GetCurrentUserData() && this._userService.GetCurrentUserData().displayName !== '' ) {
+        return Observable.of(true);
+      } else {
+        this.router.navigate(['/login']);
+        return Observable.of(false);
+      }
   }
 }

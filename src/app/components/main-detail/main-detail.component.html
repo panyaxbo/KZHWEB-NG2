@@ -1,38 +1,49 @@
 <div class="mdl-grid demo-content">
     <!-- General Menu -->
-    {{_navbarService.GetSelectedMenu()}}
-    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" [hidden]="!IsSelectedGeneral">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
         <div class="mdl-cell mdl-cell--6-col">
             <ul class="demo-list-item mdl-list">
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
                   <a class="mdl-link menu-link" [routerLink]="['/main', {outlets: {'main-detail': ['search-product-type']}}]">
-                  <i class="fa fa-address-book-o" aria-hidden="true"></i> Product Type</a>
+                  <i class="fa fa-address-book-o" aria-hidden="true"></i> ชนิดสินค้า</a>
                 </span>
                 </li>
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
                 <a class="mdl-link menu-link" [routerLink]="['/main', {outlets: {'main-detail': ['search-product-category']}}]">
-                <i class="fa fa-address-book-o" aria-hidden="true"></i> Product Category</a>
+                <i class="fa fa-address-book-o" aria-hidden="true"></i> ประเภทสินค้า</a>
               </span>
                 </li>
 
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
                   <a class="mdl-link menu-link" [routerLink]="['/main', {outlets: {'main-detail': ['search-product']}}]">
-                    <i class="fa fa-address-book" aria-hidden="true"></i> Product</a>
+                    <i class="fa fa-address-book" aria-hidden="true"></i> สินค้า</a>
                 </span>
                 </li>
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
                   <a class="mdl-link menu-link" [routerLink]="['/main', {outlets: {'main-detail': ['search-product-set']}}]">
-                    <i class="fa fa-address-book" aria-hidden="true"></i> Product Set</a>
+                    <i class="fa fa-address-book" aria-hidden="true"></i> สินค้าชุด (Product Set)</a>
                 </span>
                 </li>
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
                 <a class="mdl-link menu-link" [routerLink]="['/main', {outlets: {'main-detail': ['search-uom']}}]">
-                  <i class="fa fa-address-book" aria-hidden="true"></i> Uom</a>
+                  <i class="fa fa-address-book" aria-hidden="true"></i> หน่วย (Uom)</a>
+              </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                <a class="mdl-link menu-link" [routerLink]="['/main', {outlets: {'main-detail': ['search-staff']}}]">
+                  <i class="fa fa-address-book" aria-hidden="true"></i> พนักงาน (Staff)</a>
+              </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">
+                <a class="mdl-link menu-link" [routerLink]="['/main', {outlets: {'main-detail': ['search-role']}}]">
+                  <i class="fa fa-address-book" aria-hidden="true"></i> บทบาท (Role)</a>
               </span>
                 </li>
             </ul>
@@ -42,30 +53,30 @@
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
                   <a class="mdl-link menu-link" (click)="GotoCustomerType()">
-                  <i class="fa fa-address-book-o" aria-hidden="true"></i> Customer Type</a>
+                  <i class="fa fa-address-book-o" aria-hidden="true"></i> ชนิดลูกค้า</a>
                 </span>
                 </li>
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
                 <a class="mdl-link menu-link" (click)="GotoCustomer()">
-                <i class="fa fa-address-book-o" aria-hidden="true"></i> Customer</a>
+                <i class="fa fa-address-book-o" aria-hidden="true"></i> ลูกค้า</a>
               </span>
                 </li>
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
                   <a class="mdl-link menu-link" (click)="GotoSupplierType()">
-                    <i class="fa fa-address-book" aria-hidden="true"></i> Supplier Type</a>
+                    <i class="fa fa-address-book" aria-hidden="true"></i> ชนิดผู้ขาย</a>
                 </span>
                 </li>
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
                 <a class="mdl-link menu-link" (click)="GotoSupplier()">
-                  <i class="fa fa-address-book" aria-hidden="true"></i> Supplier</a>
+                  <i class="fa fa-address-book" aria-hidden="true"></i> ผู้ขาย</a>
               </span>
                 </li>
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
-                  <a class="mdl-link menu-link" (click)="GotoShipper()"> Shipper</a>
+                  <a class="mdl-link menu-link" (click)="GotoShipper()"> ผู้ส่งสินค้า (Shipper)</a>
                 </span>
                 </li>
             </ul>
@@ -78,7 +89,7 @@
                 <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
                     <a class="mdl-link menu-link" [routerLink]="['/main', {outlets: {'main-detail': ['search-product-type']}}]">
-                    <i class="fa fa-address-book-o" aria-hidden="true"></i>Product Type</a>
+                    <i class="fa fa-address-book-o" aria-hidden="true"></i> Product Type</a>
                   </span>
                 </li>
             </ul>
@@ -94,8 +105,5 @@
             </ul>
         </div>
     </div>
-    <!-- Purchase Menu-->
-    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" [hidden]="!IsSelectedPurchase">
-        Selected Purcyase
-    </div>
+
 </div>

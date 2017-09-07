@@ -4,16 +4,19 @@
         <h5></h5>
     </header>
     <form>
-        <div class="group">
-            <input type="email" [(ngModel)]="Email" [ngModelOptions]="{standalone: true}">
-            <span class="highlight"></span><span class="bar"></span>
-            <label>Email</label>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-12">
+                <input required autofocus type="email" class="form-control" id="inputEmail3" placeholder="Email" [(ngModel)]="Email" [ngModelOptions]="{standalone: true}">
+            </div>
         </div>
-        <div class="group">
-            <input type="password" [(ngModel)]="Password" [ngModelOptions]="{standalone: true}">
-            <span class="highlight"></span><span class="bar"></span>
-            <label>Password</label>
+        <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-12">
+                <input required type="password" class="form-control" id="inputPassword3" placeholder="Password" [(ngModel)]="Password" [ngModelOptions]="{standalone: true}">
+            </div>
         </div>
+
         <button (click)="Login()" type="button" class="button buttonBlue">
           <i class="fa fa-sign-in" aria-hidden="true"></i> Sign in
           <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
