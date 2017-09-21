@@ -1,13 +1,13 @@
 import { KzhThDatePipe } from './../../pipes/kzh-th-date.pipe';
-import { Rohead } from './../../classes/rohead';
+import { RoHead } from './../../classes/ro-head';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ReceiptOrderService {
-  receipts: FirebaseListObservable<any[]>;
+  roHeads: FirebaseListObservable<any[]>;
   receipt: FirebaseObjectObservable<any>;
-  Receipt: Rohead = {
+  Receipt: RoHead = {
     $key: '',
     _id: '',
     UserId: '',
@@ -104,8 +104,8 @@ export class ReceiptOrderService {
     this.Receipt.$key = receipt.$key;
     return this.Receipt;
   }
-  LoadReceiptData(): FirebaseListObservable<any> {
-    return this.receipts;
+  LoadReceiptOrderHead(): FirebaseListObservable<any> {
+    return this.db.list('roheads');
   }
   LoadReceiptDataByKey(key): FirebaseObjectObservable<any> {
     this.receipt = this.db.object('receipts/' + key);

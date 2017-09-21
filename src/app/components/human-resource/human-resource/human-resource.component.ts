@@ -1,3 +1,4 @@
+
 import { HumanResourceService } from './../../../services/human-resource/human-resource.service';
 import { StaffService } from './../../../services/staff/staff.service';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -45,10 +46,16 @@ export class HumanResourceComponent implements OnInit {
 
   }
   SelectedStaff($event) {
-    console.log('selcted staff ', $event);
+    console.log('selcted staff ', $event.element.nativeElement.innerHTML);
   }
   EditHumanResource(hrHead) {
     this.router.navigateByUrl('/human-resource-detail/' + hrHead.$key);
     this._humanResourceService.HrHead = hrHead;
+  }
+  NewHumanResource() {
+
+  }
+  ExitHumanResource() {
+    this.router.navigateByUrl('/main/(main-detail:human-resource)');
   }
 }

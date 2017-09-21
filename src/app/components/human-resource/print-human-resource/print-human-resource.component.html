@@ -1,0 +1,136 @@
+<div>
+    <div id="print_div" #print_div>
+        <table style="width: 100%">
+            <tbody>
+                <tr>
+                    <td style="width: 30%"><img src="assets/images/kzhapp-150-150.png" width="50px" height="50px"></td>
+                    <td style="width: 40%; text-align:center; font-size:20px;">ใบแจ้งเงินเดือน (PAY SLIP)</td>
+                    <td style="width: 30%">นายสุพจน์ งามศรี</td>
+                </tr>
+                <tr>
+                    <td style="width: 30%">31-32 หมู่.2 ถ.เทพนิมิต ต.ระแงง อ.ศีขรภูมิ จ.สุรินทร์</td>
+                    <td style="width: 40%; text-align:center;"> รหัส : HR6009001</td>
+                    <td style="width: 30%">ตำแหน่ง: พนักงานขาย</td>
+                </tr>
+                <tr>
+                    <td style="width: 30%">โทร. 044-561-125</td>
+                    <td style="width: 40%; text-align:center;">ลา: 1 สาย: 1</td>
+                    <td style="width: 30%">วันที่ : 10/09/2560</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th colspan="2">รายได้ (Income)</th>
+                    <th colspan="2">รายการหัก (Deduct)</th>
+                    <th colspan="2">อื่นๆ (Others)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>เงินเดือน</td>
+                    <td>7,000.00</td>
+                    <td>ชำระรายการค้าง</td>
+                    <td>1,000.00</td>
+                    <td>ภาษี</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>โบนัส</td>
+                    <td>600.00</td>
+                    <td>ยอดหัก</td>
+                    <td>230.00</td>
+                    <td>ประกันสังคม</td>
+                    <td>432.00</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>ยอดเบิก</td>
+                    <td></td>
+                    <td>กองทุนสำรองเลี้ยงชีพ</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>ยอดเบิกของ</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" style="font-size:20px; font-weight: bold">เงินได้สุทธิ</td>
+                    <td colspan="2" style="font-size:20px; text-align: right">7,630.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!--
+        <table class="table table-striped">
+            <thead *ngIf="showHead">
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of datas; let i = index">
+                    <td>{{i}}</td>
+                    <td>{{user?.firstName}}</td>
+                    <td>{{user?.lastName}}</td>
+                    <td>{{user?.userName}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table *ngIf="hideTable1" id="table1" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of datas; let i = index">
+                    <td>{{i}}</td>
+                    <td>{{user?.firstName}}</td>
+                    <td>{{user?.lastName}}</td>
+                    <td>{{user?.userName}}</td>
+                </tr>
+            </tbody>
+        </table>-->
+    </div>
+
+    <div>
+        <essence-ng2-print [btnText]="'iframe模式打印'" [btnClass]="{'btn': true, 'btn-success': true}" [printHTML]="print_div" [printStyle]="printStyle" [printCSS]="printCSS" (printComplete)="printComplete()">
+        </essence-ng2-print>
+    </div>
+
+    <div>
+        <essence-ng2-print [btnText]="'iframe模式打印字符串'" [btnClass]="{'btn': true, 'btn-success': true}" [printHTML]="editorText" (printComplete)="printComplete()">
+        </essence-ng2-print>
+    </div>
+
+    <div>
+        <essence-ng2-print #print1 [showBtn]="false" [printHTML]="print_div" [printStyle]="printStyle" [printCSS]="printCSS" (printComplete)="printComplete()">
+        </essence-ng2-print>
+        <button class="btn btn-primary" (click)="customPrint('print1')">自定义打印（iframe模式）</button>
+    </div>
+
+    <div>
+        <essence-ng2-print [mode]="'popup'" [popTitle]="'表格打印'" [btnText]="'popup模式打印'" [btnClass]="{'btn': true, 'btn-warning': true}" [printHTML]="print_div" [printStyle]="printStyle" [printCSS]="printCSS" (printComplete)="printComplete()">
+        </essence-ng2-print>
+    </div>
+
+    <div>
+        <essence-ng2-print #print2 [mode]="'popup'" [popTitle]="'表格打印'" [showBtn]="false" [printHTML]="print_div" [printStyle]="printStyle" [printCSS]="printCSS" (printComplete)="printComplete()">
+        </essence-ng2-print>
+        <button class="btn btn-primary" (click)="customPrint('print2')">自定义打印（popup模式）</button>
+    </div>
+</div>

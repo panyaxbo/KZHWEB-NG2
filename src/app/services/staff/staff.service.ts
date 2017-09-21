@@ -72,9 +72,6 @@ export class StaffService {
   }
   PopulatedStaff(staff) {
     this.Staff.$key = staff.$key;
-
-
-
     const currentDate = this.kzhThDatePipe.transformDateTime(new Date());
     this.Staff.CreateBy = staff.CreateBy === undefined ? '' : staff.CreateBy;
     this.Staff.CreateDate = staff.CreateDate === undefined ? currentDate : staff.CreateDate;
@@ -88,6 +85,14 @@ export class StaffService {
   LoadStaffByKey(key): FirebaseObjectObservable<any> {
     this.staff = this.db.object('staffs/' + key);
     return this.staff;
+  }
+  LoadStaffByCode(code): FirebaseListObservable<any[]> {
+    return this.db.list('staffs/', {
+      query: {
+        orderByChild: 'StaffCode',
+        equalTo: code
+      }
+    });
   }
   CreateStaff(newStaff) {
     const displayName = this._userService.GetCurrentUserData().displayName;

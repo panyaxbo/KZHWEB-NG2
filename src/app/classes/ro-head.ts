@@ -1,4 +1,4 @@
-export class Rohead {
+export class RoHead {
   $key: string;
   _id: string;
   UserId: string;

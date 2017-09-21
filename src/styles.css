@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 html,
 body {
     /*font-family: 'Roboto', 'Helvetica', sans-serif;*/
@@ -39,18 +40,21 @@ body {
     background-color: #10b718 !important;
     color: whitesmoke;
     cursor: hand;
+    font-size: 20px;
 }
 
 .mdl-button--save {
     background-color: #2196f3 !important;
     color: whitesmoke;
     cursor: hand;
+    font-size: 20px;
 }
 
 .mdl-button--delete {
     background-color: #F44336 !important;
     color: whitesmoke;
     cursor: hand;
+    font-size: 20px;
 }
 
 .mdl-button--print {
@@ -63,6 +67,7 @@ body {
     background-color: #879094 !important;
     color: whitesmoke;
     cursor: hand;
+    font-size: 20px;
 }
 
 .mdl-link {
@@ -133,4 +138,15 @@ ol li a {
 .kzh-dropdown {
     width: 100%;
     font-size: 16px;
+}
+
+.mat-tab-label.mat-ripple {
+    font-size: 20px !important;
+}
+
+
+/* Config <md-autocomplete> */
+
+.mat-form-field-autocomplete {
+    width: 100%;
 }

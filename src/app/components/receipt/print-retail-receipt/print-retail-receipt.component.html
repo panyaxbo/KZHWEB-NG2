@@ -1,0 +1,159 @@
+<div>
+    <div id="print_div" #print_div>
+        <table style="width: 100%">
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td style="width: 100%; text-align:center; font-size:6px;">
+                        {{ currentDate }}
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="width: 100%">
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td style="width: 100%; text-align:center; font-size:14px;">
+                        *** ขอบคุณลูกค้าทุกท่านที่ใช้บริการ ***
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="width: 100%; text-align:center; font-size: 12px;">ใบเสร็จรับเงิน</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="width: 100%; text-align:center; font-size:16px;"><img src="assets/images/kzhapp-150-150.png" width="50px" height="50px"></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="width: 100%;">
+            <tr>
+                <td style="border-bottom: 0.1px dotted #0E0C0C;"></td>
+            </tr>
+        </table>
+        <table style="width: 100%; font-size: 10px">
+            <tbody>
+                <tr>
+                    <td style="width: 40%;">วันที่: {{mockHead.RoDate}}</td>
+                    <td style="width: 20%; text-align:center; font-size:12px;"></td>
+                    <td style="width: 40%;">เวลา: {{mockHead.RoTime}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 40%;">เลขที่: {{mockHead.RoNo}}</td>
+                    <td style="width: 20%; text-align:center; font-size: 12px;"></td>
+                    <td style="width: 40%;"></td>
+                </tr>
+                <tr>
+                    <td style="width: 40%;">ลูกค้า: {{mockHead.CustomerName}}</td>
+                    <td style="width: 20%; text-align:center; font-size: 12px;"></td>
+                    <td style="width: 40%;"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table style="width: 100%;">
+            <tr>
+                <td style="border-top: 0.1px dotted #0E0C0C;"></td>
+            </tr>
+        </table>
+        <table class="table table-striped" style="width: 100%; font-size: 10px;">
+            <thead>
+                <tr style="border-bottom: 1px solid #0E0C0C;">
+                    <th style="width:5%; text-align: center;border: 0.5px dotted #0E0C0C;">#</th>
+                    <th style="width:50%; border: 0.5px dotted #0E0C0C;">รายการ</th>
+                    <th style="width:10%; text-align: center; border: 0.5px dotted #0E0C0C;">จน.</th>
+                    <th style="width:15%; text-align: right; border: 0.5px dotted #0E0C0C;">ราคา</th>
+                    <th style="width:15%; text-align: right; border: 0.5px dotted #0E0C0C;">รวม</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let line of mockLines2" style="border-bottom: 0.5px dotted #0E0C0C;">
+                    <td style="width:5%; text-align: center; vertical-align: top; border-right: 0.5px dotted #0E0C0C;border-bottom: 0.5px dotted #0E0C0C;">{{line.SeqNo}}</td>
+                    <td style="width:50%; border-right: 0.5px dotted #0E0C0C; border-bottom: 0.5px dotted #0E0C0C;">{{line.ProductName}}</td>
+                    <td style="width:10%; text-align: center; vertical-align: top; border-right: 0.5px dotted #0E0C0C; border-bottom: 0.5px dotted #0E0C0C;">{{line.Quantity | thbCurrency:'1'}}</td>
+                    <td style="width:15%; text-align: right; vertical-align: top; border-right: 0.5px dotted #0E0C0C; border-bottom: 0.5px dotted #0E0C0C;">{{line.Price | thbCurrency:'2'}}</td>
+                    <td style="width:15%; text-align: right; vertical-align: top; border-right: 0.5px dotted #0E0C0C; border-bottom: 0.5px dotted #0E0C0C;">{{line.Amount | thbCurrency:'2'}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" style="font-size: 12px; border-bottom: 0.5px double #0E0C0C;">
+                        รวมเงิน
+                    </td>
+                    <td colspan="2" style="font-size: 12px; text-align: right; border-bottom: 0.5px double #0E0C0C; ">
+                        {{1000 | thbCurrency:'2'}}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="font-size: 12px; border-bottom: 0.5px double #0E0C0C;">
+                        ส่วนลดท้ายบิล
+                    </td>
+                    <td colspan="2" style="font-size: 12px; text-align: right; border-bottom: 0.5px double #0E0C0C; ">
+                        {{1000 | thbCurrency:'2'}}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="font-size: 12px; border-bottom: 0.5px double #0E0C0C;">
+                        จำนวนค้าง
+                    </td>
+                    <td colspan="2" style="font-size: 12px; text-align: right; border-bottom: 0.5px double #0E0C0C; ">
+                        {{1000 * (-1) | thbCurrency:'2'}}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="font-size: 12px; border-bottom: 0.5px double #0E0C0C;">
+                        รวมเงินสุทธิ
+                    </td>
+                    <td colspan="2" style="font-size: 12px; text-align: right; border-bottom: 0.5px double #0E0C0C; ">
+                        {{3360 | thbCurrency:'2'}}
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+
+        <div style="text-align: center; margin-top:10px; margin-bottom:10px">
+            <qr-code [value]="'All QR Code data goes here!'" [size]="100"></qr-code>
+        </div>
+        <div style="text-align: center; margin-top:10px; margin-bottom:10px">
+            <img src="/assets/images/barcode.png" width="200px" height="50px">
+        </div>
+        <table style="width: 100%">
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td style="width: 100%; text-align:center; font-size:10px;">
+                        ถ้าลูกค้าได้รับสินค้าไม่ครบ หรือ สินค้าชำรุด
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="width: 100%; text-align:center; font-size: 10px;">
+                        โปรดแจ้งทางร้านภายใน 15 วัน
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="width: 100%; text-align:center; font-size: 10px;">
+                        *** ศูนย์รวมยาง น้ำมัน และ อะไหล่แต่ง ***
+                    </td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <essence-ng2-print [btnText]="'iframe模式打印'" [btnClass]="{'btn': true, 'btn-success': true}" [printHTML]="print_div" [printStyle]="printStyle" (printComplete)="printComplete()">
+        </essence-ng2-print>
+    </div>
+
+</div>

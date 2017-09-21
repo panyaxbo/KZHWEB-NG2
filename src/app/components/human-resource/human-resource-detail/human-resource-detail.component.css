@@ -27,3 +27,7 @@ hr {
     color: lightblue;
     text-align: right;
 }
+
+.mat-tab-label {
+    font-size: 20px !important;
+}

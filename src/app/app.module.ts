@@ -1,13 +1,14 @@
+import { HumanResourceService } from './services/human-resource/human-resource.service';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { MaterialModule } from '@angular/material';
 import { RouterModule, Routes} from '@angular/router';
+import { MaterialModule } from '@angular/material';
 // ----- npm install
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
@@ -15,10 +16,13 @@ import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 import { Ng2CompleterModule } from 'ng2-completer';
 import {EssenceNg2PrintModule} from 'essence-ng2-print';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { Ng2TableModule } from 'ng2-table/ng2-table';
 import { CookieModule } from 'ngx-cookie';
 import { MomentModule } from 'angular2-moment';
 import { Ng2DropdownModule } from 'ng2-material-dropdown';
+import { QRCodeModule } from 'angular2-qrcode';
+import { DatepickerModule } from 'angular2-material-datepicker';
+import { MdAutocompleteModule,MdButtonModule, MdCheckboxModule } from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // Import Components
 import { AppComponent } from './app.component';
 import { StylizePipe } from './stylize.pipe';
@@ -73,6 +77,7 @@ import { EditProductSetComponent } from './components/product-set/edit-product-s
 // Import Enum
 
 import * as firebase from 'firebase';
+
 import { PrintA4PaperComponent } from './components/print-a4-paper/print-a4-paper.component';
 import { Print80x55mmThermalPaperComponent } from './components/print-80x55mm-thermal-paper/print-80x55mm-thermal-paper.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -109,6 +114,10 @@ import { ReportMenuComponent } from './components/report-menu/report-menu.compon
 import { FileDropDirective } from './directives/file-drop.directive';
 import { HumanResourceComponent } from './components/human-resource/human-resource/human-resource.component';
 import { HumanResourceDetailComponent } from './components/human-resource/human-resource-detail/human-resource-detail.component';
+import { PrintHumanResourceComponent } from './components/human-resource/print-human-resource/print-human-resource.component';
+import { PrintRetailReceiptComponent } from './components/receipt/print-retail-receipt/print-retail-receipt.component';
+import { PrintWholesaleReceiptComponent } from './components/receipt/print-wholesale-receipt/print-wholesale-receipt.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 const configErrMsg = `You have not configured and imported the Firebase SDK.
 Make sure you go through the codelab setup instructions.`;
@@ -171,6 +180,10 @@ const appRoutes: Routes = [
     // Menu for Human Resource
     { path: 'human-resource-menu', component: HumanResourceMenuComponent, outlet: 'main-detail'},
   ]},
+  {path: 'receipt', component: SearchReceiptComponent},
+  {path: 'receipt-detail/:id', component: EditReceiptComponent},
+  {path: 'print-retail-receipt', component: PrintRetailReceiptComponent},
+  {path: 'print-wholesale-receipt', component: PrintWholesaleReceiptComponent},
   {path: 'quotation', component: QuotationComponent},
   {path: 'quotation-detail', component: QuotationDetailComponent},
   {path: 'invoice', component: InvoiceComponent},
@@ -180,6 +193,7 @@ const appRoutes: Routes = [
   {path: 'posofsale-detail', component: PosofsaleDetailComponent},
   {path: 'human-resource', component: HumanResourceComponent},
   {path: 'human-resource-detail/:id', component: HumanResourceDetailComponent},
+  {path: 'print-human-resource', component: PrintHumanResourceComponent},
   { path: '404', component: Error404Component },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' }
@@ -247,33 +261,41 @@ const appRoutes: Routes = [
     ReportMenuComponent,
     FileDropDirective,
     HumanResourceComponent,
-    HumanResourceDetailComponent
+    HumanResourceDetailComponent,
+    PrintHumanResourceComponent,
+    PrintRetailReceiptComponent,
+    PrintWholesaleReceiptComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    MaterialModule,
     Ng2SmartTableModule,
     Ng2AutoCompleteModule,
     NguiAutoCompleteModule,
     Ng2DropdownModule,
     Ng2CompleterModule,
+    MaterialModule,
     EssenceNg2PrintModule,
     BrowserModule, CookieModule.forRoot(),
     ChartsModule,
     MomentModule,
-    Ng2TableModule,
+    QRCodeModule,
     AngularFireModule.initializeApp(environment.firebase, 'kzhweb'),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    DatepickerModule,
+    MdAutocompleteModule, MdButtonModule, MdCheckboxModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductTypeService, ProductCategoryService, ProductService, ProductSetService,
   UserService, StaffService, UtilityService, UomService, SupplierTypeService, SupplierService,
   PosService, CustomerService, CustomerTypeService, CompanyService, NavbarService, MessageService, AppConfigService,
-  ReceiptOrderService,
+  ReceiptOrderService, HumanResourceService,
   CurrencyPipe, DatePipe, KzhThDatePipe,
   AuthGuardGuard],
   bootstrap: [AppComponent]

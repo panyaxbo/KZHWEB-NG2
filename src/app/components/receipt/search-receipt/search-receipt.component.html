@@ -1,3 +1,173 @@
-<p>
-  search-receipt works!
-</p>
+<div>
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">Home</span>
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                  <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" id="search">
+                    <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                <li class="mdl-menu__item">About</li>
+                <li class="mdl-menu__item">Contact</li>
+                <li class="mdl-menu__item">Legal information</li>
+            </ul>
+        </div>
+    </header>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/main">หน้าหลัก</a></li>
+        <li class="breadcrumb-item"><a href="/main/(main-detail:human-resource-menu)">เมนูการขายสินค้าหน้าร้าน</a></li>
+        <li class="breadcrumb-item active">ค้นหาใบเสร็จ</li>
+    </ol>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col"><button (click)="NewReceiptOrder()" type="submit" class="btn btn-outline-secondary"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่ม</button></div>
+            <div class="col"><button (click)="ExitReceiptOrder()" type="button" class="btn btn-outline-warning"><i class="fa fa-sign-out" aria-hidden="true"></i> ออก</button></div>
+        </div>
+        <div class="bd-example">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+            <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="ใบส่งของ" checked>
+                  ใบเสร็จรับเงิน
+                </label>
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="ใบคืนสินค้า">
+                    ใบคืนสินค้า
+                  </label>
+                <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="ใบรับเทิร์นแบตเตอรี่">
+                      ใบรับเทิร์นแบตเตอรี่
+                    </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                  ใบคืนสินค้า
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                  ใบรับเทิร์นแบตเตอรี่
+                </label>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                            <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                      ใบเสร็จรับเงิน
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                      ใบคืนสินค้า
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                                      ใบรับเทิร์นแบตเตอรี่
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Send message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+
+                <div class="card">
+                    <h4 class="card-header">ค้นหาใบเสร็จ</h4>
+                    <div class="card-block">
+                        <ng2-dropdown (onItemClicked)="SelectedStaff($event)">
+                            <ng2-dropdown-button showCaret="true">
+                                เลือกพนักงาน
+                            </ng2-dropdown-button>
+                            <ng2-dropdown-menu width=6>
+                                <ng2-menu-item *ngFor="let staff of StaffList" value="{{staff.StaffCode}}">
+                                    {{ staff.Firstname }} - {{ staff.Lastname }}
+                                </ng2-menu-item>
+                            </ng2-dropdown-menu>
+                        </ng2-dropdown>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">รหัส</label>
+                            <input type="text" class="form-control" id="RoNo" [(ngModel)]="SearchMonthYear" placeholder="Ro No">
+
+                            <label for="exampleInputEmail1">เดือนปี</label>
+                            <input type="text" class="form-control" id="MonthYear" [(ngModel)]="SearchMonthYear" placeholder="เดือนปี">
+
+                        </div>
+                        <div class="form-group">
+                            <material-datepicker [(date)]="SearchFromDate" dateFormat="DD-MM-YYYY" (ngModelChange)="SelectDateChange()"></material-datepicker>
+                            ถึง
+                            <material-datepicker [(date)]="SearchToDate" dateFormat="DD-MM-YYYY" (ngModelChange)="SelectDateChange()"></material-datepicker>
+                        </div>
+                        <a class="btn btn-lg btn-primary" (click)="SearchReceiptOrder()">
+                            <i class="fa fa-search" aria-hidden="true"></i> ค้นหา</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-8">
+                <table class="table table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="column-sequence">#</th>
+                            <th class="column-sequence">รหัส</th>
+                            <th class="column-sequence">วันที่</th>
+                            <th>ชื่อ พนักงาน</th>
+                            <th class="column-sequence">ลูกค้า</th>
+                            <th class="column-number">ชนิด</th>
+                            <th class="column-number">สถานะ</th>
+                            <th class="column-number">จำนวนเงิน</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let roHead of SearchRoHeadList">
+                            <td class="column-sequence edit-ro">
+                                <a id="edit" (click)="EditReceiptOrder(roHead)">
+                                    <i class="material-icons">create</i>
+                                </a>
+                            </td>
+                            <td class="column-sequence">{{roHead.RONo}}</td>
+                            <td class="column-sequence">{{roHead.RODate}}</td>
+                            <td>{{roHead.StaffCode}}</td>
+                            <td class="column-sequence">{{roHead.CustomerName}}</td>
+                            <td class="column-number">{{roHead.ROType}}</td>
+                            <td class="column-number">{{roHead.ROStatus}}</td>
+                            <td class="column-number">{{roHead.NetAmount | number:'1.2-2'}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

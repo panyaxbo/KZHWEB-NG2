@@ -34,7 +34,7 @@
 
             <div class="col"><button type="button" class="btn btn-outline-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button></div>
             <div class="col"><button type="button" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> ลบ</button></div>
-            <div class="col"><button type="button" class="btn btn-outline-info"><i class="fa fa-print" aria-hidden="true"></i> พิมพ์</button></div>
+            <div class="col"><button type="button" (click)="PrintHumanResource()" class="btn btn-outline-info"><i class="fa fa-print" aria-hidden="true"></i> พิมพ์</button></div>
             <div class="col"><button type="button" class="btn btn-outline-warning"><i class="fa fa-sign-out" aria-hidden="true"></i> ออก</button></div>
         </div>
         <div class="row">
@@ -44,7 +44,7 @@
                         <span class="label label-default">รหัส</span>
                     </div>
                     <div class="col-md-7">
-                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" value="HR6009001">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" [ngModel]="hrHead?.HrCode">
                     </div>
                 </div>
                 <div class="row">
@@ -52,7 +52,7 @@
                         <span class="label label-default">เดือนปี</span>
                     </div>
                     <div class="col-md-7">
-                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" value="092560">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" [ngModel]="hrHead?.MonthYear">
                     </div>
                 </div>
                 <div class="row">
@@ -60,7 +60,8 @@
                         <span class="label label-default">พนักงาน</span>
                     </div>
                     <div class="col-md-7">
-                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" value="นายสุพจน์ งามศรี">
+                        <!-- <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" [(ngModel)]="staff.Firstname - staff.Lastname">-->
+                        <label>{{staff?.Firstname}} - {{staff?.Lastname}}</label>
                     </div>
                 </div>
                 <div class="row">
@@ -68,7 +69,15 @@
                         <span class="label label-default">ลา</span>
                     </div>
                     <div class="col-md-7">
-                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" value="1">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" [(ngModel)]="numLeave">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default">สาย</span>
+                    </div>
+                    <div class="col-md-7">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" [(ngModel)]="numLate">
                     </div>
                 </div>
                 <hr>
@@ -88,14 +97,15 @@
                         <span class="label label-default summarize-label">ชำระคืน :</span>
                     </div>
                     <div class="col-md-5">
-                        <input type="number" class="form-control summarize-lose-amount" id="PayAmount" aria-describedby="PayAmountHelp">
+                        <input [disabled]="!IsPay" type="number" (blur)="UpdateAmountSummarize()" class="form-control summarize-lose-amount" id="PayAmount">
                     </div>
                     <div class="col-md-2">
-                        <div class="form-check">
-                            <label class="form-check-label summarize-label">
-                              <input class="form-check-input" type="checkbox"> จ่าย
-                            </label>
-                        </div>
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" (click)="ClickToPay()">
+                          <span class="custom-control-indicator"></span>
+                          <span class="custom-control-description"></span>
+                        </label>
+                        <md-slide-toggle>จ่าย!</md-slide-toggle>
                     </div>
                 </div>
                 <div class="row">
@@ -103,7 +113,7 @@
                         <span class="label label-default summarize-label">เงินเดือน :</span>
                     </div>
                     <div class="col-md-5">
-                        <input type="number" class="form-control summarize-get-amount" id="SalaryAmount" aria-describedby="SalaryAmountHelp" value="7000">
+                        <input type="number" class="form-control summarize-get-amount" id="SalaryAmount" [(ngModel)]="hrHead.SalaryAmount">
                     </div>
                     <div class="col-md-2">
                     </div>
@@ -113,7 +123,7 @@
                         <span class="label label-default summarize-label">โบนัส :</span>
                     </div>
                     <div class="col-md-5">
-                        <input type="number" class="form-control summarize-get-amount" id="SpecialAmount" aria-describedby="SpecialAmountHelp" value="600">
+                        <input type="number" class="form-control summarize-get-amount" id="BonusAmount" [(ngModel)]="hrHead.BonusAmount">
                     </div>
                     <div class="col-md-2">
                     </div>
@@ -123,7 +133,7 @@
                         <span class="label label-default summarize-label">ยอดหัก :</span>
                     </div>
                     <div class="col-md-5">
-                        <input type="number" class="form-control summarize-lose-amount" id="SumLoseAmount" aria-describedby="SumLoseAmountHelp">
+                        <input type="number" class="form-control summarize-lose-amount" id="SumLoseAmount" [(ngModel)]="hrHead.SumLoseAmount">
                     </div>
                     <div class="col-md-2">
                     </div>
@@ -133,7 +143,7 @@
                         <span class="label label-default summarize-label">ยอดเบิก :</span>
                     </div>
                     <div class="col-md-5">
-                        <input type="number" class="form-control summarize-lose-amount" id="SumBorrowAmount" aria-describedby="SumBorrowAmountHelp">
+                        <input type="number" class="form-control summarize-lose-amount" id="SumBorrowAmount" [(ngModel)]="hrHead.SumBorrowAmount">
                     </div>
                     <div class="col-md-2">
                     </div>
@@ -143,7 +153,7 @@
                         <h5><span class="label label-default summarize-label">ยอดเบิกของ :</span></h5>
                     </div>
                     <div class="col-md-5">
-                        <input type="number" class="form-control summarize-lose-amount" id="SumBorrowAmount" aria-describedby="SumBorrowAmountHelp">
+                        <input type="number" class="form-control summarize-lose-amount" id="SumProductAmount" [(ngModel)]="hrHead.SumProductAmount">
                     </div>
                     <div class="col-md-2">
                     </div>
@@ -153,80 +163,63 @@
                         <span class="label label-default summarize-label">คงเหลือทั้งสิ้น :</span>
                     </div>
                     <div class="col-md-5">
-                        <input type="number" class="form-control summarize-net-amount" id="SumBorrowAmount" aria-describedby="SumBorrowAmountHelp" value="7600">
+                        <input type="number" class="form-control summarize-net-amount" id="NetAmount" [(ngModel)]="hrHead.NetAmount">
                     </div>
                     <div class="col-md-2">
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-7">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">รายการ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#borrow">เบิกของ</a>
-                    </li>
+                <md-tab-group>
+                    <md-tab label="รายการ" class="tab-label">
 
-                </ul>
+                    </md-tab>
+                    <md-tab label="รายการเบิกของ">
+                        SDSADSA
+                    </md-tab>
+                </md-tab-group>
+                <app-loading-spinner *ngIf="showSpin"></app-loading-spinner>
+                <table class="table table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="column-sequence">ทำงาน</th>
+                            <th class="column-sequence">สาย</th>
+                            <th class="column-sequence">วันที่</th>
+                            <th>รายการเบิก</th>
+                            <th class="column-number">จำนวน</th>
+                            <th>หมายเหตุ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let hrLine of HRLineList; let i = index" [attr.data-index]="i" [ngStyle]="hrLine.RowStyle">
+                            <td class="column-sequence">
+                                <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" [(ngModel)]="hrLine.IsWork" (click)="SelectedIsWork(hrLine, i)">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description"></span>
+                            </label>
+                            </td>
+                            <td class="column-sequence">
+                                <label class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" [(ngModel)]="hrLine.IsLate" (click)="SelectedIsLate(hrLine, i)">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description"></span>
+                            </label>
+                            </td>
+                            <td class="column-sequence">{{hrLine.LineDate}}</td>
+                            <td>
+                                <input type="text" class="form-control" id="Item" [(ngModel)]="hrLine.Item">
+                            </td>
+                            <td class="column-number">
+                                <input type="number" class="form-control column-number" (blur)="UpdateLineAmount(hrLine, i)" id="Amount" [(ngModel)]="hrLine.Amount">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="Description" [(ngModel)]="hrLine.Description">
+                            </td>
+                        </tr>
 
-                <div class="tab-content">
-                    <div class="tab-pane active" id="home" role="tabpanel">
-                        <table class="table table-hover table-responsive">
-                            <thead>
-                                <tr>
-                                    <th class="column-sequence">ทำงาน</th>
-                                    <th class="column-sequence">สาย</th>
-                                    <th class="column-sequence">วันที่</th>
-                                    <th>รายการเบิก</th>
-                                    <th class="column-number">จำนวน</th>
-                                    <th>หมายเหตุ</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let hrLine of HRLineList" [ngStyle]="hrLine.RowStyle">
-                                    <td class="column-sequence">
-                                        <input type="checkbox" checked="{{hrLine.IsWork}}">
-                                    </td>
-                                    <td class="column-sequence">
-                                        <input type="checkbox" checked={{hrLine.IsLate}}>
-                                    </td>
-                                    <td class="column-sequence">{{hrLine.LineDate}}</td>
-                                    <td>
-                                        <input type="text" class="form-control" id="Item" [(ngModel)]="hrLine.Item">
-                                    </td>
-                                    <td class="column-number">
-                                        <input type="number" class="form-control column-number" id="Amount" [(ngModel)]="hrLine.Amount">
-                                    </td>
-                                    <td>
-                                        <input type="text" class="form-control" id="Description" [(ngModel)]="hrLine.Description">
-                                    </td>
-                                    <!--
-                                    <td class="mdl-data-table__cell--non-numeric">
-                                        <input type="checkbox" checked>
-                                    </td>
-                                    <td>
-
-                                        <input type="checkbox">
-
-                                    </td>
-                                    <td>01/09/2560</td>
-                                    <td>
-                                        <input type="text" class="form-control" id="SumBorrowAmount" aria-describedby="SumBorrowAmountHelp">
-                                    </td>
-                                    <td>
-                                        <input type="number" class="form-control" id="SumBorrowAmount" aria-describedby="SumBorrowAmountHelp">
-                                    </td>
-                                    <td></td>-->
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane" id="borrow" role="tabpanel">.
-
-                    </div>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

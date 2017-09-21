@@ -1,315 +1,315 @@
 [{
         "SeqNo": 1,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "01/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     },
     {
         "SeqNo": 2,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "02/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     },
     {
         "SeqNo": 3,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "03/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     },
     {
         "SeqNo": 4,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "04/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 5,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "05/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 6,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "06/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 7,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "07/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 8,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "08/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 9,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "09/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 10,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "10/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 11,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "11/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 3,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "03/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 12,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "12/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 13,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "13/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 14,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "14/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 15,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "15/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 16,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "16/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 17,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "17/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 18,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "18/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 19,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "19/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 20,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "20/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 21,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "21/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 22,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "22/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 23,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "23/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 24,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "24/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 25,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "25/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 26,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "26/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 27,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "27/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 28,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "28/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 29,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "29/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }, {
         "SeqNo": 30,
         "IsWork": true,
-        "IsLate": true,
+        "IsLate": false,
         "IsOut": true,
         "LineDate": "30/09/2560",
         "Item": "",
         "Amount": 0,
         "Description": "",
-        "HrHeadId": ""
+        "HrHeadId": "0"
     }
 ]

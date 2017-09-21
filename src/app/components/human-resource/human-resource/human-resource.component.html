@@ -29,30 +29,22 @@
     </ol>
     <div class="container">
         <div class="row">
-            <div class="col"><button type="submit" class="btn btn-outline-secondary"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่ม</button></div>
-            <div class="col"><button type="button" class="btn btn-outline-warning"><i class="fa fa-sign-out" aria-hidden="true"></i> ออก</button></div>
+            <div class="col"><button (click)="NewHumanResource()" type="submit" class="btn btn-outline-secondary"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่ม</button></div>
+            <div class="col"><button (click)="ExitHumanResource()" type="button" class="btn btn-outline-warning"><i class="fa fa-sign-out" aria-hidden="true"></i> ออก</button></div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-4">
+
                 <div class="card">
                     <h4 class="card-header">ค้นหาบุคลากร</h4>
                     <div class="card-block">
-                        <div class="dropdown open">
-                            <button class="btn btn-secondary dropdown-toggle kzh-dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              เลือกพนักงาน
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item">นายสุพจน์ งามศรี</a>
-                                <a class="dropdown-item">นายไชยศิริ บุญยกุลศรีรุ่ง</a>
-                                <a class="dropdown-item">นายปัญญา บุญยกุลศรีรุ่ง</a>
-                            </div>
-                        </div>
-                        <ng2-dropdown onItemSelected="SelectedStaff($event)">
-                            <ng2-dropdown-button>
+
+                        <ng2-dropdown (onItemClicked)="SelectedStaff($event)">
+                            <ng2-dropdown-button showCaret="true">
                                 เลือกพนักงาน
                             </ng2-dropdown-button>
-                            <ng2-dropdown-menu width="6">
-                                <ng2-menu-item *ngFor="let staff of StaffList">
+                            <ng2-dropdown-menu width=6>
+                                <ng2-menu-item *ngFor="let staff of StaffList" value="{{staff.StaffCode}}">
                                     {{ staff.Firstname }} - {{ staff.Lastname }}
                                 </ng2-menu-item>
                             </ng2-dropdown-menu>
@@ -87,7 +79,7 @@
                     <tbody>
                         <tr *ngFor="let hrHead of SearchHrHeadList">
                             <td class="column-sequence">
-                                <a id="edit" (click)="EditHumanResource(hrHead.$key)">
+                                <a id="edit" (click)="EditHumanResource(hrHead)" class="edit-hr">
                                     <i class="material-icons">create</i>
                                 </a>
                             </td>

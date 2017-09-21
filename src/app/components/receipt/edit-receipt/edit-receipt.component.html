@@ -1,3 +1,223 @@
-<p>
-  edit-receipt works!
-</p>
+<div>
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">Home</span>
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                  <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" id="search">
+                    <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                <li class="mdl-menu__item">About</li>
+                <li class="mdl-menu__item">Contact</li>
+                <li class="mdl-menu__item">Legal information</li>
+            </ul>
+        </div>
+    </header>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/main">หน้าหลัก</a></li>
+        <li class="breadcrumb-item"><a href="/main/(main-detail:human-resource-menu)">เมนูบริหารบุคลากร</a></li>
+        <li class="breadcrumb-item"><a href="/human-resource">ค้นหาบุคลากร</a></li>
+        <li class="breadcrumb-item active">รายละเอียดบุคลากร</li>
+    </ol>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col"><button type="submit" class="btn btn-outline-secondary"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่ม</button></div>
+            <button md-raised-button class="mdl-button--add"><i class="fa fa-plus" aria-hidden="true"></i> เพิ่ม</button>
+            <button md-raised-button class="mdl-button--save"><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button>
+            <button md-raised-button class="mdl-button--print"><i class="fa fa-print" aria-hidden="true"></i> พิมพ์</button>
+            <button md-raised-button class="mdl-button--delete"><i class="fa fa-trash" aria-hidden="true"></i> ลบ</button>
+            <button md-raised-button class="mdl-button--exit"><i class="fa fa-sign-out" aria-hidden="true"></i> ออก</button>
+            <div class="col"><button type="button" class="btn btn-outline-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> บันทึก</button></div>
+            <div class="col"><button type="button" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i> ลบ</button></div>
+            <div class="col"><button type="button" (click)="PrintHumanResource()" class="btn btn-outline-info"><i class="fa fa-print" aria-hidden="true"></i> พิมพ์</button></div>
+            <div class="col"><button type="button" class="btn btn-outline-warning"><i class="fa fa-sign-out" aria-hidden="true"></i> ออก</button></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-5">
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default">รหัส</span>
+                    </div>
+                    <div class="col-md-7">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" [ngModel]="hrHead?.HrCode">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default">เดือนปี</span>
+                    </div>
+                    <div class="col-md-7">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" [ngModel]="hrHead?.MonthYear">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default">พนักงาน</span>
+                    </div>
+                    <div class="col-md-7">
+                        <!-- <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" [(ngModel)]="staff.Firstname - staff.Lastname">-->
+                        <label>{{staff?.Firstname}} - {{staff?.Lastname}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default">ลา</span>
+                    </div>
+                    <div class="col-md-7">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" [(ngModel)]="numLeave">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default">สาย</span>
+                    </div>
+                    <div class="col-md-7">
+                        <input disabled type="text" class="form-control" id="PayAmount" aria-describedby="PayAmountHelp" [(ngModel)]="numLate">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">รวมเงิน :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input disabled type="number" [ngModel]="hrHead?.PendingAmount" class="form-control summarize-lose-amount" id="PendingAmount" aria-describedby="PendingAmountHelp">
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">ส่วนลดท้ายบิล :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-lose-amount" [ngModel]="roHead?.PayAmount" id="PayAmount">
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">ภาษี :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-get-amount" id="SumVatAmount" [(ngModel)]="roHead.SumVatAmount">
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">โบนัส :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-get-amount" id="BonusAmount" [(ngModel)]="roHead.BonusAmount">
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">ยอดหัก :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-lose-amount" id="SumLoseAmount" [(ngModel)]="roHead.SumLoseAmount">
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <span class="label label-default summarize-label">รวมเงินสุทธิ :</span>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="number" class="form-control summarize-net-amount" id="NetAmount" [(ngModel)]="roHead.NetAmount">
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-7">
+                <md-tab-group>
+                    <md-tab label="รายการ" class="tab-label">
+
+                        <form class="example-form">
+                            <md-form-field class="example-full-width mat-form-field-autocomplete">
+                                <input mdInput placeholder="State" aria-label="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">
+                                <md-autocomplete #auto="mdAutocomplete">
+                                    <md-option *ngFor="let state of filteredStates | async" [value]="state.name">
+                                        <img style="vertical-align:middle;" aria-hidden src="{{state.flag}}" height="25" />
+                                        <span>{{ state.name }}</span> |
+                                        <small>Population: {{state.population}}</small>
+                                    </md-option>
+                                </md-autocomplete>
+                            </md-form-field>
+                            <br />
+                        </form>
+                    </md-tab>
+                    <md-tab label="หมายเหตุ" class="tab-label">
+                        <p>
+                            <md-form-field class="textarea-full-width">
+                                <textarea mdInput placeholder="Address" rows="3">ใส่หมายเหตุที่นี่</textarea>
+                            </md-form-field>
+                        </p>
+                    </md-tab>
+                </md-tab-group>
+                <table class="table table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="column-sequence">ทำงาน</th>
+                            <th class="column-sequence">สาย</th>
+                            <th class="column-sequence">วันที่</th>
+                            <th>รายการเบิก</th>
+                            <th class="column-number">จำนวน</th>
+                            <th>หมายเหตุ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let hrLine of HRLineList; let i = index" [attr.data-index]="i" [ngStyle]="hrLine.RowStyle">
+                            <td class="column-sequence">
+                                <label class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" [(ngModel)]="hrLine.IsWork" (click)="SelectedIsWork(hrLine, i)">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description"></span>
+                                </label>
+                            </td>
+                            <td class="column-sequence">
+                                <label class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" [(ngModel)]="hrLine.IsLate" (click)="SelectedIsLate(hrLine, i)">
+                                  <span class="custom-control-indicator"></span>
+                                  <span class="custom-control-description"></span>
+                                </label>
+                            </td>
+                            <td class="column-sequence">{{hrLine.LineDate}}</td>
+                            <td>
+                                <input type="text" class="form-control" id="Item" [(ngModel)]="hrLine.Item">
+                            </td>
+                            <td class="column-number">
+                                <input type="number" class="form-control column-number" (blur)="UpdateLineAmount(hrLine, i)" id="Amount" [(ngModel)]="hrLine.Amount">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="Description" [(ngModel)]="hrLine.Description">
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
