@@ -1,7 +1,20 @@
+.row-header {
+    margin-top: 2em;
+}
+
 .mat-tab-label.mat-ripple.mat-tab-label-active {
     font-size: 20px !important;
 }
 
 .textarea-full-width {
     width: 100%;
+}
+
+.summarize-label {
+    font-size: 24px;
+}
+
+.row-summarize {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

@@ -1,3 +1,4 @@
+import { UploadService } from './services/upload/upload.service';
 import { HumanResourceService } from './services/human-resource/human-resource.service';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -118,6 +119,9 @@ import { PrintHumanResourceComponent } from './components/human-resource/print-h
 import { PrintRetailReceiptComponent } from './components/receipt/print-retail-receipt/print-retail-receipt.component';
 import { PrintWholesaleReceiptComponent } from './components/receipt/print-wholesale-receipt/print-wholesale-receipt.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { ProductFilterPipe } from './pipes/product-filter.pipe';
+import { StaffFilterPipe } from './pipes/staff-filter.pipe';
+import { UploadComponent } from './components/upload/upload.component';
 
 const configErrMsg = `You have not configured and imported the Firebase SDK.
 Make sure you go through the codelab setup instructions.`;
@@ -265,7 +269,10 @@ const appRoutes: Routes = [
     PrintHumanResourceComponent,
     PrintRetailReceiptComponent,
     PrintWholesaleReceiptComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    ProductFilterPipe,
+    StaffFilterPipe,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -284,7 +291,7 @@ const appRoutes: Routes = [
     ChartsModule,
     MomentModule,
     QRCodeModule,
-    AngularFireModule.initializeApp(environment.firebase, 'kzhweb'),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     DatepickerModule,
@@ -295,7 +302,7 @@ const appRoutes: Routes = [
   providers: [ProductTypeService, ProductCategoryService, ProductService, ProductSetService,
   UserService, StaffService, UtilityService, UomService, SupplierTypeService, SupplierService,
   PosService, CustomerService, CustomerTypeService, CompanyService, NavbarService, MessageService, AppConfigService,
-  ReceiptOrderService, HumanResourceService,
+  ReceiptOrderService, HumanResourceService, UploadService,
   CurrencyPipe, DatePipe, KzhThDatePipe,
   AuthGuardGuard],
   bootstrap: [AppComponent]

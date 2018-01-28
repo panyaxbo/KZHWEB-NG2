@@ -1,5 +1,5 @@
 import { Upload } from './../../classes/upload';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 
@@ -8,26 +8,45 @@ export class UploadService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  PushUpload(upload: Upload) {
-    let storageRef = firebase.storage().ref();
-    let uploadTask = storageRef.child('uploads/${upload.file.name}').put(upload.File);
+  private basePath = '/uploads';
+  private uploadTask: firebase.storage.UploadTask;
 
-    uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+  PushUpload(upload: Upload) {
+    const storageRef = firebase.storage().ref();
+  //  let file = upload.File;
+    this.uploadTask = storageRef.child(`${this.basePath}/${upload.File.name}`).put(upload.File);
+
+    this.uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
     (snapshot) => {
-    //  upload.Progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('uploading ... ', snapshot);
+     upload.Progress = (this.uploadTask.snapshot.bytesTransferred / this.uploadTask.snapshot.totalBytes) * 100;
     },
     (error) => {
       console.log(error);
     },
     () => {
       // upload success
-      upload.Url = uploadTask.snapshot.downloadURL
+      console.log('success -> ', this.uploadTask);
+      upload.Url = this.uploadTask.snapshot.downloadURL
       upload.Name = upload.File.name;
       this.SaveFileData(upload);
     });
   }
-
+  DeleteUpload(upload: Upload) {
+    this.DeleteFileData(upload.$key)
+    .then(() => {
+      this.DeleteFileStorage(upload.Name)
+    })
+    .catch(error => console.log(error));
+  }
   private SaveFileData(upload: Upload) {
     this.db.list('uploads/').push(upload);
+  }
+  private DeleteFileData(key: string) {
+    return this.db.list(`${this.basePath}/`).remove(key);
+  }
+  private DeleteFileStorage(name: string) {
+    const storageRef = firebase.storage().ref();
+    storageRef.child(`${this.basePath}/${name}`).delete();
   }
 }

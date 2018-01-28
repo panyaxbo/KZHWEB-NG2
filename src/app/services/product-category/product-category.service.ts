@@ -63,6 +63,9 @@ export class ProductCategoryService {
     this.productCategory = this.db.object('product-categories' + key);
     return this.productCategory;
   }
+  LoadProductCategoryComboBox(): any {
+    return this.db.list('product-categories');
+  }
   CreateProductCategory(newProductCategory) {
     const currentTime = this.kzhThDatePipe.transformDateTime(new Date());
     this.db.list('product-categories').push({

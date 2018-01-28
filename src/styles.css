@@ -33,6 +33,22 @@ body {
     display: none;
 }
 
+.master-component-layout {
+    margin-bottom: 45px
+}
+
+@media screen and (max-width: 1024px) {
+    .mdl-layout__footer-row {
+        padding: 0 16px 0 72px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .mdl-layout__footer-row {
+        margin-left: 240px;
+    }
+}
+
 
 /* General use button style mdl-button-??? */
 
@@ -100,6 +116,10 @@ body {
     padding-left: 20px;
 }
 
+.header-detail {
+    margin-top: 40px;
+}
+
 ol li {
     font-size: 20px;
 }
@@ -116,6 +136,10 @@ ol li a {
         padding-left: 15px;
         padding-right: 15px;
     }
+}
+
+.mat-icon-button .mat-raised-button {
+    color: whitesmoke !important;
 }
 
 
@@ -149,4 +173,12 @@ ol li a {
 
 .mat-form-field-autocomplete {
     width: 100%;
+    font-size: 18px;
 }
+
+.mat-option {
+    font-size: 18px;
+}
+
+
+/* Config <md-textarea> */

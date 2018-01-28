@@ -58,6 +58,17 @@ export class UomService {
     this.uom = this.db.object('uoms/' + key);
     return this.uom;
   }
+  LoadUomComboBox(): any {
+    return this.db.list('/uoms');
+  }
+  LoadContainUomComboBox(): any {
+    return this.db.list('/uoms', {
+      query: {
+        orderByChild: 'IsContainer',
+        equalTo: true
+      }
+    });
+  }
   CreateUom(newUom) {
     this.uoms.push(newUom);
   }

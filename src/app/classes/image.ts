@@ -1,7 +1,6 @@
-export class File {
+export class Image {
   $key: string;
   FileName: string;
   UpdateDate: string;
-  Size: number;
-  Type: string;
+
 }

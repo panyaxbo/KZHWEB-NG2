@@ -1,5 +1,8 @@
 import { RoHead } from './../../../classes/ro-head';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {DataSource} from '@angular/cdk/collections';
+import {MdPaginator} from '@angular/material';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
 import {FormControl} from '@angular/forms';
 import 'rxjs/add/operator/startWith';
@@ -10,10 +13,12 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./edit-receipt.component.css']
 })
 export class EditReceiptComponent implements OnInit {
+  DisplayCustomerPending = ['#', 'เลขที่', 'วันที่', 'จำนวนค้าง']
   roHead = new RoHead();
   stateCtrl: FormControl;
   filteredStates: Observable<any[]>;
-
+  @ViewChild(MdPaginator) paginator: MdPaginator;
+  dataChange: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   states: any[] = [
     {
       name: 'Arkansas',
@@ -40,6 +45,26 @@ export class EditReceiptComponent implements OnInit {
       flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
     }
   ];
+  ROHeadCustomers: any[] = [
+    {
+      RONo: 'RO600560001',
+      RODate: 3434343,
+      ROTime: '23:23:434',
+      PendingAmount: 6500
+    },
+    {
+      RONo: 'RO600460024',
+      RODate: 2345556,
+      ROTime: '23:23:434',
+      PendingAmount: 1420.25
+    },
+    {
+      RONo: 'RO600160199',
+      RODate: 2345556,
+      ROTime: '23:23:434',
+      PendingAmount: 3420.50
+    }
+  ]
   constructor() {
     this.stateCtrl = new FormControl();
     this.filteredStates = this.stateCtrl.valueChanges

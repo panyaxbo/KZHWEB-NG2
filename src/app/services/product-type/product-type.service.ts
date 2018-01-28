@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { AppConfigService } from './../app-config/app-config.service';
 import { UserService } from './../user/user.service';
 import { Injectable } from '@angular/core';
@@ -60,6 +61,9 @@ export class ProductTypeService {
   LoadProductTypeByKey(key): FirebaseObjectObservable<any> {
     this.productType = this.db.object('product-types/' + key);
     return this.productType;
+  }
+  LoadProductTypeComboBox(): any {
+    return this.db.list('product-types');
   }
   CreateProductType(newProductType) {
     const currentTime = this.kzhThDatePipe.transformDateTime(new Date());

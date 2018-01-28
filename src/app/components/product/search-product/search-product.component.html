@@ -26,8 +26,10 @@
                 </div>
                 <form action="#">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="searchProduct" [(ngModel)]="searchProduct" [ngModelOptions]="{standalone: true}">
-                        <label class="mdl-textfield__label" for="sample1">Search Product...</label>
+
+                        <md-form-field class="example-full-width">
+                            <input mdInput placeholder="Search Product" [(ngModel)]="searchProduct">
+                        </md-form-field>
                     </div>
                     <button (click)="SearchProduct()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored ">
                       <i class="material-icons">search</i> Search

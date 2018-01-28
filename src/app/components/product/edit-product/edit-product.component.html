@@ -1,3 +1,217 @@
-<p>
-  edit-product works!
-</p>
+<div class="mdl-grid demo-content master-component-layout">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp mdl-cell mdl-cell--4-col
+         mdl-cell--12-col-tablet mdl-cell--12-col-desktop edit-header-section">
+            <h4 class="header-detail">Product Details</h4>
+        </div>
+        <div class="mdl-cell mdl-cell--12-col">
+            <button (click)="NewProduct()" id="btnNew" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--add ">
+                <i class="material-icons">create</i> เพิ่ม
+              </button>
+            <div class="mdl-tooltip" data-mdl-for="btnNew">
+                New Product
+            </div>
+            <button (click)="SaveProduct()" id="btnSave" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--save ">
+              <i class="material-icons">save</i> บันทึก
+            </button>
+            <div class="mdl-tooltip" data-mdl-for="btnSave">
+                Save Product
+            </div>
+            <button (click)="DeleteProduct()" id="btnDelete" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--delete ">
+                <i class="material-icons">delete</i> ลบ
+              </button>
+            <div class="mdl-tooltip" data-mdl-for="btnDelete">
+                Delete Product
+            </div>
+            <button (click)="BacktoSearchProduct()" id="btnBackSearch" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--back2search ">
+              <i class="material-icons">reply</i> ค้นหา
+            </button>
+            <div class="mdl-tooltip" data-mdl-for="btnBackSearch">
+                Back to
+            </div>
+            <button (click)="ExitProduct()" id="btnExit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--exit ">
+                <i class="material-icons">exit_to_app</i> ออก
+              </button>
+            <div class="mdl-tooltip" data-mdl-for="btnExit">
+                Exit Product
+            </div>
+        </div>
+
+        <md-tab-group fxFlex md-stretch-tabs>
+            <md-tab label="ทั่วไป">
+
+                <form class="product-form">
+                    <div>
+                        <md-form-field class="input-40-width">
+                            <input mdInput placeholder="รหัสสินค้า" [ngModelOptions]="{standalone: true}" [(ngModel)]="Product.ProductCode">
+                        </md-form-field>
+                        <md-form-field class="input-40-width">
+                            <input mdInput placeholder="ต้นทุน" [ngModelOptions]="{standalone: true}" [(ngModel)]="Product.CostPrice">
+                        </md-form-field>
+
+                        <md-form-field class="input-40-width">
+                            <input mdInput placeholder="ชื่อสินค้า (ไทย)" [ngModelOptions]="{standalone: true}" [(ngModel)]="Product.ProductNameTh">
+                        </md-form-field>
+                        <md-form-field class="input-40-width">
+                            <input mdInput placeholder="ราคาปลีก" [ngModelOptions]="{standalone: true}" [(ngModel)]="Product.RetailPrice">
+                        </md-form-field>
+
+                        <md-form-field class="input-40-width">
+                            <input mdInput placeholder="ชื่อสินค้า (อังกฤษ)" [ngModelOptions]="{standalone: true}" [(ngModel)]="Product.ProductNameEn">
+                        </md-form-field>
+                        <md-form-field class="input-40-width">
+                            <input mdInput placeholder="ราคาส่ง" [ngModelOptions]="{standalone: true}" [(ngModel)]="Product.WholesalePrice">
+                        </md-form-field>
+                        <!-- Product Type Autocomplete-->
+                        <md-form-field class="input-40-width">
+                            <input mdInput placeholder="ชื่อสินค้า (จีน)" [ngModelOptions]="{standalone: true}" [(ngModel)]="Product.ProductNameCn">
+                        </md-form-field>
+                        <md-form-field class="input-40-width">
+                            <input type="text" placeholder="ชนิดสินค้า" aria-label="ProductType" mdInput [formControl]="ProductTypeControl" [mdAutocomplete]="auto">
+                            <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayProductType">
+                                <md-option *ngFor="let ProductType of FilteredProductType | async" [value]="ProductType">
+                                    {{ ProductType.ProductTypeNameTh }}
+                                </md-option>
+                            </md-autocomplete>
+                        </md-form-field>
+
+                        <!-- Product Category Autocomplete -->
+                        <md-form-field class="input-40-width">
+                            <input type="text" placeholder="ประเภทสินค้า" aria-label="ProductCategory" mdInput [formControl]="ProductCategoryControl" [mdAutocomplete]="auto">
+                            <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayProductCategory">
+                                <md-option *ngFor="let ProductCategory of FilteredProductCategory | async" [value]="ProductCategory">
+                                    {{ ProductCategory.ProductCategoryNameTh }}
+                                </md-option>
+                            </md-autocomplete>
+                        </md-form-field>
+
+                        <!-- Supplier Autocomplete -->
+                        <md-form-field class="input-40-width">
+                            <input type="text" placeholder="ผู้ขาย" aria-label="Supplier" mdInput [formControl]="SupplierControl" [mdAutocomplete]="auto">
+                            <md-autocomplete #auto="mdAutocomplete" [displayWith]="displaySupplier">
+                                <md-option *ngFor="let Supplier of FilteredSupplier | async" [value]="Supplier">
+                                    {{ Supplier.SupplierNameTh }}
+                                </md-option>
+                            </md-autocomplete>
+                        </md-form-field>
+
+                        <!-- Uom Autocomplete -->
+                        <md-form-field class="input-40-width">
+                            <input type="text" placeholder="หน่วย" aria-label="Uom" mdInput [formControl]="UomControl" [mdAutocomplete]="auto">
+                            <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayUom">
+                                <md-option *ngFor="let Uom of FilteredUom | async" [value]="Uom">
+                                    {{ Uom.UomNameTh }}
+                                </md-option>
+                            </md-autocomplete>
+                        </md-form-field>
+
+                        <!-- Contain Uom Autocomplete -->
+                        <md-form-field class="input-40-width">
+                            <input type="text" placeholder="หน่วยบรรจุ" aria-label="ContainUom" mdInput [formControl]="ContainUomControl" [mdAutocomplete]="auto">
+                            <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayContainUom">
+                                <md-option *ngFor="let ContainUom of FilteredContainUom | async" [value]="ContainUom.UomCode">
+                                    {{ ContainUom.UomNameTh }}
+                                </md-option>
+                            </md-autocomplete>
+                        </md-form-field>
+
+                        <md-form-field class="input-40-width">
+                            <input mdInput placeholder="ชื่อสินค้า (จีน)" [ngModelOptions]="{standalone: true}" [(ngModel)]="Product.ProductNameCn">
+                        </md-form-field>
+
+                        <md-form-field class="input-40-width">
+                            <textarea mdInput placeholder="คำอธิบาย" rows="5" [(ngModel)]="Product.Description" [ngModelOptions]="{standalone: true}"></textarea>
+                        </md-form-field>
+
+                        <md-slide-toggle class="input-margin" [(ngModel)]="Product.IsProductSet" [ngModelOptions]="{standalone: true}" (click)="SetProductSet()">
+                            สินค้าเป็นชุด
+                        </md-slide-toggle>
+                    </div>
+
+                </form>
+                <div class="mdl-cell mdl-cell--12-col">
+                    <ul class="demo-list-control mdl-list">
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                            <md-form-field class="example-full-width">
+                                <input mdInput placeholder="Product Code" [(ngModel)]="Product.ProductCode">
+                              </md-form-field>
+                          </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                    <md-form-field class="example-full-width">
+                                        <input mdInput placeholder="Product Name Th" [(ngModel)]="Product.ProductNameTh">
+                                      </md-form-field>
+                          </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                    <md-form-field class="example-full-width">
+                                        <input mdInput placeholder="Product Name En" [(ngModel)]="Product.ProductNameEn">
+                                      </md-form-field>
+                          </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input" type="text"
+                              [(ngModel)]="Product.ProductNameCn" >
+                              <label class="mdl-textfield__label" for="sample1">Product Name Cn</label>
+                            </div>
+                          </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mdl-cell mdl-cell--12-col">
+                    <ul class="demo-list-control mdl-list">
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input text-readonly" type="text" id="createBy"
+                              [(ngModel)]="Product.CreateBy" [readonly]="true">
+                              <label class="mdl-textfield__label" for="sample1">Create By</label>
+                            </div>
+                          </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input text-readonly" type="text" id="createDate"
+                              [(ngModel)]="Product.CreateDate" [readonly]="true">
+                              <label class="mdl-textfield__label" for="sample1">Create Date</label>
+                            </div>
+                          </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input text-readonly" type="text" id="updateBy"
+                              [(ngModel)]="Product.UpdateBy" [readonly]="true">
+                              <label class="mdl-textfield__label" for="sample1">Update By</label>
+                            </div>
+                          </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                              <input class="mdl-textfield__input text-readonly" type="text" id="updateDate"
+                              [(ngModel)]="Product.UpdateDate" [readonly]="true">
+                              <label class="mdl-textfield__label" for="sample1">Update Date</label>
+                            </div>
+                          </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </md-tab>
+            <md-tab label="รูปภาพ">
+                <app-upload></app-upload>
+            </md-tab>
+            <md-tab label="สินค้าชุด" [disabled]="!IsProductSet">
+
+            </md-tab>
+        </md-tab-group>
+
+    </div>
+</div>

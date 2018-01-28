@@ -48,7 +48,95 @@ export class SupplierService {
       SupplierTypeCode: '',
       TelNo: '',
       MobileNo: '',
-      FaxNo: '',
+      FaxNo: 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      '',
       Email: '',
       Description: '',
       SalePerson: '',
@@ -96,6 +184,9 @@ export class SupplierService {
   LoadSupplierByKey(key): FirebaseObjectObservable<any> {
     this.supplier = this.db.object('suppliers/' + key);
     return this.supplier;
+  }
+  LoadSupplierComboBox(): any {
+    return this.db.list('suppliers');
   }
   CreateSupplier(newSupplier) {
     const currentTime = this.kzhThDatePipe.transformDateTime(new Date());
