@@ -1,3 +1,21 @@
+# KZH Parts Desktop application.
+
+<p align="center">
+  <img src="/example/kzh-ng2-1.png">
+</p>
+
+<p align="center">
+  <img src="/example/kzh-ng2-2.png">
+</p>
+
+<p align="center">
+  <img src="/example/kzh-ng2-3.png">
+</p>
+
+<p align="center">
+  <img src="/example/kzh-ng2-4.png">
+</p>
+
 # Firebase SDK for Cloud Functions (Angular) Codelab - Start code
 
 This folder contains the start code of the [Firebase SDK for Cloud Functions (Angular) Codelab](https://codelabs.developers.google.com/codelabs/firebase-cloud-functions-angular/).
